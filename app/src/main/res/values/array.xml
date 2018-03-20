@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string-array name="news">
+        <item>泉港新闻</item>
+        <item>连线泉港</item>
+        <item>勤廉之窗</item>
+        <item>交通安全</item>
+        <item>汇聚经典</item>
+        <item>聚焦专题</item>
+        <item>特别策划</item>
+        <item>泉港讲古</item>
+        <item>安全一线</item>
+        <item>家泉港</item>
+        <item>联办专题</item>
+        <item>好朋友</item>
+        <item>业界动态</item>
+        <item>图说泉港</item>
+        <item>搞笑趣图</item>
+        <item>图说天下</item>
+    </string-array>
+    <string-array name="news_channel_id">
+        <item>SYLB10,SYDT10</item>
+        <item>YL53,FOCUSYL53</item>
+        <item>JS83,FOCUSJS83</item>
+        <item>TY43,FOCUSTY43,TYLIVE,TYTOPIC</item>
+        <item>CJ33,FOCUSCJ33,HNCJ33</item>
+        <item>KJ123,FOCUSKJ123</item>
+        <item>LS153,FOCUSLS153</item>
+        <item>TW73</item>
+        <item>QC45,FOCUSQC45</item>
+        <item>SH133,FOCUSSH133</item>
+        <item>SS78,FOCUSSS78</item>
+        <item>GXPD,FOCUSGXPD</item>
+        <item>WH25,FOCUSWH25</item>
+        <item>XZ09,FOCUSXZ09</item>
+        <item>DS57,FOCUSDS57</item>
+        <item>YX11,FOCUSYX11</item>
+        <item>DYPD</item>
+        <item>GJPD</item>
+    </string-array>
+</resources>

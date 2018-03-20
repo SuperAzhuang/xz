@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 常用颜色值 -->
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white40">#40FFFFFF</color>
+    <color name="invite_bg">#efeded</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gray">#808080</color>
+    <color name="red">#FF0000</color>
+    <color name="gold">#FFD700</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="green">#008000</color>
+    <color name="blue">#0000FF</color>
+    <color name="purple">#800080</color>
+    <color name="pink">#FFC0CB</color>
+    <color name="orange">#FFA500</color>
+    <color name="lemonyellow">#FFFACD</color>
+    <color name="graywhite">#F5F5F5</color>
+    <color name="grayslate">#708090</color>
+    <color name="lightblue">#0083FF</color>
+    <color name="window_bg">#ebebeb</color>
+    <color name="main_gray">#9A9A9A</color>
+    <color name="main_color">#ffbb00</color>
+    <color name="main_green">#03d37d</color>
+    <color name="main_black">#333</color>
+    <!-- <color name="main_purple">#576B95</color> -->
+    <color name="actionbar_background">@color/main_color</color>
+    <color name="transparent">#00000000</color>
+    <color name="window_background">#ebebeb</color>
+    <color name="list_divider_color">#DADADA</color>
+    <color name="list_item_background_normal">@color/white</color>
+    <!-- <color name="teamlist_item_background_normal">#ffffff</color> -->
+    <color name="list_item_background_pressed">#efefef</color>
+    <color name="actionbar_item_background_normal">@color/transparent</color>
+    <color name="actionbar_item_background_pressed">#0b751e</color>
+    <color name="ui_dialog_divider">@color/list_divider_color</color>
+    <color name="ui_dialog_list_text">#5E5E5E</color>
+    <color name="text_dark">#af000000</color>
+    <color name="text_light">#3f000000</color>
+    <color name="light_gray">#1a000000</color>
+    <color name="lightest_gray">#0a000000</color>
+    <color name="bg_touch">@color/lightest_gray</color>
+    <color name="main_link_text_color">#ffbedfff</color>
+    <color name="timeline_clickable_text_highlighted_background">#ffbedfff</color>
+    <color name="bg_lecture_cover">#d9d9d9</color>
+    <color name="lecture_cover_filter">#33000000</color>
+    <color name="lecture_pass">#0fc587</color>
+    <color name="lecture_audit">#ff9600</color>
+    <color name="lecture_fail">#ff5a5a</color>
+    <!-- 下拉刷新时，颜色值 -->
+    <color name="swiperefresh_color1">#ff00ddff</color>
+    <color name="swiperefresh_color2">#ffffbb33</color>
+    <color name="swiperefresh_color3">#ffff4444</color>
+    <color name="swiperefresh_color4">#ffaa66cc</color>
+    <color name="action_bar_text">#000000</color>
+    <color name="user_text">#000000</color>
+    <color name="post_content">#666666</color>
+    <color name="unimportance_content">#999999</color>
+    <color name="post_school">#666666</color>
+    <color name="time">#b2b2b2</color>
+    <color name="location">#b3b3b3</color>
+    <color name="post_type_title_normal">#b3b3b3</color>
+    <color name="post_type_title_press">#ff9728</color>
+    
+     <!-- 字体颜色-->
+    
+    <color name="text_tint">#999999</color>
+    <color name="text_medium">#666666</color>
+    <color name="text_main_black">@color/main_black</color>
+    <color name="text_main_light">@color/white</color>
+    <color name="text_main">#ff9600</color>
+    <color name="text_btn">@color/black</color>
+
+</resources>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- 导航标题栏 -->
+	<FrameLayout 
+	    android:id="@+id/fl_viewPagerHead"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:visibility="gone"
+	    ></FrameLayout>
+
+    <com.xiaozhao.widget.PagerSlidingTabStrip
+        android:id="@+id/pager_tabstrip"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_toolbar"
+        android:layout_below="@id/fl_viewPagerHead"
+        android:background="@drawable/sliding_tab_strip_background"
+        app:allowWidthFull="true"
+        android:visibility="gone"
+        app:slidingBlock="@drawable/image_sliding_block" >
+
+    </com.xiaozhao.widget.PagerSlidingTabStrip>
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <com.flyco.tablayout.SlidingTabLayout
+            xmlns:tl="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/SlidingTabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/iv_edit"
+            android:background="@color/colorPrimary"
+            tl:tl_indicator_color="@color/transparent"
+            tl:tl_textSelectColor="@android:color/white"
+            tl:tl_textsize="14sp"/>
+
+        <ImageButton
+            android:id="@id/iv_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@color/colorPrimary"
+            android:padding="8dp"
+            android:src="@mipmap/ic_news_add"/>
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_below="@id/rl">
+    </android.support.v4.view.ViewPager>
+
+    <com.xiaozhao.view.EmptyLayout
+        android:id="@+id/error_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+</RelativeLayout>
