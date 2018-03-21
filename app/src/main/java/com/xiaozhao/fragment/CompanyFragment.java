@@ -2,6 +2,7 @@ package com.xiaozhao.fragment;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,31 +13,35 @@ import com.alibaba.fastjson.JSON;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.xiaozhao.R;
 import com.xiaozhao.activity.MainActivity;
-import com.xiaozhao.adapter.AppliAdapter;
 import com.xiaozhao.adapter.CompanyGridAdapter;
+import com.xiaozhao.base.BaseApplication;
 import com.xiaozhao.base.BaseFragment;
+import com.xiaozhao.base.BaseListFragment;
+import com.xiaozhao.base.ListBaseAdapter;
+import com.xiaozhao.bean.ListEntity;
 import com.xiaozhao.bean.NewsResult;
 import com.xiaozhao.http.AsyncHttpApi;
 import com.xiaozhao.http.Url;
 import com.xiaozhao.utils.LogUtils;
+import com.xiaozhao.utils.StringUtils;
 import com.xiaozhao.utils.UIHelper;
 import com.xiaozhao.view.EmptyLayout;
 import com.xiaozhao.view.MyGridView;
+import com.youth.banner.Banner;
 
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cz.msebera.android.httpclient.Header;
 
-/**
- * Created by Administrator on 2018/1/26.
- */
 
-public class ZhiboFragment extends BaseFragment {
+/**
+ * 附近企业
+ */
+public class CompanyFragment extends BaseFragment {
 
     @InjectView(R.id.tvJuli)
     TextView tvJuli;
@@ -46,6 +51,8 @@ public class ZhiboFragment extends BaseFragment {
     TextView tvMore;
     @InjectView(R.id.ll)
     LinearLayout ll;
+    @InjectView(R.id.banner)
+    Banner banner;
     @InjectView(R.id.grideview)
     MyGridView grideview;
     @InjectView(R.id.error_layout)
@@ -60,13 +67,14 @@ public class ZhiboFragment extends BaseFragment {
     private String TYPE = Url.QUANGANGXINWEN;
     private ArrayList<String> mImageLists = new ArrayList<>();
     private ArrayList<String> mTitleLists = new ArrayList<>();
-    private AppliAdapter mAdapter;
+    private CompanyGridAdapter companyGridAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.zhibo_fragment, container, false);
+        View view = inflater.inflate(R.layout.fragment_company, container, false);
         return view;
     }
+
 
     @Override
     public void onClick(View view) {
@@ -75,8 +83,8 @@ public class ZhiboFragment extends BaseFragment {
 
     @Override
     public void initView(View view) {
-        mAdapter = new AppliAdapter(getActivity(), mDatas);
-        grideview.setAdapter(mAdapter);
+        companyGridAdapter = new CompanyGridAdapter(getActivity(), mDatas);
+        grideview.setAdapter(companyGridAdapter);
     }
 
     @Override
@@ -207,9 +215,23 @@ public class ZhiboFragment extends BaseFragment {
         LogUtils.d(is);
         NewsResult result = JSON.parseObject(is, NewsResult.class);
         list = result.getList();
+        mImageLists.clear();
+        mTitleLists.clear();
 //        LogUtils.printList(list);
+        for (int i = 0; i < 4; i++) {
+            newsBean = list.get(i);
+//            轮播图的图片跟新闻标题
+            mImageLists.add(newsBean.getLitpic());
+            mTitleLists.add(newsBean.getTitle());
+        }
 
-
+        ((MainActivity) getActivity()).runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+//                初始化banner配置
+                UIHelper.initBaners(mImageLists, mTitleLists, banner);
+            }
+        });
         return list;
     }
 
@@ -220,7 +242,7 @@ public class ZhiboFragment extends BaseFragment {
         LogUtils.d("List<NewsResult.NewsBean>  = " + data.toString());
         mDatas.clear();
         mDatas.addAll(data);
-        mAdapter.notifyDataSetChanged();
+        companyGridAdapter.notifyDataSetChanged();
         mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
 //        if (mCurrentPage == 1) {
 //            mAdapter.clear();

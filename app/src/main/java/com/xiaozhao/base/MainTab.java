@@ -2,6 +2,7 @@ package com.xiaozhao.base;
 
 
 import com.xiaozhao.R;
+import com.xiaozhao.fragment.CompanyFragment;
 import com.xiaozhao.fragment.HuDongFragment;
 import com.xiaozhao.fragment.NewsViewpagerFragment;
 import com.xiaozhao.fragment.ShengHouFragment;
@@ -10,15 +11,15 @@ import com.xiaozhao.fragment.ZhiboFragment;
 
 public enum MainTab {
 
-    NEWS(0, R.string.news, R.drawable.tab_icon_news, NewsViewpagerFragment.class),
+    NEWS(0, R.string.home_company, R.drawable.tab_icon_news, CompanyFragment.class),
 
-    ZHIBO(1, R.string.zhibo, R.drawable.tab_icon_zhibo, ZhiboFragment.class),
+    ZHIBO(1, R.string.home_person, R.drawable.tab_icon_zhibo, ZhiboFragment.class),
 
-    ZHENGWU(2, R.string.zhengwu, R.drawable.tab_icon_zhengwu, ZhengWuFragment.class),
+    ZHENGWU(2, R.string.home_news, R.drawable.tab_icon_zhengwu, ZhengWuFragment.class),
 
-    SHENGHOU(3, R.string.shenghou, R.drawable.tab_icon_shenghuo, ShengHouFragment.class),
+    SHENGHOU(3, R.string.home_mine, R.drawable.tab_icon_shenghuo, ShengHouFragment.class);
 
-    HUDONG(4,R.string.hudong, R.drawable.tab_icon_hudong, HuDongFragment.class);
+//    HUDONG(4,R.string.hudong, R.drawable.tab_icon_hudong, HuDongFragment.class);
 
 
     private int idx;

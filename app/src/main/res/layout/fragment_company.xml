@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.xiaozhao.fragment.CompanyFragment">
 
     <LinearLayout
         android:id="@+id/ll"
@@ -27,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/tab_type"
+            android:text="@string/tab_company"
             android:textColor="@color/blue"
             android:textSize="18sp" />
 
@@ -42,37 +43,61 @@
             android:textSize="18sp" />
     </LinearLayout>
 
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/framelayuot">
 
+        <!--      <android.support.v4.widget.SwipeRefreshLayout
+                  android:id="@+id/swiperefreshlayout"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+
+                  android:visibility="visible" >
+
+                  <GridView
+                      android:id="@+id/grideview"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:background="@color/window_background"
+                      android:divider="@color/gray"
+                      android:dividerHeight="@dimen/space_1"
+                      android:listSelector="@android:color/transparent"
+                      android:scrollbars="none"
+                      android:numColumns="2"
+                      android:scrollingCache="true" />
+              </android.support.v4.widget.SwipeRefreshLayout>
+      -->
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fillViewport="true"
-            android:padding="@dimen/dp_4"
             android:scrollbars="none">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+                <com.youth.banner.Banner
+                    android:id="@+id/banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space_140" />
 
                 <com.xiaozhao.view.MyGridView
                     android:id="@+id/grideview"
+                    android:padding="4dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/window_background"
-                    android:divider="@color/gray"
-                    android:dividerHeight="@dimen/space_1"
-                    android:horizontalSpacing="4dp"
-                    android:verticalSpacing="4dp"
+                    android:horizontalSpacing="8dp"
                     android:listSelector="@android:color/transparent"
                     android:scrollbars="none"
-                    android:numColumns="3"
+                    android:numColumns="2"
+                    android:verticalSpacing="8dp"
+                    android:stretchMode="columnWidth"
                     android:scrollingCache="true" />
-
             </LinearLayout>
         </ScrollView>
 

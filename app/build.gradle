@@ -45,17 +45,19 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile files('libs/universal-image-loader-1.9.5.jar')
+    //最新版本
     compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
     compile 'com.jakewharton:butterknife:6.1.0'
     compile 'com.android.support:design:26.0.0-alpha1'
-    testCompile 'junit:junit:4.12'
-    compile files('libs/universal-image-loader-1.9.5.jar')
     compile 'com.loopj.android:android-async-http:1.4.9'
-    compile 'com.android.support:support-v4:23.1.1'
+    compile 'com.android.support:support-v4:26.0.0-alpha1'
     compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.2@aar'
-    compile 'com.youth.banner:banner:1.4.10'  //最新版本
+    compile 'com.youth.banner:banner:1.4.10'
     compile 'com.alibaba:fastjson:1.2.24'
     compile 'org.litepal.android:core:1.5.1'
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
     compile 'org.simple:androideventbus:1.0.5.1'
+    compile 'com.android.support:cardview-v7:26.0.0-alpha1'
+    testCompile 'junit:junit:4.12'
 }

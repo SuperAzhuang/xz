@@ -32,7 +32,7 @@ public class ChannelManager {
         LogUtils.printList(channelList);
         if (channelList.size() < 1) {
             List<String> channelName = Arrays.asList(BaseApplication.context().getResources()
-                    .getStringArray(R.array.news));
+                    .getStringArray(R.array.home_tab));
             List<String> channelId = Arrays.asList(BaseApplication.context().getResources()
                     .getStringArray(R.array.news_channel_id));
             List<Channel> channels = new ArrayList<>();

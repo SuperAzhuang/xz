@@ -20,6 +20,14 @@
         <item>搞笑趣图</item>
         <item>图说天下</item>
     </string-array>
+
+    <string-array name="home_tab">
+        <item>距离排序</item>
+        <item>岗位类型</item>
+        <item>更多筛选</item>
+        <item>更多筛选</item>
+
+    </string-array>
     <string-array name="news_channel_id">
         <item>SYLB10,SYDT10</item>
         <item>YL53,FOCUSYL53</item>

@@ -12,6 +12,7 @@ import com.xiaozhao.R;
 import com.xiaozhao.adapter.SplashAdapter;
 import com.xiaozhao.base.BaseActivity;
 import com.xiaozhao.base.BaseApplication;
+import com.xiaozhao.manager.Constant;
 import com.xiaozhao.utils.UIHelper;
 
 import butterknife.ButterKnife;
@@ -35,12 +36,12 @@ public class SplashActivity extends BaseActivity {
 //                sp设置
                 BaseApplication.set("isFistInstall", false);
             } else {
-//                if (mLogin && DemoHelper.getInstance().isLoggedIn()) {
-//                    // 跳转的主页
+                if (mLogin ) {
+                    // 跳转的主页
                     redirectTo();
-//                } else {
-//                    UIHelper.showLoginActivity(SplashActivity.this);
-//                }
+                } else {
+                    UIHelper.showLoginActivity(SplashActivity.this);
+                }
                 finish();
             }
         }
@@ -74,6 +75,7 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     public int getLayoutId() {
+        mLogin = BaseApplication.get(Constant.IS_LOGINED, false);
         return R.layout.activity_splash;
     }
 
@@ -114,12 +116,6 @@ public class SplashActivity extends BaseActivity {
     private void redirectTo() {
         UIHelper.showMainActivity(this);
         this.finish();
-    }
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.inject(this);
     }
 
     @Override

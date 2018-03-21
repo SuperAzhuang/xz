@@ -20,10 +20,7 @@ import butterknife.InjectView;
 
 public class MainActivity extends BaseActivity implements TabHost.OnTabChangeListener {
 
-    @InjectView(R.id.tvTitle)
-    TextView tvTitle;
-    @InjectView(R.id.ivUser)
-    ImageView ivUser;
+
     @InjectView(R.id.toolbar)
     RelativeLayout toolbar;
     @InjectView(R.id.realtabcontent)

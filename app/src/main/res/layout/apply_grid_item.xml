@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="120dp"
+    android:background="@mipmap/apply_background">
+
+    <ImageView
+        android:id="@+id/ivApplyer"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:src="@mipmap/home_icon" />
+
+    <TextView
+        android:id="@+id/tvApplyName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/home_icon"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:layout_marginTop="82dp"
+        android:text="马化腾" />
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/black">
+
+        <TextView
+            android:id="@+id/tvZhaopin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="应聘岗位:销售"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_12" />
+    </LinearLayout>
+</RelativeLayout>

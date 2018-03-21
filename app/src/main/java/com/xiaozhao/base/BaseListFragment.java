@@ -389,7 +389,6 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment im
         @Override
         public void onSuccess(int statusCode, Header[] headers, byte[] responseBytes) {
 
-
             if (mCurrentPage == 1 && needAutoRefresh()) {
                 BaseApplication.putToLastRefreshTime(getCacheKey(), StringUtils.getCurTimeStr());
             }

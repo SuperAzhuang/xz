@@ -9,7 +9,9 @@ import android.webkit.WebSettings;
 import android.webkit.WebSettings.LayoutAlgorithm;
 import android.webkit.WebView;
 
+import com.xiaozhao.activity.LoginActivity;
 import com.xiaozhao.activity.MainActivity;
+import com.xiaozhao.activity.SplashActivity;
 import com.xiaozhao.http.GlideImageLoader;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -66,17 +68,16 @@ public class UIHelper {
 
     public static void initBaners(ArrayList<String> mImageLists, ArrayList<String> mTitleLists, Banner banner) {
         //设置banner样式
-        banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE);
+//        banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
         //设置图片加载器
         banner.setImageLoader(new GlideImageLoader());
         //设置图片集合
-
         banner.setImages(mImageLists);
         //设置banner动画效果
 //        banner.setBannerAnimation(Transformer.DepthPage);
         //设置标题集合（当banner样式有显示title时）
-        banner.setBannerTitles(mTitleLists);
-        banner.setBannerStyle(BannerConfig.NUM_INDICATOR_TITLE);
+//        banner.setBannerTitles(mTitleLists);
+//        banner.setBannerStyle(BannerConfig.NUM_INDICATOR_TITLE);
         //设置自动轮播，默认为true
         banner.isAutoPlay(true);
         //设置轮播时间
@@ -86,5 +87,16 @@ public class UIHelper {
         //banner设置方法全部调用完毕时最后调用
         banner.start();
 
+    }
+
+
+    /**
+     * 显示登录界面
+     *
+     * @param context
+     */
+    public static void showLoginActivity(Context context) {
+        Intent intent = new Intent(context, LoginActivity.class);
+        context.startActivity(intent);
     }
 }
