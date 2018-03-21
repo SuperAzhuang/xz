@@ -25,10 +25,10 @@ android {
         }
         release {
             //指定keystore文件
-            storeFile file(keystoreProperties['releaseKeyStoreFile'])
-            storePassword keystoreProperties['storePasswordStoreFile']
-            keyAlias keystoreProperties['keyAliasStoreFile']
-            keyPassword keystoreProperties['keyPasswordStoreFile']
+//            storeFile file(keystoreProperties['releaseKeyStoreFile'])
+//            storePassword keystoreProperties['storePasswordStoreFile']
+//            keyAlias keystoreProperties['keyAliasStoreFile']
+//            keyPassword keystoreProperties['keyPasswordStoreFile']
         }
 
     }
@@ -60,4 +60,6 @@ dependencies {
     compile 'org.simple:androideventbus:1.0.5.1'
     compile 'com.android.support:cardview-v7:26.0.0-alpha1'
     testCompile 'junit:junit:4.12'
+    compile 'com.fyales.android:library:1.0.2'
+
 }

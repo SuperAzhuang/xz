@@ -62,6 +62,6 @@
             android:layout_gravity="center_vertical"
             android:text="招聘职位:文员/销售"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_16" />
+            android:textSize="@dimen/text_size_16" />
     </LinearLayout>
 </LinearLayout>

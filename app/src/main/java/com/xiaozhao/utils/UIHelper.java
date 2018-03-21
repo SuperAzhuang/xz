@@ -11,6 +11,7 @@ import android.webkit.WebView;
 
 import com.xiaozhao.activity.LoginActivity;
 import com.xiaozhao.activity.MainActivity;
+import com.xiaozhao.activity.SearchActivity;
 import com.xiaozhao.activity.SplashActivity;
 import com.xiaozhao.http.GlideImageLoader;
 import com.youth.banner.Banner;
@@ -96,7 +97,14 @@ public class UIHelper {
      * @param context
      */
     public static void showLoginActivity(Context context) {
+
         Intent intent = new Intent(context, LoginActivity.class);
+        context.startActivity(intent);
+
+    }
+
+    public static void showSearchActivity(Context context) {
+        Intent intent = new Intent(context, SearchActivity.class);
         context.startActivity(intent);
     }
 }

@@ -37,6 +37,6 @@
             android:layout_gravity="center_vertical"
             android:text="应聘岗位:销售"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_12" />
+            android:textSize="@dimen/text_size_12" />
     </LinearLayout>
 </RelativeLayout>

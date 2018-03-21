@@ -2,6 +2,7 @@ package com.xiaozhao.activity;
 
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -14,8 +15,10 @@ import com.xiaozhao.R;
 import com.xiaozhao.base.BaseActivity;
 import com.xiaozhao.base.MainTab;
 import com.xiaozhao.utils.TDevice;
+import com.xiaozhao.utils.UIHelper;
 import com.xiaozhao.widget.MyFragmentTabHost;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 public class MainActivity extends BaseActivity implements TabHost.OnTabChangeListener {
@@ -27,14 +30,39 @@ public class MainActivity extends BaseActivity implements TabHost.OnTabChangeLis
     FrameLayout realtabcontent;
     @InjectView(android.R.id.tabhost)
     MyFragmentTabHost mTabHost;
+    @InjectView(R.id.ivLocate)
+    ImageView ivLocate;
+    @InjectView(R.id.tvLocate)
+    TextView tvLocate;
+    @InjectView(R.id.ivSearch)
+    ImageView ivSearch;
+    @InjectView(R.id.ivScanner)
+    ImageView ivScanner;
 
     @Override
     public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.ivLocate:
+            case R.id.tvLocate:
 
+                break;
+            case R.id.ivScanner:
+
+                break;
+            case R.id.ivSearch:
+                UIHelper.showSearchActivity(this);
+                break;
+
+        }
     }
 
     @Override
     public void initView() {
+        ivSearch.setOnClickListener(this);
+        ivScanner.setOnClickListener(this);
+        ivLocate.setOnClickListener(this);
+        tvLocate.setOnClickListener(this);
+
         mTabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
         if (Build.VERSION.SDK_INT > 10) {
             mTabHost.getTabWidget().setShowDividers(0);
