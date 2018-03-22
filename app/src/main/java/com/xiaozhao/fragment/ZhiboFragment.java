@@ -5,23 +5,24 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.xiaozhao.R;
-import com.xiaozhao.activity.MainActivity;
 import com.xiaozhao.adapter.AppliAdapter;
-import com.xiaozhao.adapter.CompanyGridAdapter;
 import com.xiaozhao.base.BaseFragment;
 import com.xiaozhao.bean.NewsResult;
 import com.xiaozhao.http.AsyncHttpApi;
 import com.xiaozhao.http.Url;
 import com.xiaozhao.utils.LogUtils;
-import com.xiaozhao.utils.UIHelper;
 import com.xiaozhao.view.EmptyLayout;
 import com.xiaozhao.view.MyGridView;
+import com.xiaozhao.view.TagPopwindow;
 
 import org.json.JSONObject;
 
@@ -40,10 +41,18 @@ public class ZhiboFragment extends BaseFragment {
 
     @InjectView(R.id.tvJuli)
     TextView tvJuli;
-    @InjectView(R.id.tvCompany)
-    TextView tvCompany;
+    @InjectView(R.id.ivJuli)
+    ImageView ivJuli;
+    @InjectView(R.id.llJuli)
+    LinearLayout llJuli;
+    @InjectView(R.id.tvJob)
+    TextView tvJob;
+    @InjectView(R.id.ivCompany)
+    ImageView ivCompany;
     @InjectView(R.id.tvMore)
     TextView tvMore;
+    @InjectView(R.id.ivMore)
+    ImageView ivMore;
     @InjectView(R.id.ll)
     LinearLayout ll;
     @InjectView(R.id.grideview)
@@ -54,8 +63,9 @@ public class ZhiboFragment extends BaseFragment {
     private List<NewsResult.NewsBean> list;
     private List<NewsResult.NewsBean> mDatas = new ArrayList<>();
     private NewsResult.NewsBean newsBean;
-
-
+    private TagPopwindow shopPopuWindow;
+    private WindowManager.LayoutParams lp;
+    private Window w;
     protected int mCurrentPage = 1;
     private String TYPE = Url.QUANGANGXINWEN;
     private ArrayList<String> mImageLists = new ArrayList<>();
@@ -65,18 +75,57 @@ public class ZhiboFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.zhibo_fragment, container, false);
+        ButterKnife.inject(this, view);
+        View parent = getActivity().getWindow().getDecorView();
+              lp = getActivity().getWindow().getAttributes();
+              w = getActivity().getWindow();
         return view;
     }
 
     @Override
     public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.tvJuli:
 
+                break;
+
+            case R.id.tvJob:
+
+//                View parent = getActivity().getWindow().getDecorView();
+//                WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
+//                Window w = getActivity().getWindow();
+//
+                shopPopuWindow = new TagPopwindow(getActivity(),lp,w,null);
+
+                if (shopPopuWindow.isShowing()) {
+                    shopPopuWindow.dismiss();
+                }
+                if (ll!=null ) {
+                    shopPopuWindow.showAsDropDown(ll);
+                }
+                break;
+
+            case R.id.tvMore:
+                shopPopuWindow = new TagPopwindow(getActivity(),lp,w,null);
+                if (shopPopuWindow.isShowing()) {
+                    shopPopuWindow.dismiss();
+                }
+                shopPopuWindow = new TagPopwindow(getActivity(),lp,w,null);
+                shopPopuWindow.showAsDropDown(ll);
+                break;
+
+        }
     }
 
     @Override
     public void initView(View view) {
         mAdapter = new AppliAdapter(getActivity(), mDatas);
         grideview.setAdapter(mAdapter);
+
+        tvJuli.setOnClickListener(this);
+        tvJob.setOnClickListener(this);
+        tvMore.setOnClickListener(this);
+
     }
 
     @Override
@@ -128,6 +177,12 @@ public class ZhiboFragment extends BaseFragment {
             mParserTask.cancel(true);
             mParserTask = null;
         }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.reset(this);
     }
 
 

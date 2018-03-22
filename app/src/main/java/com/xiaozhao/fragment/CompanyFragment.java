@@ -4,9 +4,12 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -29,6 +32,7 @@ import com.xiaozhao.utils.LogUtils;
 import com.xiaozhao.utils.UIHelper;
 import com.xiaozhao.view.EmptyLayout;
 import com.xiaozhao.view.MyGridView;
+import com.xiaozhao.view.TagPopwindow;
 import com.youth.banner.Banner;
 
 import org.json.JSONObject;
@@ -81,23 +85,48 @@ public class CompanyFragment extends BaseFragment {
     private ArrayList<String> mImageLists = new ArrayList<>();
     private ArrayList<String> mTitleLists = new ArrayList<>();
     private CompanyGridAdapter companyGridAdapter;
+    private TagPopwindow shopPopuWindow;
+    private WindowManager.LayoutParams lp;
+    private Window w;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_company, container, false);
         ButterKnife.inject(this, view);
+        lp = getActivity().getWindow().getAttributes();
+        w = getActivity().getWindow();
         return view;
     }
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tvJuli:
+
                 break;
 
             case R.id.tvCompany:
+
+//                View parent = getActivity().getWindow().getDecorView();
+//                WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
+//                Window w = getActivity().getWindow();
+//
+                shopPopuWindow = new TagPopwindow(getActivity(),lp,w,null);
+
+                if (shopPopuWindow!=null && shopPopuWindow.isShowing()) {
+                    shopPopuWindow.dismiss();
+                }
+                if (ll!=null ) {
+                    shopPopuWindow.showAsDropDown(ll);
+                }
                 break;
 
             case R.id.tvMore:
+                shopPopuWindow = new TagPopwindow(getActivity(),lp,w,null);
+                if (shopPopuWindow!=null && shopPopuWindow.isShowing()) {
+                    shopPopuWindow.dismiss();
+                }
+                shopPopuWindow = new TagPopwindow(getActivity(),lp,w,null);
+                shopPopuWindow.showAsDropDown(ll);
                 break;
 
         }
@@ -116,6 +145,7 @@ public class CompanyFragment extends BaseFragment {
                 UIHelper.showCompanyActivity(getActivity());
             }
         });
+
     }
 
     @Override
@@ -307,5 +337,6 @@ public class CompanyFragment extends BaseFragment {
 //            }
 //        }
     }
+
 
 }
