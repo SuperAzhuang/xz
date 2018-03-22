@@ -3,12 +3,14 @@ package com.xiaozhao.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.FragmentActivity;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebSettings.LayoutAlgorithm;
 import android.webkit.WebView;
 
+import com.xiaozhao.activity.CompanyActivity;
 import com.xiaozhao.activity.LoginActivity;
 import com.xiaozhao.activity.MainActivity;
 import com.xiaozhao.activity.SearchActivity;
@@ -105,6 +107,11 @@ public class UIHelper {
 
     public static void showSearchActivity(Context context) {
         Intent intent = new Intent(context, SearchActivity.class);
+        context.startActivity(intent);
+    }
+
+    public static void showCompanyActivity(Context context) {
+        Intent intent = new Intent(context, CompanyActivity.class);
         context.startActivity(intent);
     }
 }

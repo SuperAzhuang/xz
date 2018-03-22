@@ -1,29 +1,31 @@
 package com.xiaozhao.fragment;
 
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.xiaozhao.R;
 import com.xiaozhao.activity.MainActivity;
 import com.xiaozhao.adapter.CompanyGridAdapter;
-import com.xiaozhao.base.BaseApplication;
 import com.xiaozhao.base.BaseFragment;
-import com.xiaozhao.base.BaseListFragment;
-import com.xiaozhao.base.ListBaseAdapter;
-import com.xiaozhao.bean.ListEntity;
 import com.xiaozhao.bean.NewsResult;
 import com.xiaozhao.http.AsyncHttpApi;
 import com.xiaozhao.http.Url;
 import com.xiaozhao.utils.LogUtils;
-import com.xiaozhao.utils.StringUtils;
 import com.xiaozhao.utils.UIHelper;
 import com.xiaozhao.view.EmptyLayout;
 import com.xiaozhao.view.MyGridView;
@@ -32,8 +34,11 @@ import com.youth.banner.Banner;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cz.msebera.android.httpclient.Header;
 
@@ -57,6 +62,14 @@ public class CompanyFragment extends BaseFragment {
     MyGridView grideview;
     @InjectView(R.id.error_layout)
     EmptyLayout mErrorLayout;
+    @InjectView(R.id.ivJuli)
+    ImageView ivJuli;
+    @InjectView(R.id.ivCompany)
+    ImageView ivCompany;
+    @InjectView(R.id.ivMore)
+    ImageView ivMore;
+    @InjectView(R.id.llJuli)
+    LinearLayout llJuli;
     private ParserTask mParserTask;
     private List<NewsResult.NewsBean> list;
     private List<NewsResult.NewsBean> mDatas = new ArrayList<>();
@@ -72,19 +85,37 @@ public class CompanyFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_company, container, false);
+        ButterKnife.inject(this, view);
         return view;
     }
-
-
     @Override
     public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.tvJuli:
+                break;
 
+            case R.id.tvCompany:
+                break;
+
+            case R.id.tvMore:
+                break;
+
+        }
     }
 
     @Override
     public void initView(View view) {
         companyGridAdapter = new CompanyGridAdapter(getActivity(), mDatas);
         grideview.setAdapter(companyGridAdapter);
+        tvJuli.setOnClickListener(this);
+        tvCompany.setOnClickListener(this);
+        tvMore.setOnClickListener(this);
+        grideview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                UIHelper.showCompanyActivity(getActivity());
+            }
+        });
     }
 
     @Override
@@ -136,6 +167,12 @@ public class CompanyFragment extends BaseFragment {
             mParserTask.cancel(true);
             mParserTask = null;
         }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.reset(this);
     }
 
 
@@ -270,4 +307,5 @@ public class CompanyFragment extends BaseFragment {
 //            }
 //        }
     }
+
 }

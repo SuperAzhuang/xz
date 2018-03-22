@@ -11,6 +11,7 @@
     <style name="Theme.AppCompat.Splash" parent="Theme.AppCompat.Light.NoActionBar">
         <!--     <item name="android:windowFullscreen">true</item>-->
         <item name="android:windowContentOverlay">@null</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
     </style>
     <!-- viewpage文本  滑动标签标题 -->
     <style name="viewpage_slidingTabTitle">
@@ -71,4 +72,8 @@
         <item name="android:background">@color/light_gray</item>
     </style>
 
+    <style name="popwin_anim_style">
+        <item name="android:windowEnterAnimation">@anim/still</item>
+        <item name="android:windowExitAnimation">@anim/still</item>
+    </style>
 </resources>
