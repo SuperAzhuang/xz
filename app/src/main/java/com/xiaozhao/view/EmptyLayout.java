@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -23,7 +24,8 @@ public class EmptyLayout extends LinearLayout implements
     public static final int NODATA_ENABLE_CLICK = 5;
     public static final int NO_LOGIN = 6;
 
-    private ImageView animProgress;
+//    private ImageView animProgress;
+    private ProgressBar animProgress;
     private boolean clickEnable = true;
     private final Context context;
     public ImageView img;
@@ -51,7 +53,8 @@ public class EmptyLayout extends LinearLayout implements
         img = (ImageView) view.findViewById(R.id.img_error_layout);
         tv = (TextView) view.findViewById(R.id.tv_error_layout);
         mLayout = (RelativeLayout) view.findViewById(R.id.pageerrLayout);
-        animProgress = (ImageView) view.findViewById(R.id.animProgress);
+//        animProgress = (ImageView) view.findViewById(R.id.animProgress);
+           animProgress =  (ProgressBar) view.findViewById(R.id.animProgress);
         setBackgroundColor(-1);
         setOnClickListener(this);
         img.setOnClickListener(new OnClickListener() {

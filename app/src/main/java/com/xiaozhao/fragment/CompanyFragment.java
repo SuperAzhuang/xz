@@ -317,7 +317,9 @@ public class CompanyFragment extends BaseFragment {
         mDatas.clear();
         mDatas.addAll(data);
         companyGridAdapter.notifyDataSetChanged();
-        mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
+        if (mErrorLayout!=null) {
+            mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
+        }
 //        if (mCurrentPage == 1) {
 //            mAdapter.clear();
 //        }

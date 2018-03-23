@@ -276,7 +276,9 @@ public class NearApplerFragment extends BaseFragment {
         mDatas.clear();
         mDatas.addAll(data);
         mAdapter.notifyDataSetChanged();
-        mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
+        if (mErrorLayout!=null) {
+            mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
+        }
 //        if (mCurrentPage == 1) {
 //            mAdapter.clear();
 //        }

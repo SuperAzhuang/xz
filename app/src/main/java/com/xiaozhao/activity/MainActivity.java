@@ -3,6 +3,7 @@ package com.xiaozhao.activity;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -66,6 +67,7 @@ public class MainActivity extends BaseActivity implements TabHost.OnTabChangeLis
         ivLocate.setOnClickListener(this);
         tvLocate.setOnClickListener(this);
         ivScanner.setOnClickListener(this);
+
         mTabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
         if (Build.VERSION.SDK_INT > 10) {
             mTabHost.getTabWidget().setShowDividers(0);
@@ -139,5 +141,8 @@ public class MainActivity extends BaseActivity implements TabHost.OnTabChangeLis
 
     private void setTitle(String str) {
 
+    }
+    private Fragment getCurrentFragment() {
+        return getSupportFragmentManager().findFragmentByTag(mTabHost.getCurrentTabTag());
     }
 }
