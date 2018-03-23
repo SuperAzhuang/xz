@@ -17,6 +17,7 @@ import com.xiaozhao.base.MainTab;
 import com.xiaozhao.utils.TDevice;
 import com.xiaozhao.utils.UIHelper;
 import com.xiaozhao.widget.MyFragmentTabHost;
+import com.xiaozhao.zxing.activity.CaptureActivity;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -48,6 +49,8 @@ public class MainActivity extends BaseActivity implements TabHost.OnTabChangeLis
                 break;
             case R.id.ivScanner:
 
+                UIHelper.showCaptureActivity(this);
+
                 break;
             case R.id.ivSearch:
                 UIHelper.showSearchActivity(this);
@@ -62,7 +65,7 @@ public class MainActivity extends BaseActivity implements TabHost.OnTabChangeLis
         ivScanner.setOnClickListener(this);
         ivLocate.setOnClickListener(this);
         tvLocate.setOnClickListener(this);
-
+        ivScanner.setOnClickListener(this);
         mTabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
         if (Build.VERSION.SDK_INT > 10) {
             mTabHost.getTabWidget().setShowDividers(0);

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_regist"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/login_backgroun"
+    android:orientation="vertical"
+    tools:context="com.xiaozhao.activity.RegistActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/ic_back" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="注册"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_18" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/space_40">
+
+            <EditText
+                android:id="@+id/et_account"
+                style="@style/item_input_edittext"
+                android:layout_width="280dp"
+                android:background="@drawable/bg_btn"
+                android:hint="@string/hint_username"
+                android:inputType="textPassword" />
+
+            <ImageView
+                android:id="@+id/iv_delete"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/space_14"
+                android:layout_toRightOf="@id/et_account"
+                android:background="@mipmap/regist_delete" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_10">
+
+            <EditText
+                android:id="@+id/etCheckCode"
+                style="@style/item_input_edittext"
+                android:layout_width="240dp"
+                android:background="@drawable/bg_btn"
+                android:hint="请输入验证码"
+                android:inputType="textPassword" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/space_20"
+                android:layout_toRightOf="@id/etCheckCode"
+                android:background="@mipmap/checkcode" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/space_10">
+
+            <EditText
+                android:id="@+id/etPssword"
+                style="@style/item_input_edittext"
+                android:layout_width="280dp"
+                android:background="@drawable/bg_btn"
+                android:hint="请输入密码"
+                android:inputType="textPassword" />
+
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/space_14"
+                android:layout_toRightOf="@id/etPssword"
+                android:background="@mipmap/regist_delete" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/space_10">
+
+            <EditText
+                android:id="@+id/etagainPssword"
+                style="@style/item_input_edittext"
+                android:layout_width="280dp"
+                android:background="@drawable/bg_btn"
+                android:hint="请再次输入密码"
+                android:inputType="textPassword" />
+
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/space_14"
+                android:layout_toRightOf="@id/etagainPssword"
+                android:background="@mipmap/regist_delete" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/space_10">
+
+            <CheckBox
+                android:id="@+id/checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/checkbox"
+                android:text="阅读并同意使用条款隐私"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btregist"
+            style="@style/button_common_blue"
+            android:layout_below="@id/ivForget"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:text="注册"
+            android:textColor="@color/white"
+            android:textSize="26sp" />
+    </LinearLayout>
+
+</LinearLayout>

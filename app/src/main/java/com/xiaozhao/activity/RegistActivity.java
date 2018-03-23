@@ -3,6 +3,7 @@ package com.xiaozhao.activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -15,43 +16,42 @@ import com.xiaozhao.utils.UIHelper;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-public class LoginActivity extends BaseActivity {
+public class RegistActivity extends BaseActivity {
 
 
     @InjectView(R.id.et_account)
     EditText etAccount;
-    @InjectView(R.id.et_password)
-    EditText etPassword;
-    @InjectView(R.id.ivForget)
-    ImageView ivForget;
-    @InjectView(R.id.btLogin)
-    Button btLogin;
-    @InjectView(R.id.ivRegist)
-    ImageView ivRegist;
-    @InjectView(R.id.tvThird)
-    TextView tvThird;
-    @InjectView(R.id.ll)
-    LinearLayout ll;
+    @InjectView(R.id.iv_delete)
+    ImageView ivDelete;
+    @InjectView(R.id.etCheckCode)
+    EditText etCheckCode;
+    @InjectView(R.id.etPssword)
+    EditText etPssword;
+    @InjectView(R.id.etagainPssword)
+    EditText etagainPssword;
+    @InjectView(R.id.checkbox)
+    CheckBox checkbox;
+    @InjectView(R.id.tv)
+    TextView tv;
+    @InjectView(R.id.btregist)
+    Button btregist;
+    @InjectView(R.id.activity_regist)
+    LinearLayout activityRegist;
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.btLogin:
+            case R.id.btregist:
                 UIHelper.showMainActivity(this);
                 finish();
                 break;
-            case R.id.ivRegist:
-                UIHelper.showRegistActivity(this);
-                finish();
-                break;
-        }
 
+        }
     }
 
     @Override
     public void initView() {
-        btLogin.setOnClickListener(this);
-        ivRegist.setOnClickListener(this);
+        btregist.setOnClickListener(this);
     }
 
     @Override
@@ -61,8 +61,7 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_login;
+        return R.layout.activity_regist;
     }
-
 
 }

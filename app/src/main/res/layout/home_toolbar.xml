@@ -5,7 +5,7 @@
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="@dimen/height_toolbar"
-    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
     android:background="@mipmap/home_toolbar_background"
     android:orientation="horizontal">
 
@@ -83,7 +83,7 @@
         android:layout_height="@dimen/space_28"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="@dimen/space_10"
+        android:layout_marginRight="@dimen/space_20"
         android:src="@mipmap/home_scanner" />
 
 </RelativeLayout>

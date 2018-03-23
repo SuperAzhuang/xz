@@ -44,5 +44,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="permissions_camera_error">相机无法完成初始化,请正确授权。</string>
+    <string name="str_request_camera_message">请求获取相机权限</string>
 
 </resources>

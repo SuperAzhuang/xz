@@ -3,21 +3,19 @@ package com.xiaozhao.base;
 
 import com.xiaozhao.R;
 import com.xiaozhao.fragment.CompanyFragment;
-import com.xiaozhao.fragment.HuDongFragment;
-import com.xiaozhao.fragment.NewsViewpagerFragment;
-import com.xiaozhao.fragment.ShengHouFragment;
-import com.xiaozhao.fragment.ZhengWuFragment;
-import com.xiaozhao.fragment.ZhiboFragment;
+import com.xiaozhao.fragment.NearApplerFragment;
+import com.xiaozhao.fragment.MineFragment;
+import com.xiaozhao.fragment.NewsFragment;
 
 public enum MainTab {
 
     NEWS(0, R.string.home_company, R.drawable.tab_icon_news, CompanyFragment.class),
 
-    ZHIBO(1, R.string.home_person, R.drawable.tab_icon_zhibo, ZhiboFragment.class),
+    ZHIBO(1, R.string.home_person, R.drawable.tab_icon_zhibo, NearApplerFragment.class),
 
-    ZHENGWU(2, R.string.home_news, R.drawable.tab_icon_zhengwu, ZhengWuFragment.class),
+    ZHENGWU(2, R.string.home_news, R.drawable.tab_icon_zhengwu, NewsFragment.class),
 
-    SHENGHOU(3, R.string.home_mine, R.drawable.tab_icon_shenghuo, ShengHouFragment.class);
+    SHENGHOU(3, R.string.home_mine, R.drawable.tab_icon_shenghuo, MineFragment.class);
 
 //    HUDONG(4,R.string.hudong, R.drawable.tab_icon_hudong, HuDongFragment.class);
 

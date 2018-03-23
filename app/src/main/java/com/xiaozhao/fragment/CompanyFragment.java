@@ -34,6 +34,7 @@ import com.xiaozhao.view.EmptyLayout;
 import com.xiaozhao.view.MyGridView;
 import com.xiaozhao.view.TagPopwindow;
 import com.youth.banner.Banner;
+import com.youth.banner.listener.OnBannerListener;
 
 import org.json.JSONObject;
 
@@ -97,6 +98,7 @@ public class CompanyFragment extends BaseFragment {
         w = getActivity().getWindow();
         return view;
     }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -110,22 +112,22 @@ public class CompanyFragment extends BaseFragment {
 //                WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
 //                Window w = getActivity().getWindow();
 //
-                shopPopuWindow = new TagPopwindow(getActivity(),lp,w,null);
+                shopPopuWindow = new TagPopwindow(getActivity(), lp, w, null);
 
-                if (shopPopuWindow!=null && shopPopuWindow.isShowing()) {
+                if (shopPopuWindow != null && shopPopuWindow.isShowing()) {
                     shopPopuWindow.dismiss();
                 }
-                if (ll!=null ) {
+                if (ll != null) {
                     shopPopuWindow.showAsDropDown(ll);
                 }
                 break;
 
             case R.id.tvMore:
-                shopPopuWindow = new TagPopwindow(getActivity(),lp,w,null);
-                if (shopPopuWindow!=null && shopPopuWindow.isShowing()) {
+                shopPopuWindow = new TagPopwindow(getActivity(), lp, w, null);
+                if (shopPopuWindow != null && shopPopuWindow.isShowing()) {
                     shopPopuWindow.dismiss();
                 }
-                shopPopuWindow = new TagPopwindow(getActivity(),lp,w,null);
+                shopPopuWindow = new TagPopwindow(getActivity(), lp, w, null);
                 shopPopuWindow.showAsDropDown(ll);
                 break;
 
@@ -145,7 +147,12 @@ public class CompanyFragment extends BaseFragment {
                 UIHelper.showCompanyActivity(getActivity());
             }
         });
-
+        banner.setOnBannerListener(new OnBannerListener() {
+            @Override
+            public void OnBannerClick(int position) {
+                UIHelper.showCompanyActivity(getActivity());
+            }
+        });
     }
 
     @Override
@@ -296,7 +303,7 @@ public class CompanyFragment extends BaseFragment {
             @Override
             public void run() {
 //                初始化banner配置
-                UIHelper.initBaners(mImageLists, mTitleLists, banner);
+                UIHelper.initBaners(mImageLists, banner);
             }
         });
         return list;

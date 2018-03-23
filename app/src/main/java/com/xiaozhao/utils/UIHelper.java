@@ -13,9 +13,11 @@ import android.webkit.WebView;
 import com.xiaozhao.activity.CompanyActivity;
 import com.xiaozhao.activity.LoginActivity;
 import com.xiaozhao.activity.MainActivity;
+import com.xiaozhao.activity.RegistActivity;
 import com.xiaozhao.activity.SearchActivity;
 import com.xiaozhao.activity.SplashActivity;
 import com.xiaozhao.http.GlideImageLoader;
+import com.xiaozhao.zxing.activity.CaptureActivity;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 
@@ -69,7 +71,7 @@ public class UIHelper {
     }
 
 
-    public static void initBaners(ArrayList<String> mImageLists, ArrayList<String> mTitleLists, Banner banner) {
+    public static void initBaners(ArrayList<String> mImageLists,  Banner banner) {
         //设置banner样式
 //        banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
         //设置图片加载器
@@ -112,6 +114,16 @@ public class UIHelper {
 
     public static void showCompanyActivity(Context context) {
         Intent intent = new Intent(context, CompanyActivity.class);
+        context.startActivity(intent);
+    }
+
+    public static void showRegistActivity(Context context) {
+        Intent intent = new Intent(context, RegistActivity.class);
+        context.startActivity(intent);
+    }
+
+    public static void showCaptureActivity(Context context) {
+        Intent intent = new Intent(context, CaptureActivity.class);
         context.startActivity(intent);
     }
 }

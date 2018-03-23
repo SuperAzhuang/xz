@@ -12,10 +12,10 @@ import com.xiaozhao.base.BaseFragment;
  * Created by Administrator on 2018/1/26.
  */
 
-public class ShengHouFragment extends BaseFragment {
+public class NewsFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.shenghou_fragment, container, false);
+        View view = inflater.inflate(R.layout.zhengwu_fragment, container, false);
         return view;
     }
 

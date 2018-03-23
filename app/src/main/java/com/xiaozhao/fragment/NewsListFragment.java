@@ -114,7 +114,7 @@ public class NewsListFragment extends BaseListFragment<NewsResult.NewsBean> {
             @Override
             public void run() {
 //                初始化banner配置
-                UIHelper.initBaners(mImageLists, mTitleLists, banner);
+                UIHelper.initBaners(mImageLists, banner);
             }
         });
         return result;

@@ -37,7 +37,7 @@ import cz.msebera.android.httpclient.Header;
  * Created by Administrator on 2018/1/26.
  */
 
-public class ZhiboFragment extends BaseFragment {
+public class NearApplerFragment extends BaseFragment {
 
     @InjectView(R.id.tvJuli)
     TextView tvJuli;
