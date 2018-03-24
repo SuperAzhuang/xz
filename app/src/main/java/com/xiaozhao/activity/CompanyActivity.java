@@ -58,10 +58,13 @@ public class CompanyActivity extends BaseActivity {
     @InjectView(R.id.tab_menu)
     LinearLayout tabMenu;
     View views[] = {txtDianhua, txtJob, txtNews, txtCollect};
-    private String[] strs = {"公司介绍", "服务员", "清洁工", "收银", "岛国", "数码", "电脑办公",
+    @InjectView(R.id.tvCompany)
+    TextView tvCompany;
+    private String[] strs = {"服务员", "清洁工", "收银", "岛国", "数码", "电脑办公",
             "个护化妆", "图书", "图书", "图书", "图书", "图书", "图书"};
     private ParserTask mParserTask;
     private int positon = 0;
+
     @Override
     public void onClick(View view) {
 
@@ -81,6 +84,16 @@ public class CompanyActivity extends BaseActivity {
             case R.id.ivBack:
                 finish();
                 break;
+            case R.id.tvCompany:
+                CompanyInfoDetailFragment companyInfoDetailFragment = new CompanyInfoDetailFragment();
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager()
+                        .beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, companyInfoDetailFragment);
+//                Bundle bundle = new Bundle();
+////                bundle.putString(companyInfoDetailFragment.TAG, strs[position]);
+//                companyInfoDetailFragment.setArguments(bundle);
+                fragmentTransaction.commit();
+                break;
         }
 
 
@@ -95,6 +108,7 @@ public class CompanyActivity extends BaseActivity {
         txtJob.setOnClickListener(this);
         txtNews.setOnClickListener(this);
         tabMenu.setOnClickListener(this);
+        tvCompany.setOnClickListener(this);
     }
 
     @Override
@@ -166,6 +180,13 @@ public class CompanyActivity extends BaseActivity {
             mParserTask.cancel(true);
             mParserTask = null;
         }
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.inject(this);
     }
 
     class ParserTask extends AsyncTask<Void, Void, String> {

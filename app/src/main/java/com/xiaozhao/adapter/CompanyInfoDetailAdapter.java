@@ -56,11 +56,12 @@ public class CompanyInfoDetailAdapter extends BaseAdapter {
 
         mPosition = position;
         tv.setText(strings[position]);
+        tvSlary.setText("4500-6000");
         if (position == 0) {
-            tvSlary.setVisibility(View.GONE);
+//            tvSlary.setVisibility(View.GONE);
             //这里的Textview的父layout是ListView，所以要用ListView.LayoutParams
         } else {
-            tvSlary.setText("4500-6000");
+
         }
 
 

@@ -1,11 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/tools"
+    android:scrollbars="none">
 
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/dp_4"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="福建省智晶彩网络科技有限公司"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16" />
+
+            <LinearLayout
+                android:id="@+id/ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvRenshu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/person"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="50-150人"
+                    android:textColor="@color/main_black" />
+
+                <TextView
+                    android:id="@+id/tvChangye"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/changye"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="IT/软件应用开发"
+                    android:textColor="@color/main_black" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:background="@color/white"
+            android:drawableLeft="@mipmap/changye"
+            android:gravity="center|left"
+            android:padding="4dp"
+            android:text="公司简介"
+            android:textColor="@color/main_black" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@id/expandable_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_8"
+                android:gravity="center|left"
+                android:lineSpacingExtra="@dimen/dp_4"
+                android:textColor="@color/main_black"
+                android:textSize="@dimen/text_size_14"  />
+        </LinearLayout>
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:background="@color/white"
+            android:drawableLeft="@mipmap/changye"
+            android:gravity="center|left"
+            android:padding="4dp"
+            android:text="工作地点"
+            android:textColor="@color/main_black" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="@dimen/space_8"
+            android:background="@color/white"
+            android:gravity="center|left"
+            android:padding="4dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/map"
+            android:textColor="@color/main_black" />
+
+    </LinearLayout>
+</ScrollView>
