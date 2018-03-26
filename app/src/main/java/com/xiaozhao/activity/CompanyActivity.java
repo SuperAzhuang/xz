@@ -241,7 +241,10 @@ public class CompanyActivity extends BaseActivity {
                 for (int i = 0; i < data.size(); i++) {
                     strings.add(data.get(i).getImagePath());
                 }
-                UIHelper.initBaners(strings, banner);
+                if (banner != null) {
+                    UIHelper.initBaners(strings, banner);
+                }
+
             }
 
         }

@@ -389,31 +389,15 @@ public class CompanyFragment extends BaseFragment {
     }
 
     protected void executeOnLoadDataSuccess(List<NewsResult.NewsBean> data) {
-//        if (data == null) {
-//            data = new ArrayList<T>();
-//        }
-        LogUtils.d("List<NewsResult.NewsBean>  = " + data.toString());
-        mSwipeRefreshLayout.setRefreshing(false);
+        if (mSwipeRefreshLayout!=null) {
+            mSwipeRefreshLayout.setRefreshing(false);
+        }
         companyGridAdapter.setEnableLoadMore(true);
-
         if (mCurrentPage == 1) {
             mDatas.clear();
-//            companyGridAdapter.addData(data);
-        } else if (mCurrentPage == 2) {
-//            companyGridAdapter.loadMoreFail();
-//            companyGridAdapter.setEnableLoadMore(false);
-        } else {
-
         }
-
         companyGridAdapter.addData(data);
 
-//        companyGridAdapter.no
-//        companyGridAdapter.setNewData(mDatas);
-
-
-
-//        grideview.setAdapter(companyGridAdapter);
         if (mErrorLayout != null) {
             mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
         }

@@ -16,8 +16,8 @@ public class ImageLoaderOptions {
 			.bitmapConfig(Bitmap.Config.RGB_565)// 设置图片的rgb显示模式，会让图片显示比较高清，而且占用内存较小
 			.considerExifParams(true).build(); // 创建配置过得DisplayImageOption对象
 
-	public static DisplayImageOptions midOptions = new DisplayImageOptions.Builder().showImageForEmptyUri(R.drawable.pic_bg)
-			.showImageOnFail(R.drawable.pic_bg).showImageOnLoading(R.drawable.pic_bg).showImageForEmptyUri(R.drawable.pic_bg)
+	public static DisplayImageOptions midOptions = new DisplayImageOptions.Builder().showImageForEmptyUri(R.drawable.loading)
+			.showImageOnFail(R.mipmap.page_icon_network).showImageOnLoading(R.drawable.loading).showImageForEmptyUri(R.mipmap.page_icon_empty)
 			.resetViewBeforeLoading(true)// 在加载图片之前情况ImageView中的图片
 			.cacheOnDisk(true).cacheInMemory(true).imageScaleType(ImageScaleType.EXACTLY)// 设置缩放类型，会按照ImageView真实的宽高进行缩放
 			.bitmapConfig(Bitmap.Config.RGB_565)// 设置图片的rgb显示模式，会让图片显示比较高清，而且占用内存较小

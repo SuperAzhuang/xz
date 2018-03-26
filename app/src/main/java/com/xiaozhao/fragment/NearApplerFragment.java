@@ -1,7 +1,12 @@
 package com.xiaozhao.fragment;
 
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,18 +15,25 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.loadmore.SimpleLoadMoreView;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.xiaozhao.R;
 import com.xiaozhao.adapter.AppliAdapter;
+import com.xiaozhao.adapter.HomeCompanyAdapter;
+import com.xiaozhao.adapter.HomeNearApplerAdapter;
 import com.xiaozhao.base.BaseFragment;
 import com.xiaozhao.bean.NewsResult;
 import com.xiaozhao.http.AsyncHttpApi;
 import com.xiaozhao.http.Url;
+import com.xiaozhao.manager.DividerApplerItemDecoration;
+import com.xiaozhao.manager.DividerItemDecoration;
 import com.xiaozhao.utils.LogUtils;
+import com.xiaozhao.utils.UIHelper;
 import com.xiaozhao.view.EmptyLayout;
-import com.xiaozhao.view.MyGridView;
 import com.xiaozhao.view.TagPopwindow;
 
 import org.json.JSONObject;
@@ -39,6 +51,8 @@ import cz.msebera.android.httpclient.Header;
 
 public class NearApplerFragment extends BaseFragment {
 
+    @InjectView(R.id.error_layout)
+    EmptyLayout mErrorLayout;
     @InjectView(R.id.tvJuli)
     TextView tvJuli;
     @InjectView(R.id.ivJuli)
@@ -55,10 +69,10 @@ public class NearApplerFragment extends BaseFragment {
     ImageView ivMore;
     @InjectView(R.id.ll)
     LinearLayout ll;
-    @InjectView(R.id.grideview)
-    MyGridView grideview;
-    @InjectView(R.id.error_layout)
-    EmptyLayout mErrorLayout;
+    @InjectView(R.id.rv_list)
+    RecyclerView rvList;
+    @InjectView(R.id.swipeLayout)
+    SwipeRefreshLayout mSwipeRefreshLayout;
     private ParserTask mParserTask;
     private List<NewsResult.NewsBean> list;
     private List<NewsResult.NewsBean> mDatas = new ArrayList<>();
@@ -70,18 +84,30 @@ public class NearApplerFragment extends BaseFragment {
     private String TYPE = Url.QUANGANGXINWEN;
     private ArrayList<String> mImageLists = new ArrayList<>();
     private ArrayList<String> mTitleLists = new ArrayList<>();
-    private AppliAdapter mAdapter;
+    private HomeNearApplerAdapter mAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.zhibo_fragment, container, false);
+        View view = inflater.inflate(R.layout.near_appyler_fragment, container, false);
         ButterKnife.inject(this, view);
         View parent = getActivity().getWindow().getDecorView();
-              lp = getActivity().getWindow().getAttributes();
-              w = getActivity().getWindow();
+        lp = getActivity().getWindow().getAttributes();
+        w = getActivity().getWindow();
+        mSwipeRefreshLayout.setColorSchemeColors(Color.rgb(47, 223, 189));
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refresh();
+            }
+        });
         return view;
     }
+    private void refresh() {
+        mCurrentPage = 1;
+        mAdapter.setEnableLoadMore(false);//这里的作用是防止下拉刷新的时候还可以上拉加载
+        initData();
 
+    }
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -95,22 +121,22 @@ public class NearApplerFragment extends BaseFragment {
 //                WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
 //                Window w = getActivity().getWindow();
 //
-                shopPopuWindow = new TagPopwindow(getActivity(),lp,w,null);
+                shopPopuWindow = new TagPopwindow(getActivity(), lp, w, null);
 
                 if (shopPopuWindow.isShowing()) {
                     shopPopuWindow.dismiss();
                 }
-                if (ll!=null ) {
+                if (ll != null) {
                     shopPopuWindow.showAsDropDown(ll);
                 }
                 break;
 
             case R.id.tvMore:
-                shopPopuWindow = new TagPopwindow(getActivity(),lp,w,null);
+                shopPopuWindow = new TagPopwindow(getActivity(), lp, w, null);
                 if (shopPopuWindow.isShowing()) {
                     shopPopuWindow.dismiss();
                 }
-                shopPopuWindow = new TagPopwindow(getActivity(),lp,w,null);
+                shopPopuWindow = new TagPopwindow(getActivity(), lp, w, null);
                 shopPopuWindow.showAsDropDown(ll);
                 break;
 
@@ -119,19 +145,43 @@ public class NearApplerFragment extends BaseFragment {
 
     @Override
     public void initView(View view) {
-        mAdapter = new AppliAdapter(getActivity(), mDatas);
-        grideview.setAdapter(mAdapter);
 
+        rvList.setLayoutManager(new GridLayoutManager(getApplication(), 3));
+        rvList.addItemDecoration(new DividerApplerItemDecoration(getApplication()));
+        mAdapter = new HomeNearApplerAdapter(R.layout.apply_grid_item, mDatas);
+
+//        companyGridAdapter.addHeaderView(getListViewHeadView());
+        mAdapter.setLoadMoreView(new SimpleLoadMoreView());
+        rvList.setAdapter(mAdapter);
+
+        mSwipeRefreshLayout.setColorSchemeColors(Color.rgb(47, 223, 189));
+        mSwipeRefreshLayout.setRefreshing(true);
         tvJuli.setOnClickListener(this);
         tvJob.setOnClickListener(this);
         tvMore.setOnClickListener(this);
+
+        mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                UIHelper.showCompanyActivity(getActivity());
+            }
+        });
+        mAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
+            @Override
+            public void onLoadMoreRequested() {
+                mSwipeRefreshLayout.setRefreshing(false);
+                mCurrentPage++;
+                initData();
+
+            }
+        });
 
     }
 
     @Override
     public void initData() {
 
-        mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
+//        mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
         AsyncHttpApi.getNewsLists(mCurrentPage, mHandler, TYPE);
     }
 
@@ -149,6 +199,13 @@ public class NearApplerFragment extends BaseFragment {
 //                    onRefreshNetworkSuccess();
 //                }
             executeParserTask(responseBytes);
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+
+                    mAdapter.loadMoreComplete();
+                }
+            }, 500);
 //            } else {
 //                executeOnLoadDataError("");
 //            }
@@ -163,6 +220,14 @@ public class NearApplerFragment extends BaseFragment {
 //            } else {
 //                executeOnLoadDataError("");
 //            }
+            Toast.makeText(getApplication(),"加载失败",Toast.LENGTH_SHORT).show();
+            if (mCurrentPage>=2) {
+//                companyGridAdapter.noti
+                mAdapter.loadMoreFail();
+//                companyGridAdapter.loadMoreComplete();
+//                companyGridAdapter.loadMoreEnd();
+            }
+
         }
     };
 
@@ -272,11 +337,16 @@ public class NearApplerFragment extends BaseFragment {
 //        if (data == null) {
 //            data = new ArrayList<T>();
 //        }
-        LogUtils.d("List<NewsResult.NewsBean>  = " + data.toString());
-        mDatas.clear();
-        mDatas.addAll(data);
-        mAdapter.notifyDataSetChanged();
-        if (mErrorLayout!=null) {
+        if (mSwipeRefreshLayout!=null) {
+            mSwipeRefreshLayout.setRefreshing(false);
+        }
+        mAdapter.setEnableLoadMore(true);
+        if (mCurrentPage == 1) {
+            mDatas.clear();
+        }
+        mAdapter.addData(data);
+
+        if (mErrorLayout != null) {
             mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
         }
 //        if (mCurrentPage == 1) {

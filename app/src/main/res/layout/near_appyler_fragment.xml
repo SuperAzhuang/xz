@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.xiaozhao.fragment.CompanyFragment">
 
     <LinearLayout
         android:id="@+id/ll"
@@ -60,7 +61,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/space_2"
                 android:src="@mipmap/jiantou_down" />
-
         </LinearLayout>
 
         <LinearLayout
@@ -95,34 +95,43 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/framelayuot">
 
-        <ScrollView
+        <!--      <android.support.v4.widget.SwipeRefreshLayout
+                  android:id="@+id/swiperefreshlayout"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+
+                  android:visibility="visible" >
+
+                  <GridView
+                      android:id="@+id/grideview"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:background="@color/window_background"
+                      android:divider="@color/gray"
+                      android:dividerHeight="@dimen/space_1"
+                      android:listSelector="@android:color/transparent"
+                      android:scrollbars="none"
+                      android:numColumns="2"
+                      android:scrollingCache="true" />
+              </android.support.v4.widget.SwipeRefreshLayout>
+      -->
+
+
+
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipeLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fillViewport="true"
-            android:padding="@dimen/space_4"
-            android:scrollbars="none">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
 
-            <LinearLayout
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_list"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="match_parent"/>
+        </android.support.v4.widget.SwipeRefreshLayout>
 
-                <com.xiaozhao.view.MyGridView
-                    android:id="@+id/grideview"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/window_background"
-                    android:divider="@color/gray"
-                    android:dividerHeight="@dimen/space_1"
-                    android:horizontalSpacing="4dp"
-                    android:verticalSpacing="4dp"
-                    android:listSelector="@android:color/transparent"
-                    android:scrollbars="none"
-                    android:numColumns="3"
-                    android:scrollingCache="true" />
-
-            </LinearLayout>
-        </ScrollView>
 
         <com.xiaozhao.view.EmptyLayout
             android:id="@+id/error_layout"
