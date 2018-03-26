@@ -81,7 +81,7 @@ public class SplashActivity extends BaseActivity {
 
 
     private void startImagAnimator() {
-        animator = ObjectAnimator.ofFloat(startImg, "alpha", 0.2f, 1f).setDuration(3000);
+        animator = ObjectAnimator.ofFloat(startImg, "alpha", 0.2f, 1f).setDuration(500);
 
         animator.addListener(new Animator.AnimatorListener() {
 

@@ -22,6 +22,9 @@ import com.nostra13.universalimageloader.cache.memory.impl.UsingFreqLimitedMemor
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.Logger;
+import com.xiaozhao.BuildConfig;
 import com.xiaozhao.R;
 import com.xiaozhao.http.ApiHttpClient;
 import com.xiaozhao.utils.StringUtils;
@@ -53,6 +56,13 @@ public class BaseApplication extends LitePalApplication {
         _context = getApplicationContext();
         _resource = _context.getResources();
         init();
+        Logger.addLogAdapter(new AndroidLogAdapter());
+
+        Logger.addLogAdapter(new AndroidLogAdapter() {
+            @Override public boolean isLoggable(int priority, String tag) {
+                return BuildConfig.DEBUG;
+            }
+        });
     }
 
     private void init() {

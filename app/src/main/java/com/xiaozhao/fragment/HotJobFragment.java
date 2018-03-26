@@ -49,7 +49,7 @@ public class HotJobFragment extends BaseFragment {
         LinearLayoutManager mLayoutManager = (LinearLayoutManager) new LinearLayoutManager(getActivity());
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
+//        recyclerView.addItemDecoration(new DividerItemDecoration(getApplication()));
 
     }
 

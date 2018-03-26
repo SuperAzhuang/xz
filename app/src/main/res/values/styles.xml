@@ -12,6 +12,7 @@
         <!--     <item name="android:windowFullscreen">true</item>-->
         <item name="android:windowContentOverlay">@null</item>
         <item name="colorPrimaryDark">@color/colorPrimary</item>
+
     </style>
     <!-- viewpage文本  滑动标签标题 -->
     <style name="viewpage_slidingTabTitle">

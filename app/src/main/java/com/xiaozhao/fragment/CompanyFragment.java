@@ -1,9 +1,14 @@
 package com.xiaozhao.fragment;
 
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,10 +25,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.loadmore.SimpleLoadMoreView;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.orhanobut.logger.Logger;
 import com.xiaozhao.R;
 import com.xiaozhao.activity.MainActivity;
 import com.xiaozhao.adapter.CompanyGridAdapter;
+import com.xiaozhao.adapter.HomeCompanyAdapter;
 import com.xiaozhao.base.BaseFragment;
 import com.xiaozhao.bean.NewsResult;
 import com.xiaozhao.http.AsyncHttpApi;
@@ -39,6 +48,7 @@ import com.youth.banner.listener.OnBannerListener;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import  com.xiaozhao.manager.DividerItemDecoration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,6 +56,10 @@ import java.util.Map;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cz.msebera.android.httpclient.Header;
+
+import static com.orhanobut.logger.Logger.json;
+import static com.orhanobut.logger.Logger.t;
+import static com.xiaozhao.R.id.recyclerView;
 
 
 /**
@@ -59,12 +73,8 @@ public class CompanyFragment extends BaseFragment {
     TextView tvCompany;
     @InjectView(R.id.tvMore)
     TextView tvMore;
-    @InjectView(R.id.ll)
-    LinearLayout ll;
-    @InjectView(R.id.banner)
-    Banner banner;
-    @InjectView(R.id.grideview)
-    MyGridView grideview;
+    @InjectView(R.id.rv_list)
+    RecyclerView grideview;
     @InjectView(R.id.error_layout)
     EmptyLayout mErrorLayout;
     @InjectView(R.id.ivJuli)
@@ -75,6 +85,10 @@ public class CompanyFragment extends BaseFragment {
     ImageView ivMore;
     @InjectView(R.id.llJuli)
     LinearLayout llJuli;
+    @InjectView(R.id.ll)
+    LinearLayout ll;
+    @InjectView(R.id.swipeLayout)
+    SwipeRefreshLayout mSwipeRefreshLayout;
     private ParserTask mParserTask;
     private List<NewsResult.NewsBean> list;
     private List<NewsResult.NewsBean> mDatas = new ArrayList<>();
@@ -85,10 +99,30 @@ public class CompanyFragment extends BaseFragment {
     private String TYPE = Url.QUANGANGXINWEN;
     private ArrayList<String> mImageLists = new ArrayList<>();
     private ArrayList<String> mTitleLists = new ArrayList<>();
-    private CompanyGridAdapter companyGridAdapter;
+    private BaseQuickAdapter companyGridAdapter;
     private TagPopwindow shopPopuWindow;
     private WindowManager.LayoutParams lp;
     private Window w;
+    private String LogTag = CompanyFragment.class.getName();
+    private Banner banner;
+
+    /**
+     * 轮播图头布局添加到Listview的头
+     */
+    public View getListViewHeadView() {
+//        轮播图头布局添加到Listview的头
+
+        View view = LayoutInflater.from(getActivity()).inflate(R.layout.news_banner, null);
+        banner = view.findViewById(R.id.banner);
+        banner.setOnBannerListener(new OnBannerListener() {
+            @Override
+            public void OnBannerClick(int position) {
+                UIHelper.showCompanyActivity(getActivity());
+            }
+        });
+//        LogUtils.d("getListViewHeadView = " + view);  181,181,181
+        return view;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -96,7 +130,21 @@ public class CompanyFragment extends BaseFragment {
         ButterKnife.inject(this, view);
         lp = getActivity().getWindow().getAttributes();
         w = getActivity().getWindow();
+        mSwipeRefreshLayout.setColorSchemeColors(Color.rgb(47, 223, 189));
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refresh();
+            }
+        });
         return view;
+    }
+
+    private void refresh() {
+        mCurrentPage = 1;
+        companyGridAdapter.setEnableLoadMore(false);//这里的作用是防止下拉刷新的时候还可以上拉加载
+        initData();
+
     }
 
     @Override
@@ -136,29 +184,42 @@ public class CompanyFragment extends BaseFragment {
 
     @Override
     public void initView(View view) {
-        companyGridAdapter = new CompanyGridAdapter(getActivity(), mDatas);
+
+        grideview.setLayoutManager(new GridLayoutManager(getApplication(), 2));
+        grideview.addItemDecoration(new DividerItemDecoration(getApplication()));
+        companyGridAdapter = new HomeCompanyAdapter(R.layout.company_grid_item, mDatas);
+
+        companyGridAdapter.addHeaderView(getListViewHeadView());
+        companyGridAdapter.setLoadMoreView(new SimpleLoadMoreView());
         grideview.setAdapter(companyGridAdapter);
+
+        mSwipeRefreshLayout.setColorSchemeColors(Color.rgb(47, 223, 189));
+        mSwipeRefreshLayout.setRefreshing(true);
+
         tvJuli.setOnClickListener(this);
         tvCompany.setOnClickListener(this);
         tvMore.setOnClickListener(this);
-        grideview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        companyGridAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 UIHelper.showCompanyActivity(getActivity());
             }
         });
-        banner.setOnBannerListener(new OnBannerListener() {
+        companyGridAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
             @Override
-            public void OnBannerClick(int position) {
-                UIHelper.showCompanyActivity(getActivity());
+            public void onLoadMoreRequested() {
+                mSwipeRefreshLayout.setRefreshing(false);
+                mCurrentPage++;
+                initData();
+
             }
         });
+
     }
 
     @Override
     public void initData() {
-
-        mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
+//        mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
         AsyncHttpApi.getNewsLists(mCurrentPage, mHandler, TYPE);
     }
 
@@ -176,6 +237,14 @@ public class CompanyFragment extends BaseFragment {
 //                    onRefreshNetworkSuccess();
 //                }
             executeParserTask(responseBytes);
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+
+                    companyGridAdapter.loadMoreComplete();
+                }
+            }, 500);
+
 //            } else {
 //                executeOnLoadDataError("");
 //            }
@@ -190,6 +259,13 @@ public class CompanyFragment extends BaseFragment {
 //            } else {
 //                executeOnLoadDataError("");
 //            }
+            Toast.makeText(getApplication(),"加载失败",Toast.LENGTH_SHORT).show();
+            if (mCurrentPage>=2) {
+//                companyGridAdapter.noti
+                companyGridAdapter.loadMoreFail();
+//                companyGridAdapter.loadMoreComplete();
+//                companyGridAdapter.loadMoreEnd();
+            }
         }
     };
 
@@ -227,6 +303,9 @@ public class CompanyFragment extends BaseFragment {
         @Override
         protected String doInBackground(Void... params) {
             String is = new String(reponseData);
+
+            Logger.t(CompanyFragment.class.getName()).d("debug");
+            Logger.t(LogTag).json(is);
             // try {
             // // new
             try {
@@ -314,10 +393,28 @@ public class CompanyFragment extends BaseFragment {
 //            data = new ArrayList<T>();
 //        }
         LogUtils.d("List<NewsResult.NewsBean>  = " + data.toString());
-        mDatas.clear();
-        mDatas.addAll(data);
-        companyGridAdapter.notifyDataSetChanged();
-        if (mErrorLayout!=null) {
+        mSwipeRefreshLayout.setRefreshing(false);
+        companyGridAdapter.setEnableLoadMore(true);
+
+        if (mCurrentPage == 1) {
+            mDatas.clear();
+//            companyGridAdapter.addData(data);
+        } else if (mCurrentPage == 2) {
+//            companyGridAdapter.loadMoreFail();
+//            companyGridAdapter.setEnableLoadMore(false);
+        } else {
+
+        }
+
+        companyGridAdapter.addData(data);
+
+//        companyGridAdapter.no
+//        companyGridAdapter.setNewData(mDatas);
+
+
+
+//        grideview.setAdapter(companyGridAdapter);
+        if (mErrorLayout != null) {
             mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
         }
 //        if (mCurrentPage == 1) {
