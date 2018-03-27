@@ -2,16 +2,22 @@ package com.xiaozhao.activity;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.tencent.TIMCallBack;
+import com.tencent.TIMManager;
+import com.tencent.TIMUser;
 import com.xiaozhao.R;
 import com.xiaozhao.adapter.SplashAdapter;
 import com.xiaozhao.base.BaseActivity;
 import com.xiaozhao.base.BaseApplication;
+import com.xiaozhao.im.ConstantValues;
+import com.xiaozhao.im.SpUtil;
 import com.xiaozhao.manager.Constant;
 import com.xiaozhao.utils.UIHelper;
 
@@ -40,7 +46,35 @@ public class SplashActivity extends BaseActivity {
                     // 跳转的主页
                     redirectTo();
                 } else {
-                    UIHelper.showLoginActivity(SplashActivity.this);
+//                    UIHelper.showLoginActivity(SplashActivity.this);
+
+//im集成逻辑
+                    TIMUser user = new TIMUser();
+                    user.setAppIdAt3rd(String.valueOf(ConstantValues.SDK_APP_ID));
+                    user.setIdentifier(SpUtil.getString(ConstantValues.LOGIN_IDENTIFIER, ""));
+                    user.setAccountType(String.valueOf(ConstantValues.ACCOUNT_TYPE));
+                    TIMManager.getInstance().login((int) ConstantValues.SDK_APP_ID,
+                            user, SpUtil.getString(ConstantValues.LOGIN_SIG, ""), new TIMCallBack() {
+                                @Override
+                                public void onError(int i, final String s) {
+//                                    mObservable.onNext(s);
+//                                    mRx = loginFail;
+//                                    登入失败，跳转登入界面
+                                    UIHelper.showLoginActivity(SplashActivity.this);
+                                }
+
+                                @Override
+                                public void onSuccess() {
+//                                    ContactModel contactModel = new ContactModel();
+//                                    contactModel.getFriendList();
+//                                    mObservable.onNext("success");
+//                                    mRx = loginSuccess;
+//                                    登入成功，跳转主页面
+                                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                                }
+                            });
+
+
                 }
                 finish();
             }

@@ -1,6 +1,7 @@
 package com.xiaozhao.activity;
 
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.xiaozhao.R;
 import com.xiaozhao.base.BaseActivity;
+import com.xiaozhao.im.mvp.LoginMVP;
 import com.xiaozhao.utils.UIHelper;
 
 import butterknife.ButterKnife;
@@ -32,6 +34,9 @@ public class LoginActivity extends BaseActivity {
     TextView tvThird;
     @InjectView(R.id.ll)
     LinearLayout ll;
+    private LoginMVP.Presenter presenter;
+    private static final String TAG = "LoginActivity";
+    private AlertDialog dialog;
 
     @Override
     public void onClick(View view) {
@@ -52,6 +57,7 @@ public class LoginActivity extends BaseActivity {
     public void initView() {
         btLogin.setOnClickListener(this);
         ivRegist.setOnClickListener(this);
+
     }
 
     @Override

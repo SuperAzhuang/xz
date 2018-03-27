@@ -73,11 +73,13 @@
                 android:inputType="textPassword" />
 
             <ImageView
+                android:id="@+id/ivGetCode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/space_20"
                 android:layout_toRightOf="@id/etCheckCode"
+                android:onClick="true"
                 android:background="@mipmap/checkcode" />
         </RelativeLayout>
 

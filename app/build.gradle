@@ -66,5 +66,13 @@ dependencies {
     compile 'com.ms-square:expandableTextView:0.1.4'
     compile 'com.orhanobut:logger:2.1.1'
     compile 'com.yanyusong.y_divideritemdecoration:y_divideritemdecoration:2.0'
-//    compile project(':baseRecyclerAdpterHelperLib')
+    //    compile project(':baseRecyclerAdpterHelperLib')
+    compile files('libs/bugly_1.3.0_imsdk_release.jar')
+    compile files('libs/imsdk.jar')
+    compile files('libs/mobilepb.jar')
+    compile files('libs/open_sdk_r5781.jar')
+    compile files('libs/qalsdk.jar')
+    compile files('libs/soload.jar')
+    compile files('libs/tls_sdk.jar')
+    compile files('libs/wup-1.0.0-SNAPSHOT.jar')
 }

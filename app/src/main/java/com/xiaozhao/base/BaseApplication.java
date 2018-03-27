@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.res.Resources;
@@ -24,9 +25,11 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
+import com.tencent.TIMManager;
 import com.xiaozhao.BuildConfig;
 import com.xiaozhao.R;
 import com.xiaozhao.http.ApiHttpClient;
+import com.xiaozhao.im.MyService;
 import com.xiaozhao.utils.StringUtils;
 
 import org.litepal.LitePalApplication;
@@ -55,6 +58,10 @@ public class BaseApplication extends LitePalApplication {
         super.onCreate();
         _context = getApplicationContext();
         _resource = _context.getResources();
+
+        TIMManager.getInstance().init(getApplicationContext());
+        startService(new Intent(this, MyService.class));
+
         init();
         Logger.addLogAdapter(new AndroidLogAdapter());
 
@@ -72,6 +79,10 @@ public class BaseApplication extends LitePalApplication {
 
         initImageLoad();
 
+    }
+
+    public static Context getContext() {
+        return _context;
     }
 
     private void initImageLoad() {
