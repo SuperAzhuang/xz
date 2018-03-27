@@ -66,5 +66,4 @@ dependencies {
     compile 'com.ms-square:expandableTextView:0.1.4'
     compile 'com.orhanobut:logger:2.1.1'
     compile 'com.yanyusong.y_divideritemdecoration:y_divideritemdecoration:2.0'
-//    compile project(':baseRecyclerAdpterHelperLib')
 }

@@ -2,7 +2,6 @@ package com.xiaozhao.activity;
 
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,9 +17,7 @@ import com.xiaozhao.base.MainTab;
 import com.xiaozhao.utils.TDevice;
 import com.xiaozhao.utils.UIHelper;
 import com.xiaozhao.widget.MyFragmentTabHost;
-import com.xiaozhao.zxing.activity.CaptureActivity;
 
-import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 public class MainActivity extends BaseActivity implements TabHost.OnTabChangeListener {

@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.res.Resources;
 import android.os.Build;
+import android.os.Environment;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -24,12 +25,17 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
+import com.tencent.imsdk.TIMLogLevel;
+import com.tencent.imsdk.TIMManager;
+import com.tencent.imsdk.TIMSdkConfig;
 import com.xiaozhao.BuildConfig;
 import com.xiaozhao.R;
 import com.xiaozhao.http.ApiHttpClient;
+import com.xiaozhao.manager.Constant;
 import com.xiaozhao.utils.StringUtils;
 
 import org.litepal.LitePalApplication;
+
 
 //LitePalApplication数据库配置
 @SuppressLint("InflateParams")
@@ -63,6 +69,15 @@ public class BaseApplication extends LitePalApplication {
                 return BuildConfig.DEBUG;
             }
         });
+
+        //初始化SDK基本配置
+        TIMSdkConfig config = new TIMSdkConfig(Constant.SDK_APPID)
+                .enableCrashReport(false).enableLogPrint(true)
+                .setLogLevel(TIMLogLevel.DEBUG)
+                .setLogPath(Environment.getExternalStorageDirectory().getPath() + "/justfortest/");
+
+//初始化SDK
+        TIMManager.getInstance().init(getApplicationContext(), config);
     }
 
     private void init() {

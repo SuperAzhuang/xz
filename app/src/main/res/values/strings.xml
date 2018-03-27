@@ -47,4 +47,16 @@
     <string name="permissions_camera_error">相机无法完成初始化,请正确授权。</string>
     <string name="str_request_camera_message">请求获取相机权限</string>
 
+    <!-- time -->
+    <string name="time_yesterday">昨天</string>
+    <string name="time_day">日</string>
+    <string name="time_month">月</string>
+    <string name="time_year">年</string>
+    <string name="time_more">99+</string>
+
+    <!-- message -->
+    <string name="summary_image">[图片]</string>
+    <string name="summary_voice">[语音]</string>
+    <string name="summary_video">[小视频]</string>
+    <string name="summary_file">[文件]</string>
 </resources>

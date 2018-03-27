@@ -9,12 +9,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.xiaozhao.R;
 import com.xiaozhao.base.BaseActivity;
 import com.xiaozhao.utils.UIHelper;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+
+
 
 public class RegistActivity extends BaseActivity {
 
@@ -37,6 +38,7 @@ public class RegistActivity extends BaseActivity {
     Button btregist;
     @InjectView(R.id.activity_regist)
     LinearLayout activityRegist;
+//    private TLSService tlsService;
 
     @Override
     public void onClick(View view) {
@@ -51,7 +53,11 @@ public class RegistActivity extends BaseActivity {
 
     @Override
     public void initView() {
+
+//        tlsService = TLSService.getInstance();
+//        tlsService.initSmsRegisterService(this, etCountryCode, etAccount, etCheckCode, btn_requireCheckCode_hostRegister, btregist);
         btregist.setOnClickListener(this);
+
     }
 
     @Override
