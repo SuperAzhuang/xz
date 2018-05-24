@@ -47,6 +47,32 @@
     <string name="permissions_camera_error">相机无法完成初始化,请正确授权。</string>
     <string name="str_request_camera_message">请求获取相机权限</string>
 
+
+    <!--复用 腾讯云im的demo 的属性-->
+    <string name="chat_up_finger">手指上滑，取消发送</string>
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    <string name="chat_press_talk">按住说话</string>
+    <string name="chat_release_send">松开结束</string>
+    <string name="chat_release_cancel">松开取消</string>
+    <string name="chat_cancel_send">上划取消</string>
+    <string name="chat_image">图片</string>
+    <string name="chat_file">文件</string>
+    <string name="chat_photo">拍摄</string>
+    <string name="chat_video">小视频</string>
+    <string name="chat_audio_too_short">录音过短，请重试</string>
+    <string name="chat_video_too_short">录制过短，请重试</string>
+    <string name="chat_resend">重新发送</string>
+    <string name="chat_del">删除</string>
+    <string name="chat_save">保存</string>
+    <string name="chat_file_too_large">文件过大，发送失败</string>
+    <string name="chat_file_not_exist">文件不存在，发送失败</string>
+    <string name="chat_image_preview_title">图片预览</string>
+    <string name="chat_image_preview_send">发送</string>
+    <string name="chat_image_preview_load_err">图片加载失败</string>
+    <string name="chat_image_preview_ori">原图发送</string>
+
+
     <!-- time -->
     <string name="time_yesterday">昨天</string>
     <string name="time_day">日</string>
@@ -59,4 +85,27 @@
     <string name="summary_voice">[语音]</string>
     <string name="summary_video">[小视频]</string>
     <string name="summary_file">[文件]</string>
+    <string name="title_activity_group_chat_setting">GroupChatSettingActivity</string>
+    <string name="login_regist">登录/注册</string>
+    <string name="setting">设置</string>
+    <string name="mine_guanzhu">我的关注</string>
+    <string name="mine_fabu">我的发布</string>
+    <string name="mine_jianli">我的简历</string>
+    <string name="mine_qiye">企业信息</string>
+    <string name="mine_fhuiyuan">会员中心</string>
+    <string name="save">保存</string>
+    <string name="mine_info">个人信息</string>
+    <string name="info_nicheng">昵称</string>
+    <string name="info_name">姓名</string>
+    <string name="info_inputnicheng">请输入昵称</string>
+    <string name="info_inputname">请输入姓名</string>
+    <string name="info_xingbie">性别</string>
+    <string name="info_nianling">年龄</string>
+    <string name="info_phpne">电话</string>
+    <string name="info_inputphone">请输入电话</string>
+    <string name="setting_news">消息提醒</string>
+    <string name="setting_dingwei">定位</string>
+    <string name="setting_huancun">清理缓存</string>
+    <string name="setting_yijian">意见反馈</string>
+    <string name="setting_gaunyu">关于</string>
 </resources>

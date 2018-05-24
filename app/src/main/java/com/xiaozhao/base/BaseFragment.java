@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.xiaozhao.R;
+import com.xiaozhao.activity.MainActivity;
 import com.xiaozhao.inter.BaseFragmentInterface;
 import com.xiaozhao.inter.DialogControl;
 import com.xiaozhao.view.WaitDialog;
@@ -34,6 +35,9 @@ public abstract class BaseFragment extends Fragment implements BaseFragmentInter
         return (BaseApplication) getActivity().getApplication();
     }
 
+    public MainActivity getMAinActivity() {
+        return (MainActivity) getActivity();
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

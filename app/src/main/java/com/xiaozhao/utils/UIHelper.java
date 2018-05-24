@@ -3,6 +3,7 @@ package com.xiaozhao.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
@@ -15,7 +16,9 @@ import com.xiaozhao.activity.LoginActivity;
 import com.xiaozhao.activity.MainActivity;
 import com.xiaozhao.activity.RegistActivity;
 import com.xiaozhao.activity.SearchActivity;
+import com.xiaozhao.activity.SimpleBackActivity;
 import com.xiaozhao.activity.SplashActivity;
+import com.xiaozhao.bean.SimpleBackPage;
 import com.xiaozhao.http.GlideImageLoader;
 import com.xiaozhao.zxing.activity.CaptureActivity;
 import com.youth.banner.Banner;
@@ -124,6 +127,12 @@ public class UIHelper {
 
     public static void showCaptureActivity(Context context) {
         Intent intent = new Intent(context, CaptureActivity.class);
+        context.startActivity(intent);
+    }
+    public static void showSimpleBack(Context context, SimpleBackPage page, Bundle args) {
+        Intent intent = new Intent(context, SimpleBackActivity.class);
+        intent.putExtra(SimpleBackActivity.BUNDLE_KEY_ARGS, args);
+        intent.putExtra(SimpleBackActivity.BUNDLE_KEY_PAGE, page.getValue());
         context.startActivity(intent);
     }
 }

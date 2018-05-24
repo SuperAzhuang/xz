@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@mipmap/home_toolbar_background">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="@dimen/dp_10"
+            android:text="@string/save"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_14" />
+
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/space_8"
+            android:layout_marginTop="@dimen/dp_4"
+            android:padding="@dimen/space_6"
+            android:src="@mipmap/back" />
+
+        <TextView
+            android:id="@+id/tvLoginRegist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/space_4"
+            android:padding="@dimen/space_2"
+            android:text="@string/mine_info"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_16" />
+
+        <ImageView
+            android:id="@+id/ivHeader"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_below="@id/tvLoginRegist"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/space_6"
+            android:src="@mipmap/person_header" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@id/ivHeader"
+            android:layout_marginLeft="@dimen/space_8"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dp_4"
+            android:text="@string/info_nicheng"
+            android:textColor="@color/text_dark"
+            android:textSize="@dimen/sp_14" />
+
+        <EditText
+            android:id="@+id/etNicheng"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/dp_10"
+            android:hint="@string/info_inputnicheng"
+            android:textSize="@dimen/text_size_12" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/light_gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@id/ivHeader"
+            android:layout_marginLeft="@dimen/space_8"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dp_4"
+            android:text="@string/info_name"
+            android:textColor="@color/text_dark"
+            android:textSize="@dimen/sp_14" />
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/dp_10"
+            android:hint="@string/info_inputname"
+            android:textSize="@dimen/text_size_12" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/light_gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@id/ivHeader"
+            android:layout_marginLeft="@dimen/space_8"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dp_4"
+            android:text="@string/info_xingbie"
+            android:textColor="@color/text_dark"
+            android:textSize="@dimen/sp_14" />
+
+        <TextView
+            android:id="@+id/tvSex"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/space_10"
+            android:gravity="center_vertical"
+            android:text="男" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_4"
+            android:layout_marginRight="@dimen/dp_10"
+            android:src="@mipmap/mine_right" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/light_gray" />
+
+    <LinearLayout
+        android:id="@+id/llqiye"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@id/ivHeader"
+            android:layout_marginLeft="@dimen/space_8"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dp_4"
+            android:text="@string/info_nianling"
+            android:textColor="@color/text_dark"
+            android:textSize="@dimen/sp_14" />
+
+        <TextView
+            android:id="@+id/tvNianling"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/space_10"
+            android:gravity="center_vertical"
+            android:text="28" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_4"
+            android:layout_marginRight="@dimen/dp_10"
+            android:src="@mipmap/mine_right" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/light_gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@id/ivHeader"
+            android:layout_marginLeft="@dimen/space_8"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dp_4"
+            android:text="@string/info_phpne"
+            android:textColor="@color/text_dark"
+            android:textSize="@dimen/sp_14" />
+
+        <EditText
+            android:id="@+id/etPhone"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/dp_10"
+            android:hint="@string/info_inputphone"
+            android:textSize="@dimen/text_size_12" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/light_gray" />
+</LinearLayout>

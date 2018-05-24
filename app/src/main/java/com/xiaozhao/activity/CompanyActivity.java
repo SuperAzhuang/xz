@@ -57,13 +57,14 @@ public class CompanyActivity extends BaseActivity {
     TextView txtCollect;
     @InjectView(R.id.tab_menu)
     LinearLayout tabMenu;
-    View views[] = {txtDianhua, txtJob, txtNews, txtCollect};
+
     @InjectView(R.id.tvCompany)
     TextView tvCompany;
     private String[] strs = {"服务员", "清洁工", "收银", "岛国", "数码", "电脑办公",
             "个护化妆", "图书", "图书", "图书", "图书", "图书", "图书"};
     private ParserTask mParserTask;
     private int positon = 0;
+    private View[] views;
 
     @Override
     public void onClick(View view) {
@@ -71,20 +72,26 @@ public class CompanyActivity extends BaseActivity {
         switch (view.getId()) {
             case R.id.txtDianhua:
                 positon = 0;
+
+                initViewChange(positon);
                 break;
             case R.id.txtJob:
                 positon = 1;
+                initViewChange(positon);
                 break;
             case R.id.txtNews:
                 positon = 2;
+                initViewChange(positon);
                 break;
             case R.id.txtCollect:
                 positon = 3;
+                initViewChange(positon);
                 break;
             case R.id.ivBack:
                 finish();
                 break;
             case R.id.tvCompany:
+
                 CompanyInfoDetailFragment companyInfoDetailFragment = new CompanyInfoDetailFragment();
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager()
                         .beginTransaction();
@@ -99,9 +106,21 @@ public class CompanyActivity extends BaseActivity {
 
     }
 
+    private void initViewChange(int positon) {
+        for (int i = 0; i < views.length; i++) {
+            if (positon == i) {
+                views[i].setSelected(true);
+            } else {
+                views[i].setSelected(false);
+            }
+
+        }
+    }
+
     @Override
     public void initView() {
 
+        views = new View[]{txtDianhua, txtJob, txtNews, txtCollect};
         ivBack.setOnClickListener(this);
         tvTitle.setText("公司信息");
         txtDianhua.setOnClickListener(this);
@@ -109,6 +128,7 @@ public class CompanyActivity extends BaseActivity {
         txtNews.setOnClickListener(this);
         tabMenu.setOnClickListener(this);
         tvCompany.setOnClickListener(this);
+
     }
 
     @Override

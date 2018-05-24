@@ -70,7 +70,6 @@ public class NewsListFragment extends BaseListFragment<NewsResult.NewsBean> {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.news_banner, null);
         banner = view.findViewById(R.id.banner);
 
-//        LogUtils.d("getListViewHeadView = " + view);
         return view;
     }
 
@@ -83,15 +82,6 @@ public class NewsListFragment extends BaseListFragment<NewsResult.NewsBean> {
 //        if (mCatalog == CATALOG_RECOMMEND)
         AsyncHttpApi.getNewsLists(mCurrentPage, mHandler, TYPE);
 //        loadData(getCommonUrls(TYPE,(index + "")));
-//
-//        if (mCatalog == CATALOG_COMPLETE)
-//            RedDragonflyApi.getLectureList(null, mTag, mCurrentPage, mHandler);
-//
-//        if (mCatalog == CATALOG_MY_LECTURE)
-//            RedDragonflyApi.getMyLectureList(mCurrentPage, mHandler);
-//
-//        if (mCatalog == CATALOG_SEARCH_LECTURE)
-//            search(mSearchText);
     }
 
     @Override

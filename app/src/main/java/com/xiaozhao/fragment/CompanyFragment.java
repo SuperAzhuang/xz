@@ -253,15 +253,8 @@ public class CompanyFragment extends BaseFragment {
 
         @Override
         public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
-//			TLog.log("dudutime", TAG + "请求失败:" + (System.currentTimeMillis() - mCurrentTimeMillis));
-//            if (isAdded()) {
-//                readCacheData(getCacheKey());
-//            } else {
-//                executeOnLoadDataError("");
-//            }
             Toast.makeText(getApplication(),"加载失败",Toast.LENGTH_SHORT).show();
             if (mCurrentPage>=2) {
-//                companyGridAdapter.noti
                 companyGridAdapter.loadMoreFail();
 //                companyGridAdapter.loadMoreComplete();
 //                companyGridAdapter.loadMoreEnd();
@@ -401,31 +394,6 @@ public class CompanyFragment extends BaseFragment {
         if (mErrorLayout != null) {
             mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
         }
-//        if (mCurrentPage == 1) {
-//            mAdapter.clear();
-//        }
-//
-//        int adapterState = ListBaseAdapter.STATE_EMPTY_ITEM;
-//        if ((mAdapter.getCount() + data.size()) == 0) {
-//            adapterState = ListBaseAdapter.STATE_EMPTY_ITEM;
-//        } else if (data.size() == 0 || (data.size() < getPageSize() && mCurrentPage == 1) || (mTotalPage != -1 && mCurrentPage >= mTotalPage)) {
-//            adapterState = ListBaseAdapter.STATE_NO_MORE;
-//            mAdapter.notifyDataSetChanged();
-//        } else {
-//            adapterState = ListBaseAdapter.STATE_LOAD_MORE;
-//        }
-//        mAdapter.setState(adapterState);
-//        mAdapter.addData(data);
-//        // 判断等于是因为最后有一项是listview的状态
-//        if (mAdapter.getCount() == 1) {
-//
-//            if (needShowEmptyNoData()) {
-//                mErrorLayout.setErrorType(EmptyLayout.NODATA);
-//            } else {
-//                mAdapter.setState(ListBaseAdapter.STATE_EMPTY_ITEM);
-//                mAdapter.notifyDataSetChanged();
-//            }
-//        }
     }
 
 

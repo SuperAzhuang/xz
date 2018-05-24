@@ -99,11 +99,11 @@ public class MainActivity extends BaseActivity implements TabHost.OnTabChangeLis
             }
         }
 
-        // if (mTabHost.getCurrentTab() == MainTab.FIRSTTAB.getIdx()) {
-        // mTvLeft.setVisibility(View.VISIBLE);
-        // } else {
-        // mTvLeft.setVisibility(View.GONE);
-        // }
+        if (mTabHost.getCurrentTab() == MainTab.SHENGHOU.getIdx()) {
+            toolbar.setVisibility(View.GONE);
+        } else {
+            toolbar.setVisibility(View.VISIBLE);
+        }
     }
 
     private void initTabs() {

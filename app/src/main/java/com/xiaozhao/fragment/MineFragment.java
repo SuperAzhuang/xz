@@ -1,36 +1,81 @@
 package com.xiaozhao.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.xiaozhao.R;
+import com.xiaozhao.activity.MineInfoActivity;
 import com.xiaozhao.base.BaseFragment;
+import com.xiaozhao.bean.SimpleBackPage;
+import com.xiaozhao.utils.UIHelper;
+
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 
 /**
  * Created by Administrator on 2018/1/26.
  */
 
 public class MineFragment extends BaseFragment {
+
+    @InjectView(R.id.ivHeader)
+    ImageView ivHeader;
+    @InjectView(R.id.tvLoginRegist)
+    TextView tvLoginRegist;
+    @InjectView(R.id.llGuangzhu)
+    LinearLayout llGuangzhu;
+    @InjectView(R.id.llFabu)
+    LinearLayout llFabu;
+    @InjectView(R.id.llJianli)
+    LinearLayout llJianli;
+    @InjectView(R.id.llqiye)
+    LinearLayout llqiye;
+    @InjectView(R.id.llhuiyuan)
+    LinearLayout llhuiyuan;
+    @InjectView(R.id.tvSetting)
+    TextView tvSetting;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.shenghou_fragment, container, false);
+        View view = inflater.inflate(R.layout.mine_fragment, container, false);
+        ButterKnife.inject(this, view);
+
         return view;
     }
 
     @Override
     public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.ivHeader:
+                startActivity(new Intent(getMAinActivity(), MineInfoActivity.class));
+                break;
+            case R.id.tvSetting:
+                UIHelper.showSimpleBack(getMAinActivity(), SimpleBackPage.SETTINGS, null);
+                break;
+        }
 
     }
 
     @Override
     public void initView(View view) {
-
+        ivHeader.setOnClickListener(this);
+        tvSetting.setOnClickListener(this);
     }
 
     @Override
     public void initData() {
 
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.reset(this);
     }
 }

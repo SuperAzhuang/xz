@@ -2,6 +2,7 @@ package com.xiaozhao.activity;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
@@ -38,10 +39,12 @@ public class SplashActivity extends BaseActivity {
             } else {
                 if (mLogin ) {
                     // 跳转的主页
-                    redirectTo();
+//                    redirectTo();
                 } else {
-                    UIHelper.showLoginActivity(SplashActivity.this);
+//                    UIHelper.showLoginActivity(SplashActivity.this);
+
                 }
+                redirectTo();
                 finish();
             }
         }

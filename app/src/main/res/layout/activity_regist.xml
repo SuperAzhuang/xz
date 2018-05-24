@@ -46,7 +46,7 @@
                 android:layout_width="280dp"
                 android:background="@drawable/bg_btn"
                 android:hint="@string/hint_username"
-                android:inputType="textPassword" />
+                android:inputType="number" />
 
             <ImageView
                 android:id="@+id/iv_delete"
@@ -73,11 +73,13 @@
                 android:inputType="textPassword" />
 
             <ImageView
+                android:id="@+id/ivGetCode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/space_20"
                 android:layout_toRightOf="@id/etCheckCode"
+                android:onClick="true"
                 android:background="@mipmap/checkcode" />
         </RelativeLayout>
 
@@ -93,7 +95,8 @@
                 android:layout_width="280dp"
                 android:background="@drawable/bg_btn"
                 android:hint="请输入密码"
-                android:inputType="textPassword" />
+                android:text="cjz123456"
+               />
 
             <ImageView
                 android:layout_width="26dp"
@@ -117,7 +120,8 @@
                 android:layout_width="280dp"
                 android:background="@drawable/bg_btn"
                 android:hint="请再次输入密码"
-                android:inputType="textPassword" />
+                android:text="cjz123456"
+          />
 
             <ImageView
                 android:layout_width="26dp"
