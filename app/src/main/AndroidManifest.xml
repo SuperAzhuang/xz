@@ -79,11 +79,9 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity android:name=".zxing.activity.CaptureActivity" />
-
         <activity
             android:name=".activity.RegistActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".activity.MineInfoActivity"
             android:screenOrientation="portrait" />
@@ -94,6 +92,8 @@
             android:name=".activity.SimpleBackActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity android:name=".activity.CompanyInfoAcitity" />
+        <activity android:name=".activity.MineGuanzhuAcitity"></activity>
     </application>
 
 </manifest>

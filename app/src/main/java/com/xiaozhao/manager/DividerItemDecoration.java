@@ -28,45 +28,47 @@ public class DividerItemDecoration extends Y_DividerItemDecoration {
     @Override
     public Y_Divider getDivider(int itemPosition) {
         Y_Divider divider = null;
-        if (itemPosition == 0) {
-            //每一行第一个显示rignt和bottom
-            divider = new Y_DividerBuilder()
-                    .setRightSideLine(true, 0xA3A3A3, 0, 0, 0)
-                    .setBottomSideLine(true, 0xA3A3A3, 2, 0, 0)
-                    .create();
-        } else {
-            switch (itemPosition % 2) {
-                case 0:
-                    //第二个显示Left和bottom
+        divider = new Y_DividerBuilder()
+                .setBottomSideLine(true, 0xA3A3A3, 2, 0, 0)
+                .create();
+//        if (itemPosition == 0) {
+//            //每一行第一个显示rignt和bottom
+//            divider = new Y_DividerBuilder()
+//                    .setBottomSideLine(true, 0xA3A3A3, 2, 0, 0)
+//                    .create();
+//        } else {
+//            switch (itemPosition % 2) {
+//                case 0:
+//                    //第二个显示Left和bottom
+////                    divider = new Y_DividerBuilder()
+////                            .setRightSideLine(true, 0xff666666, 10, 0, 0)
+////                            .setBottomSideLine(true, 0xff666666, 20, 0, 0)
+////                            .create();
 //                    divider = new Y_DividerBuilder()
-//                            .setRightSideLine(true, 0xff666666, 10, 0, 0)
-//                            .setBottomSideLine(true, 0xff666666, 20, 0, 0)
+//                            .setLeftSideLine(true, 0xA3A3A3, 3, 0, 0)
+//                            .setRightSideLine(true, 0xA3A3A3, 2, 0, 0)
+//                            .setBottomSideLine(true, 0xA3A3A3, 6, 0, 0)
 //                            .create();
-                    divider = new Y_DividerBuilder()
-                            .setLeftSideLine(true, 0xA3A3A3, 3, 0, 0)
-                            .setRightSideLine(true, 0xA3A3A3, 2, 0, 0)
-                            .setBottomSideLine(true, 0xA3A3A3, 6, 0, 0)
-                            .create();
-                    break;
-                case 1:
-
-//                    每一行第一个显示rignt和bottom
+//                    break;
+//                case 1:
+//
+////                    每一行第一个显示rignt和bottom
+////                    divider = new Y_DividerBuilder()
+////                            .setLeftSideLine(true, 0xff666666, 10, 0, 0)
+////                            .setBottomSideLine(true, 0xff666666, 20, 0, 0)
+////                            .create();
 //                    divider = new Y_DividerBuilder()
-//                            .setLeftSideLine(true, 0xff666666, 10, 0, 0)
-//                            .setBottomSideLine(true, 0xff666666, 20, 0, 0)
+//                            .setRightSideLine(true, 0xA3A3A3, 3, 0, 0)
+//                            .setLeftSideLine(true, 0xA3A3A3, 2, 0, 0)
+//                            .setBottomSideLine(true, 0xA3A3A3, 6, 0, 0)
 //                            .create();
-                    divider = new Y_DividerBuilder()
-                            .setRightSideLine(true, 0xA3A3A3, 3, 0, 0)
-                            .setLeftSideLine(true, 0xA3A3A3, 2, 0, 0)
-                            .setBottomSideLine(true, 0xA3A3A3, 6, 0, 0)
-                            .create();
-
-                    break;
-                default:
-                    break;
-            }
-        }
-
+//
+//                    break;
+//                default:
+//                    break;
+//            }
         return divider;
     }
+
+
 }

@@ -6,7 +6,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="160dp"
+
         android:background="@mipmap/home_toolbar_background">
 
         <TextView
@@ -21,10 +22,10 @@
 
         <ImageView
             android:id="@+id/ivHeader"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/space_20"
+            android:layout_marginTop="@dimen/space_40"
             android:src="@mipmap/person_header" />
 
         <TextView
@@ -34,16 +35,17 @@
             android:layout_below="@id/ivHeader"
             android:layout_centerHorizontal="true"
             android:padding="@dimen/dp_4"
+            android:layout_marginTop="@dimen/space_10"
             android:text="@string/login_regist"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_14" />
+            android:textSize="@dimen/sp_16" />
 
     </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/llGuangzhu"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -81,7 +83,7 @@
     <LinearLayout
         android:id="@+id/llFabu"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -119,7 +121,7 @@
     <LinearLayout
         android:id="@+id/llJianli"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -157,7 +159,7 @@
     <LinearLayout
         android:id="@+id/llqiye"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -195,7 +197,7 @@
     <LinearLayout
         android:id="@+id/llhuiyuan"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 

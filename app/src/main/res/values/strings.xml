@@ -90,6 +90,9 @@
     <string name="setting">设置</string>
     <string name="mine_guanzhu">我的关注</string>
     <string name="mine_fabu">我的发布</string>
+    <string name="mine_qiuzhiyixiang">求职意向</string>
+    <string name="mine_jibenxinxi">基本信息</string>
+
     <string name="mine_jianli">我的简历</string>
     <string name="mine_qiye">企业信息</string>
     <string name="mine_fhuiyuan">会员中心</string>
@@ -108,4 +111,24 @@
     <string name="setting_huancun">清理缓存</string>
     <string name="setting_yijian">意见反馈</string>
     <string name="setting_gaunyu">关于</string>
+
+    <string name="company_mingchegn">公司名称</string>
+    <string name="company_hangye">公司行业</string>
+    <string name="company_leixing">公司类型</string>
+    <string name="company_guimo">公司规模</string>
+    <string name="company_huanjing">公司环境</string>
+    <string name="company_dizhi">公司地址</string>
+    <string name="company_jianjie">公司简介</string>
+    <string name="company_yingyezhizhao">营业执照</string>
+    <string name="company_farenshengfen">法人身份证</string>
+    <string name="jianli_jibenxinxi">基本信息</string>
+    <string name="jianli_qiuzhiyixiang">求职意向</string>
+    <string name="jianli_jiaoyubeijing">教育背景</string>
+    <string name="jianli_gongzuojingli">工作经历</string>
+    <string name="jianli_zhuangyejineng">专业技能</string>
+    <string name="mine_jiaoyubeijing">教育背景</string>
+    <string name="mine_gongzuojingli">工作经历</string>
+    <string name="mine_zhuanyejineng">专业技能</string>
+
+
 </resources>

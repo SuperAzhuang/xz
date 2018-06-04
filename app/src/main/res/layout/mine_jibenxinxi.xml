@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@id/ivHeader"
+                android:layout_marginLeft="@dimen/space_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dp_4"
+                android:text="姓名"
+                android:textColor="@color/text_dark"
+                android:textSize="@dimen/sp_14" />
+
+            <EditText
+                android:id="@+id/etNicheng"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/dp_10"
+                android:hint="请输入"
+                android:textSize="@dimen/text_size_12" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@id/ivHeader"
+                android:layout_marginLeft="@dimen/space_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dp_4"
+                android:text="姓别"
+                android:textColor="@color/text_dark"
+                android:textSize="@dimen/sp_14" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_4"
+                android:layout_marginRight="@dimen/dp_10"
+                android:src="@mipmap/mine_right" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@id/ivHeader"
+                android:layout_marginLeft="@dimen/space_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dp_4"
+                android:text="民族"
+                android:textColor="@color/text_dark"
+                android:textSize="@dimen/sp_14" />
+
+            <EditText
+                android:id="@+id/eMinZhu"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/dp_10"
+                android:hint="请输入"
+                android:textSize="@dimen/text_size_12" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@id/ivHeader"
+                android:layout_marginLeft="@dimen/space_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dp_4"
+                android:text="籍贯"
+                android:textColor="@color/text_dark"
+                android:textSize="@dimen/sp_14" />
+
+            <EditText
+                android:id="@+id/etJiGuan"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/dp_10"
+                android:hint="请输入"
+                android:textSize="@dimen/text_size_12" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@id/ivHeader"
+                android:layout_marginLeft="@dimen/space_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dp_4"
+                android:text="生日"
+                android:textColor="@color/text_dark"
+                android:textSize="@dimen/sp_14" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_4"
+                android:layout_marginRight="@dimen/dp_10"
+                android:src="@mipmap/mine_right" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@id/ivHeader"
+                android:layout_marginLeft="@dimen/space_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dp_4"
+                android:text="现居地址"
+                android:textColor="@color/text_dark"
+                android:textSize="@dimen/sp_14" />
+
+
+            <EditText
+                android:id="@+id/etXianJuDizhi"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/dp_10"
+                android:hint="请输入"
+                android:textSize="@dimen/text_size_12" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@id/ivHeader"
+                android:layout_marginLeft="@dimen/space_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dp_4"
+                android:text="户口所在地"
+                android:textColor="@color/text_dark"
+                android:textSize="@dimen/sp_14" />
+
+
+            <EditText
+                android:id="@+id/etHuKou"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/dp_10"
+                android:hint="请输入"
+                android:textSize="@dimen/text_size_12" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@id/ivHeader"
+                android:layout_marginLeft="@dimen/space_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dp_4"
+                android:text="婚姻状况"
+                android:textColor="@color/text_dark"
+                android:textSize="@dimen/sp_14" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_4"
+                android:layout_marginRight="@dimen/dp_10"
+                android:src="@mipmap/mine_right" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@id/ivHeader"
+                android:layout_marginLeft="@dimen/space_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dp_4"
+                android:text="微信"
+                android:textColor="@color/text_dark"
+                android:textSize="@dimen/sp_14" />
+
+            <EditText
+                android:id="@+id/etWeChat"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/dp_10"
+                android:hint="请输入"
+                android:textSize="@dimen/text_size_12" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@id/ivHeader"
+                android:layout_marginLeft="@dimen/space_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dp_4"
+                android:text="邮箱"
+                android:textColor="@color/text_dark"
+                android:textSize="@dimen/sp_14" />
+
+            <EditText
+                android:id="@+id/etMail"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/dp_10"
+                android:hint="请输入"
+                android:textSize="@dimen/text_size_12" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@id/ivHeader"
+                android:layout_marginLeft="@dimen/space_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dp_4"
+                android:text="手机"
+                android:textColor="@color/text_dark"
+                android:textSize="@dimen/sp_14" />
+
+            <EditText
+                android:id="@+id/etPhone"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/dp_10"
+                android:hint="请输入"
+                android:textSize="@dimen/text_size_12" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray" />
+    </LinearLayout>
+</ScrollView>

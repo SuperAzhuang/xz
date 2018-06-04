@@ -2,15 +2,25 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/login_backgroun">
+    android:background="@mipmap/login_bacground">
 
     <EditText
         android:id="@+id/et_account"
         style="@style/item_input_edittext"
         android:layout_centerInParent="true"
         android:background="@drawable/bg_btn"
-        android:hint="@string/hint_username"
-         />
+        android:hint="@string/hint_username" />
+
+    <Button
+        android:id="@+id/btLogin"
+        style="@style/button_common_blue"
+        android:layout_alignLeft="@+id/et_password"
+        android:layout_alignStart="@+id/et_password"
+        android:layout_below="@+id/tvForget"
+        android:layout_marginTop="15dp"
+        android:text="@string/login"
+        android:textColor="@color/white"
+        android:textSize="26sp" />
 
     <EditText
         android:id="@+id/et_password"
@@ -21,62 +31,54 @@
         android:background="@drawable/bg_btn"
         android:hint="@string/hint_password"
         android:inputType="textPassword"
-       />
 
-    <ImageView
-        android:id="@+id/ivForget"
+        />
+
+
+    <TextView
+        android:id="@+id/tvForget"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@id/et_password"
-        android:layout_marginRight="58dp"
+        android:layout_marginRight="50dp"
         android:layout_marginTop="10dp"
-        android:src="@mipmap/login_forget" />
-
-    <Button
-        android:id="@+id/btLogin"
-        style="@style/button_common_blue"
-        android:layout_below="@id/ivForget"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="16dp"
-        android:text="@string/login"
+        android:text="忘记密码"
         android:textColor="@color/white"
-        android:textSize="26sp" />
+        android:textSize="@dimen/text_size_14" />
 
-    <ImageView
-        android:id="@+id/ivRegist"
+
+    <TextView
+        android:id="@+id/tvRegist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/btLogin"
         android:layout_centerInParent="true"
         android:layout_marginTop="20dp"
-        android:src="@mipmap/login_regist" />
-
+        android:text="注册用户"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_14" />
     <TextView
         android:id="@+id/tvThird"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/ivRegist"
+        android:layout_below="@id/tvRegist"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:text="第三方登录"
+        android:visibility="gone"
         android:textColor="#b2b2b2" />
 
-    <View
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_below="@id/tvThird"
-        style="@style/line_divider_1px" />
+
 
     <LinearLayout
-
         android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvThird"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="4dp"
         android:layout_marginLeft="@dimen/space_22"
+        android:layout_marginTop="30dp"
         android:orientation="horizontal">
 
         <ImageView
@@ -99,7 +101,7 @@
             android:layout_below="@id/btLogin"
             android:layout_weight="1"
             android:src="@mipmap/umeng_socialize_alipay" />
-
     </LinearLayout>
+
 
 </RelativeLayout>

@@ -13,6 +13,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:id="@+id/ivBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -31,7 +32,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:background="#4842BF"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -49,7 +51,7 @@
                 android:inputType="number" />
 
             <ImageView
-                android:id="@+id/iv_delete"
+                android:id="@+id/ivPhonedelete"
                 android:layout_width="26dp"
                 android:layout_height="26dp"
                 android:layout_centerVertical="true"
@@ -59,15 +61,15 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/space_10">
 
             <EditText
                 android:id="@+id/etCheckCode"
                 style="@style/item_input_edittext"
-                android:layout_width="240dp"
+                android:layout_width="250dp"
                 android:background="@drawable/bg_btn"
                 android:hint="请输入验证码"
                 android:inputType="textPassword" />
@@ -79,8 +81,8 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/space_20"
                 android:layout_toRightOf="@id/etCheckCode"
-                android:onClick="true"
-                android:background="@mipmap/checkcode" />
+                android:background="@mipmap/checkcode"
+                android:onClick="true" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -95,10 +97,10 @@
                 android:layout_width="280dp"
                 android:background="@drawable/bg_btn"
                 android:hint="请输入密码"
-                android:text="cjz123456"
-               />
+                android:text="" />
 
             <ImageView
+                android:id="@+id/ivPssworDelete"
                 android:layout_width="26dp"
                 android:layout_height="26dp"
                 android:layout_centerVertical="true"
@@ -120,10 +122,10 @@
                 android:layout_width="280dp"
                 android:background="@drawable/bg_btn"
                 android:hint="请再次输入密码"
-                android:text="cjz123456"
-          />
+                android:text="" />
 
             <ImageView
+                android:id="@+id/etAgainPssworDelete"
                 android:layout_width="26dp"
                 android:layout_height="26dp"
                 android:layout_centerVertical="true"
@@ -141,8 +143,11 @@
 
             <CheckBox
                 android:id="@+id/checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:button="@null"
+                android:checked="true"
+                android:background="@drawable/button_login_check" />
 
             <TextView
                 android:id="@+id/tv"
@@ -157,7 +162,7 @@
         <Button
             android:id="@+id/btregist"
             style="@style/button_common_blue"
-            android:layout_below="@id/ivForget"
+
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
             android:text="注册"

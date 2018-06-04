@@ -28,6 +28,7 @@ public class NewsListAdapter extends ListBaseAdapter<NewsResult.NewsBean> {
     private NewsResult.NewsBean mNewBean;
 
     public NewsListAdapter() {
+
     }
 
 

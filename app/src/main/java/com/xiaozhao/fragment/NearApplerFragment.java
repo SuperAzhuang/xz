@@ -89,6 +89,7 @@ public class NearApplerFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.near_appyler_fragment, container, false);
+
         ButterKnife.inject(this, view);
         View parent = getActivity().getWindow().getDecorView();
         lp = getActivity().getWindow().getAttributes();
@@ -98,31 +99,32 @@ public class NearApplerFragment extends BaseFragment {
             @Override
             public void onRefresh() {
                 refresh();
+
             }
         });
         return view;
     }
+
     private void refresh() {
         mCurrentPage = 1;
         mAdapter.setEnableLoadMore(false);//这里的作用是防止下拉刷新的时候还可以上拉加载
         initData();
 
     }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.tvJuli:
 
+            case R.id.tvJuli:
                 break;
 
             case R.id.tvJob:
-
 //                View parent = getActivity().getWindow().getDecorView();
 //                WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
 //                Window w = getActivity().getWindow();
-//
-                shopPopuWindow = new TagPopwindow(getActivity(), lp, w, null);
 
+                shopPopuWindow = new TagPopwindow(getActivity(), lp, w, null);
                 if (shopPopuWindow.isShowing()) {
                     shopPopuWindow.dismiss();
                 }
@@ -169,6 +171,7 @@ public class NearApplerFragment extends BaseFragment {
         mAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
             @Override
             public void onLoadMoreRequested() {
+
                 mSwipeRefreshLayout.setRefreshing(false);
                 mCurrentPage++;
                 initData();
@@ -220,8 +223,8 @@ public class NearApplerFragment extends BaseFragment {
 //            } else {
 //                executeOnLoadDataError("");
 //            }
-            Toast.makeText(getApplication(),"加载失败",Toast.LENGTH_SHORT).show();
-            if (mCurrentPage>=2) {
+            Toast.makeText(getApplication(), "加载失败", Toast.LENGTH_SHORT).show();
+            if (mCurrentPage >= 2) {
 //                companyGridAdapter.noti
                 mAdapter.loadMoreFail();
 //                companyGridAdapter.loadMoreComplete();
@@ -337,7 +340,7 @@ public class NearApplerFragment extends BaseFragment {
 //        if (data == null) {
 //            data = new ArrayList<T>();
 //        }
-        if (mSwipeRefreshLayout!=null) {
+        if (mSwipeRefreshLayout != null) {
             mSwipeRefreshLayout.setRefreshing(false);
         }
         mAdapter.setEnableLoadMore(true);

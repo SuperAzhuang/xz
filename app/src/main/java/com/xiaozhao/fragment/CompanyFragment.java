@@ -54,7 +54,6 @@ import java.util.ArrayList;
 
 import com.xiaozhao.manager.DividerItemDecoration;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -267,7 +266,6 @@ public class CompanyFragment extends BaseFragment {
                 mSwipeRefreshLayout.setRefreshing(false);
                 mCurrentPage++;
                 initData();
-
             }
         });
 
@@ -296,7 +294,6 @@ public class CompanyFragment extends BaseFragment {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-
                     companyGridAdapter.loadMoreComplete();
                 }
             }, 500);
@@ -378,6 +375,7 @@ public class CompanyFragment extends BaseFragment {
 //
 //                String cacheKey = getCacheKey();
 //                if (!TextUtils.isEmpty(cacheKey))
+//                这里去设置缓存
 //                    new BaseListFragment.SaveCacheTask(getActivity(), data, cacheKey).execute();
             } catch (Exception e) {
                 // TODO Auto-generated catch block
