@@ -26,6 +26,8 @@ public class SplashActivity extends BaseActivity {
     ViewPager mPager;
     @InjectView(R.id.iv_start_img)
     ImageView startImg;
+    private ObjectAnimator animator;
+    private boolean mLogin;
 
     private boolean mIsFistStart;
     private SplashAdapter mAdapter;
@@ -41,16 +43,14 @@ public class SplashActivity extends BaseActivity {
                     // 跳转的主页
 //                    redirectTo();
                 } else {
-//                    UIHelper.showLoginActivity(SplashActivity.this);
+                    UIHelper.showLoginActivity(SplashActivity.this);
 
                 }
-                redirectTo();
+//                redirectTo();
                 finish();
             }
         }
     };
-    private ObjectAnimator animator;
-    private boolean mLogin;
 
     @Override
     public void onClick(View view) {

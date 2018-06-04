@@ -48,7 +48,9 @@ import com.youth.banner.listener.OnBannerListener;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import  com.xiaozhao.manager.DividerItemDecoration;
+
+import com.xiaozhao.manager.DividerItemDecoration;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -211,7 +213,6 @@ public class CompanyFragment extends BaseFragment {
                 mSwipeRefreshLayout.setRefreshing(false);
                 mCurrentPage++;
                 initData();
-
             }
         });
 
@@ -240,7 +241,6 @@ public class CompanyFragment extends BaseFragment {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-
                     companyGridAdapter.loadMoreComplete();
                 }
             }, 500);
@@ -253,8 +253,8 @@ public class CompanyFragment extends BaseFragment {
 
         @Override
         public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
-            Toast.makeText(getApplication(),"加载失败",Toast.LENGTH_SHORT).show();
-            if (mCurrentPage>=2) {
+            Toast.makeText(getApplication(), "加载失败", Toast.LENGTH_SHORT).show();
+            if (mCurrentPage >= 2) {
                 companyGridAdapter.loadMoreFail();
 //                companyGridAdapter.loadMoreComplete();
 //                companyGridAdapter.loadMoreEnd();
@@ -322,6 +322,7 @@ public class CompanyFragment extends BaseFragment {
 //
 //                String cacheKey = getCacheKey();
 //                if (!TextUtils.isEmpty(cacheKey))
+//                这里去设置缓存
 //                    new BaseListFragment.SaveCacheTask(getActivity(), data, cacheKey).execute();
             } catch (Exception e) {
                 // TODO Auto-generated catch block
@@ -382,7 +383,7 @@ public class CompanyFragment extends BaseFragment {
     }
 
     protected void executeOnLoadDataSuccess(List<NewsResult.NewsBean> data) {
-        if (mSwipeRefreshLayout!=null) {
+        if (mSwipeRefreshLayout != null) {
             mSwipeRefreshLayout.setRefreshing(false);
         }
         companyGridAdapter.setEnableLoadMore(true);

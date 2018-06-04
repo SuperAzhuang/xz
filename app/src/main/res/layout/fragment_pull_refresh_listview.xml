@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <!-- google 官方下拉刷新 -->
 
@@ -10,19 +10,18 @@
         android:id="@+id/framelayuot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone" >
-    </FrameLayout>
+        android:visibility="gone"></FrameLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/framelayuot" >
+        android:layout_below="@+id/framelayuot">
 
         <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/swiperefreshlayout"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:visibility="visible" >
+            android:visibility="visible">
 
             <ListView
                 android:id="@+id/listview"
@@ -33,7 +32,20 @@
                 android:dividerHeight="@dimen/space_1"
                 android:listSelector="@android:color/transparent"
                 android:scrollbars="none"
+                android:scrollingCache="true"
+                android:visibility="gone" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/mRecyclerView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/window_background"
+                android:divider="@color/gray"
+                android:dividerHeight="@dimen/space_1"
+                android:listSelector="@android:color/transparent"
+                android:scrollbars="none"
                 android:scrollingCache="true" />
+
         </android.support.v4.widget.SwipeRefreshLayout>
 
         <com.xiaozhao.view.EmptyLayout

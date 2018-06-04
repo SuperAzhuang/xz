@@ -34,6 +34,7 @@ public class HomeNearApplerAdapter extends BaseQuickAdapter<NewsResult.NewsBean,
     protected void convert(BaseViewHolder helper, NewsResult.NewsBean item) {
         view = (ImageView) helper.getView(R.id.ivApplyer);
         Logger.t("HomeCompanyAdapter").d("size = "+lists.size());
+
         ImageLoader.getInstance().displayImage(item.getLitpic(),(ImageView) helper.getView(R.id.ivApplyer), ImageLoaderOptions.midOptions, new ImageLoadingListener() {
 
             @Override

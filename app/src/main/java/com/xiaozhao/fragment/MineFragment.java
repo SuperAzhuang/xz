@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.xiaozhao.R;
+import com.xiaozhao.activity.CompanyInfoAcitity;
 import com.xiaozhao.activity.MineInfoActivity;
 import com.xiaozhao.base.BaseFragment;
 import com.xiaozhao.bean.SimpleBackPage;
@@ -17,6 +18,8 @@ import com.xiaozhao.utils.UIHelper;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+
+import static com.xiaozhao.R.id.ll;
 
 /**
  * Created by Administrator on 2018/1/26.
@@ -43,6 +46,7 @@ public class MineFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.mine_fragment, container, false);
         ButterKnife.inject(this, view);
 
@@ -58,6 +62,19 @@ public class MineFragment extends BaseFragment {
             case R.id.tvSetting:
                 UIHelper.showSimpleBack(getMAinActivity(), SimpleBackPage.SETTINGS, null);
                 break;
+            case R.id.llJianli:
+                UIHelper.showSimpleBack(getMAinActivity(), SimpleBackPage.JIANLI, null);
+                break;
+            case R.id.llGuangzhu:
+                UIHelper.showSimpleBack(getMAinActivity(), SimpleBackPage.GUANGZHU, null);
+                break;
+            case R.id.llFabu:
+//                UIHelper.showSimpleBack(getMAinActivity(), SimpleBackPage.FABU, null);
+                UIHelper.showSimpleBack(getMAinActivity(), SimpleBackPage.GUANGZHU, null);
+                break;
+            case R.id.llqiye:
+                startActivity(new Intent(getMAinActivity(), CompanyInfoAcitity.class));
+                break;
         }
 
     }
@@ -66,6 +83,10 @@ public class MineFragment extends BaseFragment {
     public void initView(View view) {
         ivHeader.setOnClickListener(this);
         tvSetting.setOnClickListener(this);
+        llqiye.setOnClickListener(this);
+        llJianli.setOnClickListener(this);
+        llGuangzhu.setOnClickListener(this);
+        llFabu.setOnClickListener(this);
     }
 
     @Override
@@ -73,9 +94,5 @@ public class MineFragment extends BaseFragment {
 
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        ButterKnife.reset(this);
-    }
+
 }

@@ -16,6 +16,7 @@ import com.xiaozhao.utils.UIHelper;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
+
 public class LoginActivity extends BaseActivity {
 
 
@@ -23,12 +24,12 @@ public class LoginActivity extends BaseActivity {
     EditText etAccount;
     @InjectView(R.id.et_password)
     EditText etPassword;
-    @InjectView(R.id.ivForget)
-    ImageView ivForget;
+    @InjectView(R.id.tvForget)
+    TextView tvForget;
     @InjectView(R.id.btLogin)
     Button btLogin;
-    @InjectView(R.id.ivRegist)
-    ImageView ivRegist;
+    @InjectView(R.id.tvRegist)
+    TextView tvRegist;
     @InjectView(R.id.tvThird)
     TextView tvThird;
     @InjectView(R.id.ll)
@@ -43,9 +44,13 @@ public class LoginActivity extends BaseActivity {
                 UIHelper.showMainActivity(this);
                 finish();
                 break;
-            case R.id.ivRegist:
+            case R.id.tvRegist:
                 UIHelper.showRegistActivity(this);
                 finish();
+                break;
+            case R.id.tvForget:
+//                UIHelper.showRegistActivity(this);
+//                finish();
                 break;
         }
 
@@ -53,9 +58,10 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        btLogin.setOnClickListener(this);
-        ivRegist.setOnClickListener(this);
 
+        btLogin.setOnClickListener(this);
+        tvRegist.setOnClickListener(this);
+        tvForget.setOnClickListener(this);
     }
 
     @Override

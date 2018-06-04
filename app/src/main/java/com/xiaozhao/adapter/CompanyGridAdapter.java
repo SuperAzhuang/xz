@@ -27,6 +27,7 @@ public class CompanyGridAdapter extends BaseAdapter {
     private NewsResult.NewsBean mNewBean;
 
     public CompanyGridAdapter(Context context, List<NewsResult.NewsBean> mDatas) {
+
         this.mDatas = mDatas;
         mContext = context;
 

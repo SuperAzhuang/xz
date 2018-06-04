@@ -94,8 +94,9 @@
     <color name="btn_red_hover">#E8484B</color>
     <color name="btn_blue">#0F73CB</color>
     <color name="btn_blue_hover">#1E86E4</color>
-    <color name="btn_text">#FFFFFF</color>
+    <color name="main_background">#FFFFFF</color>
     <color name="btn_text_hover">#CCFFFFFF</color>
+    <color name="wanshan">#FF9A38</color>
     <!--蒙版-->
     <color name="colorMask">#66000000</color>
 </resources>

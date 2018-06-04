@@ -129,6 +129,8 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         FragmentManager fm = getSupportFragmentManager();
+        super.onActivityResult(requestCode, resultCode, data);
+
         int index = requestCode >> 16;
         Log.w(TAG, TAG + "requestCode" + requestCode + ";index:" + index);
         if (index != 0) {

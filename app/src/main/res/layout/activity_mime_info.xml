@@ -6,19 +6,18 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="160dp"
         android:background="@mipmap/home_toolbar_background">
 
-
         <TextView
+            android:id="@+id/tvSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:padding="@dimen/dp_10"
             android:text="@string/save"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_14" />
-
+            android:textSize="@dimen/text_size_16" />
 
         <ImageView
             android:id="@+id/ivBack"
@@ -29,34 +28,20 @@
             android:padding="@dimen/space_6"
             android:src="@mipmap/back" />
 
-        <TextView
-            android:id="@+id/tvLoginRegist"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/space_4"
-            android:padding="@dimen/space_2"
-            android:text="@string/mine_info"
-            android:textColor="@color/white"
-            android:textSize="@dimen/sp_16" />
-
         <ImageView
             android:id="@+id/ivHeader"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:layout_below="@id/tvLoginRegist"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/space_6"
-            android:src="@mipmap/person_header" />
-
+            android:layout_centerInParent="true"
+            android:src="@mipmap/add_head" />
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
-
 
         <TextView
             android:layout_width="wrap_content"
@@ -75,8 +60,10 @@
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_marginRight="@dimen/dp_10"
+            android:background="@null"
             android:hint="@string/info_inputnicheng"
-            android:textSize="@dimen/text_size_12" />
+            android:textColor="@color/text_gray1"
+            android:textSize="@dimen/sp_14" />
     </LinearLayout>
 
     <View
@@ -86,7 +73,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -96,6 +83,7 @@
             android:layout_below="@id/ivHeader"
             android:layout_marginLeft="@dimen/space_8"
             android:layout_weight="1"
+            android:background="@null"
             android:gravity="center_vertical"
             android:padding="@dimen/dp_4"
             android:text="@string/info_name"
@@ -107,6 +95,7 @@
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_marginRight="@dimen/dp_10"
+            android:background="@null"
             android:hint="@string/info_inputname"
             android:textSize="@dimen/text_size_12" />
     </LinearLayout>
@@ -117,8 +106,9 @@
         android:background="@color/light_gray" />
 
     <LinearLayout
+        android:id="@+id/llXingbie"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -140,7 +130,8 @@
             android:layout_height="match_parent"
             android:layout_marginRight="@dimen/space_10"
             android:gravity="center_vertical"
-            android:text="男" />
+            android:text="男"
+            android:textColor="@color/text_gray1" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -156,9 +147,9 @@
         android:background="@color/light_gray" />
 
     <LinearLayout
-        android:id="@+id/llqiye"
+        android:id="@+id/llnianning"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -181,7 +172,8 @@
             android:layout_height="match_parent"
             android:layout_marginRight="@dimen/space_10"
             android:gravity="center_vertical"
-            android:text="28" />
+            android:text=""
+            android:textColor="@color/text_gray1" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -198,7 +190,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -219,8 +211,11 @@
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_marginRight="@dimen/dp_10"
-            android:hint="@string/info_inputphone"
-            android:textSize="@dimen/text_size_12" />
+            android:background="@null"
+            android:hint="请输入"
+            android:inputType="number"
+            android:textSize="@dimen/sp_14" />
+
     </LinearLayout>
 
     <View

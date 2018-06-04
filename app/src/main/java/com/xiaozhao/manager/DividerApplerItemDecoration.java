@@ -66,8 +66,6 @@ public class DividerApplerItemDecoration extends Y_DividerItemDecoration {
                 default:
                     break;
             }
-
-
         return divider;
     }
 }

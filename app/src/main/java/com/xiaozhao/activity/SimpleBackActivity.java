@@ -20,7 +20,7 @@ import java.lang.ref.WeakReference;
 
 import butterknife.InjectView;
 
-public  class SimpleBackActivity extends BaseActivity {
+public class SimpleBackActivity extends BaseActivity {
 
 
     public final static String BUNDLE_KEY_PAGE = "BUNDLE_KEY_PAGE";
@@ -40,6 +40,7 @@ public  class SimpleBackActivity extends BaseActivity {
     ImageView ivBack;
     @InjectView(R.id.error_layout)
     public EmptyLayout mEmptyLayout;
+    public TextView tvSave;
 
     @Override
     public void onClick(View v) {
@@ -103,6 +104,7 @@ public  class SimpleBackActivity extends BaseActivity {
 //        mImmersionBar.fitsSystemWindows(true).statusBarColor(R.color.swiperefresh_color1).init();
 
         ivBack.setOnClickListener(this);
+        tvSave = (TextView) findViewById(R.id.tvSave);
     }
 
     @Override

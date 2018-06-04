@@ -68,6 +68,7 @@ public class AppliAdapter extends BaseAdapter {
             vh = (ViewHolder) convertView.getTag();
         }
         mNewBean = mDatas.get(position);
+
 //        vh.tvTitle.setText(mNewBean.getTitle());
 //        vh.ivv.setText(StringUtils.getNormalTime(Long.parseLong(mNewBean.getPubdate())*1000));
 //        ImageLoader.getInstance().displayImage(mNewBean.getLitpic(), vh.ivApplyer, ImageLoaderOptions.midOptions, new ImageLoadingListener() {

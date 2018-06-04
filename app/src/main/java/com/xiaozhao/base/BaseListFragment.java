@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,6 +56,8 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment im
 
     @InjectView(R.id.listview)
     protected ListView mListView;
+    @InjectView(R.id.mRecyclerView)
+    protected RecyclerView mRecyclerView;
 
     protected ListBaseAdapter<T> mAdapter;
 
@@ -129,6 +132,7 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment im
 
     @Override
     public void initView(View view) {
+
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mSwipeRefreshLayout.setColorSchemeResources(R.color.swiperefresh_color1, R.color.swiperefresh_color2, R.color.swiperefresh_color3,
                 R.color.swiperefresh_color4);
