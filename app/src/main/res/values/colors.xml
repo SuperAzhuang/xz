@@ -98,4 +98,17 @@
     <color name="btn_text_hover">#CCFFFFFF</color>
     <!--蒙版-->
     <color name="colorMask">#66000000</color>
+
+
+
+    <color name="drop_down_selected">#1E86E4</color>
+    <color name="drop_down_unselected">#111111</color>
+
+    <color name="mask_color">#88888888</color>
+    <color name="check_bg">#f2f2f2</color>
+    <color name="un_press_color">#1E86E4</color>
+    <color name="zu_choose_bg">#444444</color>
+    <color name="zu_choose_left_item_bg">#E5E5E5</color>
+    <color name="zu_choose_right_item_bg">#F3F3F3</color>
+    <color name="zu_choose_left_item_diveder">#D6D6D5</color>
 </resources>

@@ -22,6 +22,7 @@
         <item name="android:textColor">@color/viewpage_selector_slide_title</item>
         <item name="android:textSize">18sp</item>
     </style>
+
     <style name="Widget"></style>
 
     <style name="Widget.ProgressBar">
@@ -43,12 +44,13 @@
         <item name="android:indeterminateDuration">1000</item>
         <item name="android:indeterminateOnly">true</item>
     </style>
+
     <style name="dialogSlideAnim" mce_bogus="1" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/dialog_bottom_slide_in</item>
         <item name="android:windowExitAnimation">@anim/dialog_bottom_slide_out</item>
     </style>
 
-    <style name="item_input_edittext" >
+    <style name="item_input_edittext">
         <item name="android:layout_width">300dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
@@ -59,6 +61,7 @@
         <item name="android:textColorHint">@color/main_gray</item>
         <item name="android:textSize">@dimen/text_size_16</item>
     </style>
+
     <style name="button_common_blue">
         <item name="android:layout_width">300dp</item>
         <item name="android:layout_height">wrap_content</item>
@@ -81,6 +84,11 @@
     <style name="take_photo_anim" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/pop_enter_anim</item>
         <item name="android:windowExitAnimation">@anim/pop_exit_anim</item>
+    </style>
+
+    <style name="PopupAnimation" mce_bogus="1" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/dd_menu_in</item>
+        <item name="android:windowExitAnimation">@anim/dd_menu_out</item>
     </style>
 
 </resources>
