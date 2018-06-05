@@ -70,5 +70,7 @@ dependencies {
     compile 'com.flyco.dialog:FlycoDialog_Lib:1.2.2@aar'
     compile 'com.flyco.animation:FlycoAnimation_Lib:1.0.0@aar'
     compile 'com.nineoldandroids:library:2.4.0'
-    compile 'com.contrarywind:Android-PickerView:3.2.4'
+//    compile 'com.contrarywind:Android-PickerView:3.2.4'
+    compile 'com.contrarywind:Android-PickerView:4.1.3'
+
 }

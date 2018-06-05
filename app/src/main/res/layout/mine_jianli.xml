@@ -21,7 +21,9 @@
             android:padding="@dimen/dp_4"
             android:text="@string/jianli_jibenxinxi"
             android:textColor="@color/text_dark"
-            android:textSize="@dimen/sp_14" />
+            android:textSize="@dimen/sp_14"
+
+            />
 
         <TextView
             android:layout_width="wrap_content"

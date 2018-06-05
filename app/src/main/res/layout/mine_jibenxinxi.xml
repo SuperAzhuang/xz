@@ -33,7 +33,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginRight="@dimen/dp_10"
                 android:hint="请输入"
-                android:textSize="@dimen/text_size_12" />
+                android:background="@null"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14" />
         </LinearLayout>
 
         <View
@@ -42,6 +44,7 @@
             android:background="@color/light_gray" />
 
         <LinearLayout
+            android:id="@+id/llXingbie"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center_vertical"
@@ -58,7 +61,13 @@
                 android:text="姓别"
                 android:textColor="@color/text_dark"
                 android:textSize="@dimen/sp_14" />
-
+            <TextView
+                android:id="@+id/tvXingbie"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/space_10"
+                android:gravity="center_vertical"
+                android:textColor="@color/text_gray1" />
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -95,8 +104,10 @@
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:layout_marginRight="@dimen/dp_10"
+                android:background="@null"
                 android:hint="请输入"
-                android:textSize="@dimen/text_size_12" />
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14" />
         </LinearLayout>
 
         <View
@@ -128,7 +139,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginRight="@dimen/dp_10"
                 android:hint="请输入"
-                android:textSize="@dimen/text_size_12" />
+                android:background="@null"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14"/>
         </LinearLayout>
 
         <View
@@ -137,6 +150,7 @@
             android:background="@color/light_gray" />
 
         <LinearLayout
+            android:id="@+id/llsr"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center_vertical"
@@ -153,7 +167,13 @@
                 android:text="生日"
                 android:textColor="@color/text_dark"
                 android:textSize="@dimen/sp_14" />
-
+            <TextView
+                android:id="@+id/tvSr"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/space_10"
+                android:gravity="center_vertical"
+                android:textColor="@color/text_gray1" />
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -192,7 +212,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginRight="@dimen/dp_10"
                 android:hint="请输入"
-                android:textSize="@dimen/text_size_12" />
+                android:background="@null"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14" />
         </LinearLayout>
 
         <View
@@ -225,7 +247,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginRight="@dimen/dp_10"
                 android:hint="请输入"
-                android:textSize="@dimen/text_size_12" />
+                android:background="@null"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14" />
         </LinearLayout>
 
         <View
@@ -235,6 +259,7 @@
 
 
         <LinearLayout
+            android:id="@+id/llHUnyin"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center_vertical"
@@ -251,6 +276,13 @@
                 android:text="婚姻状况"
                 android:textColor="@color/text_dark"
                 android:textSize="@dimen/sp_14" />
+            <TextView
+                android:id="@+id/tvHunyin"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/space_10"
+                android:gravity="center_vertical"
+                android:textColor="@color/text_gray1" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -288,7 +320,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginRight="@dimen/dp_10"
                 android:hint="请输入"
-                android:textSize="@dimen/text_size_12" />
+                android:background="@null"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14" />
         </LinearLayout>
 
         <View
@@ -319,7 +353,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginRight="@dimen/dp_10"
                 android:hint="请输入"
-                android:textSize="@dimen/text_size_12" />
+                android:background="@null"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14"/>
         </LinearLayout>
 
         <View
@@ -343,15 +379,18 @@
                 android:padding="@dimen/dp_4"
                 android:text="手机"
                 android:textColor="@color/text_dark"
-                android:textSize="@dimen/sp_14" />
+                android:textSize="@dimen/sp_14"/>
 
             <EditText
                 android:id="@+id/etPhone"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:layout_marginRight="@dimen/dp_10"
+                android:background="@null"
                 android:hint="请输入"
-                android:textSize="@dimen/text_size_12" />
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14" />
+
         </LinearLayout>
 
         <View

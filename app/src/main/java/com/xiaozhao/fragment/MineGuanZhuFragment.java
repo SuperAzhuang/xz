@@ -35,7 +35,7 @@ public class MineGuanZhuFragment extends BaseFragment {
     @InjectView(R.id.error_layout)
     EmptyLayout errorLayout;
     private ArrayList<Fragment> mFragments = new ArrayList<>();
-    private final String[] mTitles = {"我的招聘", "我的求职"};
+    private final String[] mTitles = {"关注的招聘", "关注的求职"};
     private ViewPageFragmentAdapter mAdapter;
 
     @Override

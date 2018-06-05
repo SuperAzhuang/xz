@@ -183,10 +183,9 @@ public class CompanyFragment extends BaseFragment {
 //                View parent = getActivity().getWindow().getDecorView();
 //                WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
 //                Window w = getActivity().getWindow();
-//
-
 //                TagPopwindow shopPopuWindow1 = new TagPopwindow(getActivity(), lp, w, null);
-                SelectPopupWindow      shopPopuWindow1 = new SelectPopupWindow(parentStrings,childrenStrings,getMAinActivity(),selectCategory);
+
+                SelectPopupWindow shopPopuWindow1 = new SelectPopupWindow(parentStrings, childrenStrings, getMAinActivity(), selectCategory);
                 shopPopuWindow1.setAnimationStyle(R.style.PopupAnimation);
                 if (shopPopuWindow1 != null && shopPopuWindow1.isShowing()) {
                     shopPopuWindow1.dismiss();
@@ -214,7 +213,7 @@ public class CompanyFragment extends BaseFragment {
 
             case R.id.tvMore:
 //                TagPopwindow shopPopuWindow2 = new TagPopwindow(getActivity(), lp, w, null);
-                SelectPopupWindow      shopPopuWindow2 = new SelectPopupWindow(parentStrings,childrenStrings,getMAinActivity(),selectCategory);
+                SelectPopupWindow shopPopuWindow2 = new SelectPopupWindow(parentStrings, childrenStrings, getMAinActivity(), selectCategory);
 
                 if (shopPopuWindow2 != null && shopPopuWindow2.isShowing()) {
                     shopPopuWindow2.dismiss();
@@ -260,6 +259,7 @@ public class CompanyFragment extends BaseFragment {
                 UIHelper.showCompanyActivity(getActivity());
             }
         });
+
         companyGridAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
             @Override
             public void onLoadMoreRequested() {
@@ -382,7 +382,6 @@ public class CompanyFragment extends BaseFragment {
                 e.printStackTrace();
                 parserError = true;
             }
-
             return null;
         }
 

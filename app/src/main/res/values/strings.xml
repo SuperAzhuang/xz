@@ -15,8 +15,8 @@
     <string name="home_mine">我的</string>
 
     <string name="tab_juli">距离排序</string>
-    <string name="tab_company">企业类型</string>
-    <string name="tab_type">岗位类型</string>
+    <string name="tab_company">行业筛选</string>
+    <string name="tab_type">岗位筛选</string>
     <string name="tab_more">更多筛选</string>
 
     <!-- Error View -->

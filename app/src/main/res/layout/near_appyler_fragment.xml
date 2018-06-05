@@ -9,8 +9,8 @@
         android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@color/light_gray"
         android:gravity="center_vertical"
+        android:background="@color/background_gray1"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/tab_juli"
-                android:textColor="@color/blue"
+                android:textColor="@color/lightblue"
                 android:textSize="@dimen/text_size_14" />
 
             <ImageView
@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/space_2"
-                android:src="@mipmap/jiantou_down" />
+                android:src="@mipmap/drop_down_unselected_icon" />
         </LinearLayout>
 
 
@@ -51,8 +51,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/tab_type"
-                android:textColor="@color/blue"
+                android:text="职位筛选"
+                android:textColor="@color/lightblue"
                 android:textSize="@dimen/text_size_14" />
 
             <ImageView
@@ -60,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/space_2"
-                android:src="@mipmap/jiantou_down" />
+                android:src="@mipmap/drop_down_unselected_icon" />
         </LinearLayout>
 
         <LinearLayout
@@ -75,8 +75,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/tab_more"
-                android:textColor="@color/blue"
+                android:text="经验筛选"
+                android:textColor="@color/lightblue"
                 android:textSize="@dimen/text_size_14" />
 
             <ImageView
@@ -84,7 +84,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/space_2"
-                android:src="@mipmap/jiantou_down" />
+                android:src="@mipmap/drop_down_unselected_icon" />
         </LinearLayout>
 
     </LinearLayout>

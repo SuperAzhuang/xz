@@ -28,7 +28,9 @@
             android:layout_height="match_parent"
             android:layout_marginRight="@dimen/dp_10"
             android:hint="请输入"
-            android:textSize="@dimen/text_size_12" />
+            android:background="@null"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_14"/>
     </LinearLayout>
 
     <View
@@ -37,6 +39,7 @@
         android:background="@color/light_gray" />
 
     <LinearLayout
+        android:id="@+id/llgongzuo"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center_vertical"
@@ -54,6 +57,13 @@
             android:textColor="@color/text_dark"
             android:textSize="@dimen/sp_14" />
 
+        <TextView
+            android:id="@+id/tvgongzuo"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/space_10"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_gray1" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,6 +78,7 @@
         android:background="@color/light_gray" />
 
     <LinearLayout
+        android:id="@+id/llyuexin"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center_vertical"
@@ -84,7 +95,13 @@
             android:text="期望月薪"
             android:textColor="@color/text_dark"
             android:textSize="@dimen/sp_14" />
-
+        <TextView
+            android:id="@+id/tvyuexin"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/space_10"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_gray1" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -98,6 +115,7 @@
         android:layout_height="1dp"
         android:background="@color/light_gray" />
     <LinearLayout
+        android:id="@+id/llhangye"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center_vertical"
@@ -114,7 +132,13 @@
             android:text="期望行业"
             android:textColor="@color/text_dark"
             android:textSize="@dimen/sp_14" />
-
+        <TextView
+            android:id="@+id/tvHanye"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/space_10"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_gray1" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -128,6 +152,7 @@
         android:layout_height="1dp"
         android:background="@color/light_gray" />
     <LinearLayout
+        android:id="@+id/llxingzhi"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center_vertical"
@@ -144,7 +169,13 @@
             android:text="期望公司性质"
             android:textColor="@color/text_dark"
             android:textSize="@dimen/sp_14" />
-
+        <TextView
+            android:id="@+id/tvxingzhi"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/space_10"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_gray1" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -158,6 +189,7 @@
         android:layout_height="1dp"
         android:background="@color/light_gray" />
     <LinearLayout
+        android:id="@+id/llqiuzhixingzhi"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center_vertical"
@@ -174,7 +206,13 @@
             android:text="求职性质"
             android:textColor="@color/text_dark"
             android:textSize="@dimen/sp_14" />
-
+        <TextView
+            android:id="@+id/tvqiuzhixingzhi"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/space_10"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_gray1" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -189,6 +227,7 @@
         android:background="@color/light_gray" />
 
     <LinearLayout
+        android:id="@+id/llzhuangtai"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center_vertical"
@@ -205,7 +244,13 @@
             android:text="工作状态"
             android:textColor="@color/text_dark"
             android:textSize="@dimen/sp_14" />
-
+        <TextView
+            android:id="@+id/tvzhuantai"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/space_10"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_gray1" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

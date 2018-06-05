@@ -14,6 +14,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +35,7 @@ import com.xiaozhao.manager.DividerItemDecoration;
 import com.xiaozhao.utils.LogUtils;
 import com.xiaozhao.utils.UIHelper;
 import com.xiaozhao.view.EmptyLayout;
+import com.xiaozhao.view.SelectPopupWindow;
 import com.xiaozhao.view.TagPopwindow;
 
 import org.json.JSONObject;
@@ -85,6 +87,23 @@ public class NearApplerFragment extends BaseFragment {
     private ArrayList<String> mImageLists = new ArrayList<>();
     private ArrayList<String> mTitleLists = new ArrayList<>();
     private HomeNearApplerAdapter mAdapter;
+    boolean isSelected1 = true;
+    boolean isSelected2 = true;
+    boolean isSelected3 = true;
+
+    private String[] parentStrings = {"全城", "中原区", "二七区", "管城区", "金水区", "上街区", "惠济区", "郑东新区", "高新区", "经开区", "郑州周边"};
+    private String[][] childrenStrings = {{},
+            {"中原1", "中原2", "中原3", "中原4", "中原5", "中原6", "中原7", "中原8", "中原9", "中原10", "中原11", "中原12", "中原13", "中原14", "中原15"},
+            {"二七1", "二七2", "二七3", "二七4", "二七5", "二七6", "二七7", "二七8", "二七9", "二七10", "二七11", "二七12", "二七13", "二七14", "二七15"},
+            {"管城1", "管城2", "管城3", "管城4", "管城5", "管城6", "管城7", "管城8", "管城9", "管城10", "管城11", "管城12", "管城13", "管城14", "管城15"},
+            {"金水1", "金水2", "金水3", "金水4", "金水5", "金水6", "金水7", "金水8", "金水9", "金水10", "金水11", "金水12", "金水13", "金水14", "金水15"},
+            {"上街1", "上街2", "上街3", "上街4", "上街5", "中原6", "中原7", "中原8", "中原9", "中原10", "中原11", "中原12", "中原13", "中原14", "中原15"},
+            {"中原1", "中原2", "中原3", "中原4", "中原5", "中原6", "中原7", "中原8", "中原9", "中原10", "中原11", "中原12", "中原13", "中原14", "中原15"},
+            {"郑东新区1", "郑东新区2", "郑东新区3", "中原4", "中原5", "中原6", "中原7", "中原8", "中原9", "中原10", "中原11", "中原12", "中原13", "中原14", "中原15"},
+            {"高新区1", "高新区2", "高新区3", "中原4", "中原5", "中原6", "中原7", "中原8", "中原9", "中原10", "中原11", "中原12", "中原13", "中原14", "中原15"},
+            {"经开区1", "经开区2", "经开区3", "中原4", "中原5", "中原6", "中原7", "中原8", "中原9", "中原10", "中原11", "中原12", "中原13", "中原14", "中原15"},
+            {"周边1", "周边2", "周边3", "中原4", "中原5", "中原6", "中原7", "中原8", "中原9", "中原10", "中原11", "中原12", "中原13", "中原14", "中原15"},
+    };
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -117,6 +136,8 @@ public class NearApplerFragment extends BaseFragment {
         switch (view.getId()) {
 
             case R.id.tvJuli:
+                ivJuli.setImageResource(isSelected3 ? R.mipmap.drop_down_selected_icon : R.mipmap.drop_down_unselected_icon);
+                isSelected3 = !isSelected3;
                 break;
 
             case R.id.tvJob:
@@ -124,22 +145,46 @@ public class NearApplerFragment extends BaseFragment {
 //                WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
 //                Window w = getActivity().getWindow();
 
-                shopPopuWindow = new TagPopwindow(getActivity(), lp, w, null);
-                if (shopPopuWindow.isShowing()) {
-                    shopPopuWindow.dismiss();
+                SelectPopupWindow shopPopuWindow1 = new SelectPopupWindow(parentStrings, childrenStrings, getMAinActivity(), selectCategory);
+                shopPopuWindow1.setAnimationStyle(R.style.PopupAnimation);
+                if (shopPopuWindow1 != null && shopPopuWindow1.isShowing()) {
+                    shopPopuWindow1.dismiss();
                 }
                 if (ll != null) {
-                    shopPopuWindow.showAsDropDown(ll);
+                    shopPopuWindow1.showAsDropDown(ll);
                 }
+                ivCompany.setImageResource(isSelected1 ? R.mipmap.drop_down_selected_icon : R.mipmap.drop_down_unselected_icon);
+                isSelected1 = !isSelected1;
+                shopPopuWindow1.setOnDismissListener(new PopupWindow.OnDismissListener() {
+                    @Override
+                    public void onDismiss() {
+                        ivCompany.setImageResource(R.mipmap.drop_down_unselected_icon);
+                        isSelected1 = true;
+                    }
+                });
+
+
                 break;
 
             case R.id.tvMore:
-                shopPopuWindow = new TagPopwindow(getActivity(), lp, w, null);
-                if (shopPopuWindow.isShowing()) {
-                    shopPopuWindow.dismiss();
+
+                SelectPopupWindow shopPopuWindow2 = new SelectPopupWindow(parentStrings, childrenStrings, getMAinActivity(), selectCategory);
+                if (shopPopuWindow2 != null && shopPopuWindow2.isShowing()) {
+                    shopPopuWindow2.dismiss();
                 }
-                shopPopuWindow = new TagPopwindow(getActivity(), lp, w, null);
-                shopPopuWindow.showAsDropDown(ll);
+                shopPopuWindow2.setAnimationStyle(R.style.PopupAnimation);
+                shopPopuWindow2.showAsDropDown(ll);
+                ivMore.setImageResource(isSelected2 ? R.mipmap.drop_down_selected_icon : R.mipmap.drop_down_unselected_icon);
+                isSelected2 = !isSelected2;
+                shopPopuWindow2.setOnDismissListener(new PopupWindow.OnDismissListener() {
+                    @Override
+                    public void onDismiss() {
+                        ivMore.setImageResource(R.mipmap.drop_down_unselected_icon);
+                        isSelected2 = true;
+//                        lp.alpha = 1;
+//                        w.setAttributes(lp);
+                    }
+                });
                 break;
 
         }
@@ -378,4 +423,17 @@ public class NearApplerFragment extends BaseFragment {
 //            }
 //        }
     }
+    /**
+     * 选择完成回调接口
+     */
+    private SelectPopupWindow.SelectCategory selectCategory = new SelectPopupWindow.SelectCategory() {
+        @Override
+        public void selectCategory(int parentSelectposition, int childrenSelectposition) {
+            String parentStr = parentStrings[parentSelectposition];
+            String childrenStr = childrenStrings[parentSelectposition][childrenSelectposition];
+
+            Toast.makeText(getActivity(), "父类别:" + parentStr + "  子类别:" + childrenStr, Toast.LENGTH_SHORT).show();
+        }
+    };
+
 }
