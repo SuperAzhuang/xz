@@ -32,7 +32,7 @@ public class MineGuanzhuAcitity extends BaseActivity {
     @InjectView(R.id.error_layout)
     EmptyLayout errorLayout;
     private ArrayList<Fragment> mFragments = new ArrayList<>();
-    private final String[] mTitles = {"我的招牌", "我的求职"};
+    private final String[] mTitles = {"我的招聘", "我的求职"};
     private ViewPageFragmentAdapter mAdapter;
     @Override
     public void onClick(View view) {

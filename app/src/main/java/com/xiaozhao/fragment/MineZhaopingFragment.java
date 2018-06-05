@@ -48,9 +48,9 @@ public class MineZhaopingFragment extends BaseFragment {
         mDatas.add(new NewsResult.NewsBean());
         mDatas.add(new NewsResult.NewsBean());
 
+
         MineZhaoPingAdapter mAdapter = new MineZhaoPingAdapter(R.layout.item_minezhaoping, mDatas, getActivity());
         mRecyclerView.setAdapter(mAdapter);
-
         mRecyclerView.addOnItemTouchListener(new OnItemClickListener() {
 
             @Override
