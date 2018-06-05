@@ -50,7 +50,7 @@ public class TagPopwindow extends PopupWindow {
         TagAdapter tagAdapter =     new TagAdapter(context,arrayList);
         gridView.setAdapter(tagAdapter);
 
-        lp.alpha = 0.3f;
+        lp.alpha = 0.5f;
         w.setAttributes(lp);
         this.setBackgroundDrawable(new ColorDrawable(0));
 		/* 设置弹出窗口特征 */
