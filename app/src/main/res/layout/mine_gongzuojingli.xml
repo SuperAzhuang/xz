@@ -5,6 +5,7 @@
     android:orientation="vertical">
 <!--  j50561628bmd sap520520 -->
     <LinearLayout
+        android:id="@+id/llRuZhi"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center_vertical"
@@ -21,7 +22,13 @@
             android:text="入职时间"
             android:textColor="@color/text_dark"
             android:textSize="@dimen/sp_14" />
-
+        <TextView
+            android:id="@+id/tvRuZhi"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/space_10"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_gray1" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -37,6 +44,7 @@
         android:background="@color/light_gray" />
 
     <LinearLayout
+        android:id="@+id/llLiZhi"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center_vertical"
@@ -53,7 +61,13 @@
             android:text="离职时间"
             android:textColor="@color/text_dark"
             android:textSize="@dimen/sp_14" />
-
+        <TextView
+            android:id="@+id/tvLiZhi"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/space_10"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_gray1" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -91,7 +105,9 @@
             android:layout_height="match_parent"
             android:layout_marginRight="@dimen/dp_10"
             android:hint="请输入"
-            android:textSize="@dimen/text_size_12" />
+            android:background="@null"
+            android:textColor="@color/text_gray1"
+            android:textSize="@dimen/sp_14" />
 
     </LinearLayout>
 
@@ -124,8 +140,10 @@
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_marginRight="@dimen/dp_10"
+            android:background="@null"
             android:hint="请输入"
-            android:textSize="@dimen/text_size_12" />
+            android:textColor="@color/text_gray1"
+            android:textSize="@dimen/sp_14"/>
     </LinearLayout>
 
     <View
@@ -157,7 +175,9 @@
             android:layout_height="match_parent"
             android:layout_marginRight="@dimen/dp_10"
             android:hint="请输入"
-            android:textSize="@dimen/text_size_12" />
+            android:background="@null"
+            android:textColor="@color/text_gray1"
+            android:textSize="@dimen/sp_14"/>
     </LinearLayout>
 
     <View
@@ -166,6 +186,7 @@
         android:background="@color/light_gray" />
 
     <LinearLayout
+        android:id="@+id/llGuiMo"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center_vertical"
@@ -182,7 +203,13 @@
             android:text="公司规模"
             android:textColor="@color/text_dark"
             android:textSize="@dimen/sp_14" />
-
+        <TextView
+            android:id="@+id/tvGuimo"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/space_10"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_gray1" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -197,6 +224,7 @@
         android:background="@color/light_gray" />
 
     <LinearLayout
+        android:id="@+id/llXingZhi"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center_vertical"
@@ -213,7 +241,13 @@
             android:text="公司性质"
             android:textColor="@color/text_dark"
             android:textSize="@dimen/sp_14" />
-
+        <TextView
+            android:id="@+id/tvXingZhi"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/space_10"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_gray1" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -251,7 +285,10 @@
             android:layout_height="match_parent"
             android:layout_marginRight="@dimen/dp_10"
             android:hint="请输入"
-            android:textSize="@dimen/text_size_12" />
+            android:background="@null"
+            android:textColor="@color/text_gray1"
+            android:textSize="@dimen/sp_14" />
+
     </LinearLayout>
 
     <View

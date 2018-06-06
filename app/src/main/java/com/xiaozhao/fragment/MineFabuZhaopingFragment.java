@@ -12,12 +12,11 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.xiaozhao.R;
+import com.xiaozhao.adapter.MineFabuZhaoPingAdapter;
 import com.xiaozhao.adapter.MineZhaoPingAdapter;
 import com.xiaozhao.base.BaseFragment;
 import com.xiaozhao.bean.NewsResult;
-import com.xiaozhao.bean.SimpleBackPage;
 import com.xiaozhao.manager.DividerItemDecoration;
-import com.xiaozhao.utils.UIHelper;
 import com.xiaozhao.view.EmptyLayout;
 
 import java.util.ArrayList;
@@ -25,13 +24,13 @@ import java.util.ArrayList;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-import static android.R.attr.type;
+import static android.R.attr.y;
 
 /**
  * Created by Administrator on 2018/5/25.
  */
 
-public class MineZhaopingFragment extends BaseFragment {
+public class MineFabuZhaopingFragment extends BaseFragment {
 
     @InjectView(R.id.mRecyclerView)
     RecyclerView mRecyclerView;
@@ -40,7 +39,7 @@ public class MineZhaopingFragment extends BaseFragment {
     @InjectView(R.id.error_layout)
     EmptyLayout errorLayout;
     private ArrayList mDatas = new ArrayList();
-    private MineZhaoPingAdapter mAdapter;
+    private MineFabuZhaoPingAdapter mAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -54,14 +53,12 @@ public class MineZhaopingFragment extends BaseFragment {
         mDatas.add(new NewsResult.NewsBean());
         mDatas.add(new NewsResult.NewsBean());
         mDatas.add(new NewsResult.NewsBean());
-        mDatas.add(new NewsResult.NewsBean());
-        mDatas.add(new NewsResult.NewsBean());
 
 
-        mAdapter = new MineZhaoPingAdapter(R.layout.item_minezhaoping, mDatas, getActivity());
+        mAdapter = new MineFabuZhaoPingAdapter(R.layout.item_fabu_zhaoping, mDatas, getActivity());
         mRecyclerView.setAdapter(mAdapter);
 
-        mRecyclerView.addOnItemTouchListener(new com.chad.library.adapter.base.listener.OnItemClickListener() {
+        mRecyclerView.addOnItemTouchListener(new OnItemClickListener() {
             @Override
             public void onSimpleItemClick(BaseQuickAdapter baseQuickAdapter, View view, int i) {
 

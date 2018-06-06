@@ -28,7 +28,9 @@
             android:layout_height="match_parent"
             android:layout_marginRight="@dimen/dp_10"
             android:hint="请输入"
-            android:textSize="@dimen/text_size_12" />
+            android:background="@null"
+            android:textColor="@color/text_gray1"
+            android:textSize="@dimen/sp_14"/>
     </LinearLayout>
 
     <View
@@ -61,7 +63,9 @@
             android:layout_height="match_parent"
             android:layout_marginRight="@dimen/dp_10"
             android:hint="请输入"
-            android:textSize="@dimen/text_size_12" />
+            android:background="@null"
+            android:textColor="@color/text_gray1"
+            android:textSize="@dimen/sp_14" />
     </LinearLayout>
 
     <View
@@ -70,6 +74,7 @@
         android:background="@color/light_gray" />
 
     <LinearLayout
+        android:id="@+id/llRuxueShiJian"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center_vertical"
@@ -101,6 +106,7 @@
         android:layout_height="1dp"
         android:background="@color/light_gray" />
     <LinearLayout
+        android:id="@+id/llBiyeShiJian"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center_vertical"
@@ -154,7 +160,9 @@
             android:layout_height="match_parent"
             android:layout_marginRight="@dimen/dp_10"
             android:hint="请输入"
-            android:textSize="@dimen/text_size_12" />
+            android:background="@null"
+            android:textColor="@color/text_gray1"
+            android:textSize="@dimen/sp_14"/>
     </LinearLayout>
 
     <View
@@ -185,7 +193,10 @@
             android:layout_height="match_parent"
             android:layout_marginRight="@dimen/dp_10"
             android:hint="请输入"
-            android:textSize="@dimen/text_size_12" />
+            android:background="@null"
+            android:textColor="@color/text_gray1"
+            android:textSize="@dimen/sp_14"
+           />
     </LinearLayout>
 
     <View

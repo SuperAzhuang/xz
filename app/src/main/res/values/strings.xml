@@ -125,10 +125,12 @@
     <string name="jianli_qiuzhiyixiang">求职意向</string>
     <string name="jianli_jiaoyubeijing">教育背景</string>
     <string name="jianli_gongzuojingli">工作经历</string>
-    <string name="jianli_zhuangyejineng">专业技能</string>
+    <string name="jianli_zhuangyejineng">荣誉/证书</string>
+    <string name="jianli_ziwopingjia">自我评价</string>
     <string name="mine_jiaoyubeijing">教育背景</string>
     <string name="mine_gongzuojingli">工作经历</string>
     <string name="mine_zhuanyejineng">专业技能</string>
+    <string name="jiaoyushengchengye">教育背景</string>
 
 
 </resources>

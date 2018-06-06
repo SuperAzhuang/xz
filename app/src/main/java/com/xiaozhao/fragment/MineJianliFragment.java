@@ -30,6 +30,8 @@ public class MineJianliFragment extends BaseFragment {
     LinearLayout llgongzuojingli;
     @InjectView(R.id.llzhuangyejineng)
     LinearLayout llzhuangyejineng;
+    @InjectView(R.id.llPingjia)
+    LinearLayout llPingjia;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -52,13 +54,16 @@ public class MineJianliFragment extends BaseFragment {
                 UIHelper.showSimpleBack(getSimpleBackActivity(), SimpleBackPage.QIUZHIYIXIANG, null);
                 break;
             case R.id.lljiaoyubeijing:
-                UIHelper.showSimpleBack(getSimpleBackActivity(), SimpleBackPage.JIAOYUBEIJING, null);
+                UIHelper.showSimpleBack(getSimpleBackActivity(), SimpleBackPage.JYSHENGCHENGYE, null);
                 break;
             case R.id.llgongzuojingli:
-                UIHelper.showSimpleBack(getSimpleBackActivity(), SimpleBackPage.GONGZUOJINGLI, null);
+                UIHelper.showSimpleBack(getSimpleBackActivity(), SimpleBackPage.JINGLISHENGCHENGYE, null);
                 break;
             case R.id.llzhuangyejineng:
                 UIHelper.showSimpleBack(getSimpleBackActivity(), SimpleBackPage.ZHUANYEJINENG, null);
+                break;
+            case R.id.llPingjia:
+                UIHelper.showSimpleBack(getSimpleBackActivity(), SimpleBackPage.PINGJIA, null);
                 break;
         }
 
@@ -71,6 +76,7 @@ public class MineJianliFragment extends BaseFragment {
         lljiaoyubeijing.setOnClickListener(this);
         llgongzuojingli.setOnClickListener(this);
         llzhuangyejineng.setOnClickListener(this);
+        llPingjia.setOnClickListener(this);
     }
 
     @Override

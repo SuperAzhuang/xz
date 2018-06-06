@@ -177,11 +177,11 @@
             android:layout_marginRight="@dimen/dp_10"
             android:src="@mipmap/mine_right" />
     </LinearLayout>
-
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/light_gray" />
+
 
     <LinearLayout
         android:id="@+id/llzhuangyejineng"
@@ -211,6 +211,49 @@
             android:padding="@dimen/dp_4"
             android:text="待完善"
             android:textColor="@color/wanshan"
+            android:textSize="@dimen/text_size_12" />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_4"
+            android:layout_marginRight="@dimen/dp_10"
+            android:src="@mipmap/mine_right" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/light_gray" />
+    <LinearLayout
+        android:id="@+id/llPingjia"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@id/ivHeader"
+            android:layout_marginLeft="@dimen/space_8"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dp_4"
+            android:text="@string/jianli_ziwopingjia"
+            android:textColor="@color/text_dark"
+            android:textSize="@dimen/sp_14" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@id/ivHeader"
+            android:layout_marginLeft="@dimen/space_8"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dp_4"
+            android:text="完整"
+            android:textColor="@color/text_gray1"
             android:textSize="@dimen/text_size_12" />
 
 

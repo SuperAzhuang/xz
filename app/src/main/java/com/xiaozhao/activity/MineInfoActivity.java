@@ -300,6 +300,7 @@ public class MineInfoActivity extends BaseActivity {
     }
 
     private void selectNianling() {
+
         TimePickerView pvTime = new TimePickerBuilder(this, new OnTimeSelectListener() {
             @Override
             public void onTimeSelect(Date date,View v) {//选中事件回调
@@ -323,6 +324,7 @@ public class MineInfoActivity extends BaseActivity {
     }
 
     private void selectXingbie() {
+
         final ArrayList<String> options1Items = new ArrayList<>();
         options1Items.add("男");
         options1Items.add("女");

@@ -20,7 +20,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="4.0dip"
             android:layout_marginTop="3.0dip"
-            android:background="@mipmap/mine_qiye"
+            android:background="@mipmap/person_header"
             android:scaleType="centerCrop"
             android:visibility="visible" />
 
@@ -32,7 +32,7 @@
             android:layout_marginTop="@dimen/dp_10"
             android:layout_toRightOf="@+id/left_image"
             android:singleLine="true"
-            android:text="公司：阿里巴巴"
+            android:text="姓名：阿壮"
             android:textColor="@color/text_main_black"
             android:textSize="@dimen/text_size_16" />
 
@@ -45,7 +45,7 @@
             android:layout_marginTop="@dimen/dp_10"
             android:layout_toRightOf="@+id/left_image"
             android:singleLine="true"
-            android:text="岗位：专业吹牛比工程师"
+            android:text="应聘岗位：软件开发"
             android:textColor="@color/text_gray1" />
 
         <TextView
@@ -57,7 +57,7 @@
             android:layout_marginTop="@dimen/dp_10"
             android:layout_toRightOf="@+id/left_image"
             android:singleLine="true"
-            android:text="状态：正在招聘"
+            android:text="状态：求职中"
             android:textColor="@color/text_gray1" />
 
         <ImageView

@@ -1,31 +1,21 @@
 package com.xiaozhao.adapter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.view.View;
-import android.widget.ImageView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.assist.FailReason;
-import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.xiaozhao.R;
 import com.xiaozhao.bean.NewsResult;
-import com.xiaozhao.http.ImageLoaderOptions;
-import com.xiaozhao.utils.StringUtils;
 
 import java.util.List;
-
-import static android.R.attr.data;
 
 /**
  * Created by Administrator on 2018/4/23.
  */
 
-public class MineZhaoPingAdapter extends BaseQuickAdapter<NewsResult.NewsBean, BaseViewHolder> {
+public class MineFabuQiuZhiAdapter extends BaseQuickAdapter<NewsResult.NewsBean, BaseViewHolder> {
 
-    public MineZhaoPingAdapter(int layoutResId, List<NewsResult.NewsBean> data, Context context) {
+    public MineFabuQiuZhiAdapter(int layoutResId, List<NewsResult.NewsBean> data, Context context) {
         super(layoutResId, data);
     }
 

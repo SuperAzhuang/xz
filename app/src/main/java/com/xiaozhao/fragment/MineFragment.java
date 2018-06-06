@@ -70,7 +70,7 @@ public class MineFragment extends BaseFragment {
                 break;
             case R.id.llFabu:
 //                UIHelper.showSimpleBack(getMAinActivity(), SimpleBackPage.FABU, null);
-                UIHelper.showSimpleBack(getMAinActivity(), SimpleBackPage.GUANGZHU, null);
+                UIHelper.showSimpleBack(getMAinActivity(), SimpleBackPage.FABU, null);
                 break;
             case R.id.llqiye:
                 startActivity(new Intent(getMAinActivity(), CompanyInfoAcitity.class));

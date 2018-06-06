@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/main_background"
+    android:orientation="vertical">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/title_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:background="@color/main_background">
+
+        <ImageView
+            android:id="@+id/ivDelete"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+            android:layout_marginLeft="@dimen/dp_4"
+            android:src="@mipmap/delete_qiuzhi" />
+
+        <TextView
+            android:id="@+id/tvCompanyName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_toRightOf="@id/ivDelete"
+            android:padding="@dimen/dp_4"
+            android:singleLine="true"
+            android:text="所在公司：阿里巴巴"
+            android:textColor="@color/text_main_black"
+            android:textSize="@dimen/text_size_14" />
+
+        <TextView
+            android:id="@+id/tvJobName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvCompanyName"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="@dimen/dp_4"
+            android:padding="2dp"
+            android:singleLine="true"
+            android:layout_toRightOf="@id/ivDelete"
+            android:text="职位：吹牛比工程师"
+            android:textColor="@color/text_gray1" />
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="@dimen/dp_10"
+            android:textSize="@dimen/sp_12"
+            android:text="工作时间：2009-06-12至2013-06-30"
+            android:textColor="@color/text_gray1" />
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/title_layout"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/light_gray"
+       />
+</LinearLayout>

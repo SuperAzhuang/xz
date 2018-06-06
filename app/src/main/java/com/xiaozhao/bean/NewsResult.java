@@ -60,6 +60,18 @@ public class NewsResult implements ListEntity<NewsResult.NewsBean> {
 		private String pubdate;
 		private String title;
 		private String writer;
+		private boolean isEdit;
+
+		public boolean isEdit() {
+			return isEdit;
+		}
+
+		public void setEdit(boolean edit) {
+			isEdit = edit;
+		}
+		public boolean getEdit() {
+			return isEdit;
+		}
 
 		public String getClick() {
 			return click;

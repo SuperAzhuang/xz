@@ -4,6 +4,8 @@ package com.xiaozhao.bean;
 import com.xiaozhao.R;
 import com.xiaozhao.activity.SettingsActivity;
 import com.xiaozhao.base.BaseFragment;
+import com.xiaozhao.fragment.JiaoyuShengChengYeFragment;
+import com.xiaozhao.fragment.JingLiShengChengyeFragment;
 import com.xiaozhao.fragment.MineFaBuFragment;
 import com.xiaozhao.fragment.MineFragment;
 import com.xiaozhao.fragment.MineGongZuojingliFragment;
@@ -13,6 +15,7 @@ import com.xiaozhao.fragment.MineJianliFragment;
 import com.xiaozhao.fragment.MineJiaoyubeijingFragment;
 import com.xiaozhao.fragment.MineQiuZhiYixiangFragment;
 import com.xiaozhao.fragment.MinezhuanyejinengFragment;
+import com.xiaozhao.fragment.PingJiaFragment;
 import com.xiaozhao.fragment.SettingsFragment;
 
 /**
@@ -34,6 +37,9 @@ public enum SimpleBackPage {
     JIAOYUBEIJING(7,  R.string.mine_jiaoyubeijing, MineJiaoyubeijingFragment.class),
     GONGZUOJINGLI(8,  R.string.mine_gongzuojingli, MineGongZuojingliFragment.class),
     ZHUANYEJINENG(9,  R.string.mine_zhuanyejineng, MinezhuanyejinengFragment.class),
+    JYSHENGCHENGYE(10,  R.string.jiaoyushengchengye, JiaoyuShengChengYeFragment.class),
+    JINGLISHENGCHENGYE(11,  R.string.mine_gongzuojingli, JingLiShengChengyeFragment.class),
+    PINGJIA(12,  R.string.jianli_ziwopingjia, PingJiaFragment.class),
     JIBENXINXI(5,  R.string.mine_jibenxinxi, MineJiBenXinxiFragment.class), ;
 
     private int title;
