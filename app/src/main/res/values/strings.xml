@@ -96,6 +96,7 @@
     <string name="mine_jianli">我的简历</string>
     <string name="mine_qiye">企业信息</string>
     <string name="mine_fhuiyuan">会员中心</string>
+    <string name="mine_zhiweiguanli">职位管理</string>
     <string name="save">保存</string>
     <string name="mine_info">个人信息</string>
     <string name="info_nicheng">昵称</string>
@@ -131,6 +132,8 @@
     <string name="mine_gongzuojingli">工作经历</string>
     <string name="mine_zhuanyejineng">专业技能</string>
     <string name="jiaoyushengchengye">教育背景</string>
+    <string name="huiyuan">会员中心</string>
+    <string name="zhiweiguanli">职位管理</string>
 
 
 </resources>

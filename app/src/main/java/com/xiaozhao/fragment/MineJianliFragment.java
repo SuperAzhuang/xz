@@ -48,7 +48,6 @@ public class MineJianliFragment extends BaseFragment {
         switch (view.getId()) {
             case R.id.lljibenxinxi:
                 UIHelper.showSimpleBack(getSimpleBackActivity(), SimpleBackPage.JIBENXINXI, null);
-
                 break;
             case R.id.llqiuzhiyixiang:
                 UIHelper.showSimpleBack(getSimpleBackActivity(), SimpleBackPage.QIUZHIYIXIANG, null);

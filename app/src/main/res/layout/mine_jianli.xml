@@ -22,7 +22,6 @@
             android:text="@string/jianli_jibenxinxi"
             android:textColor="@color/text_dark"
             android:textSize="@dimen/sp_14"
-
             />
 
         <TextView

@@ -10,7 +10,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.xiaozhao.R;
-import com.xiaozhao.activity.CompanyInfoAcitity;
 import com.xiaozhao.activity.MineInfoActivity;
 import com.xiaozhao.base.BaseFragment;
 import com.xiaozhao.bean.SimpleBackPage;
@@ -18,8 +17,6 @@ import com.xiaozhao.utils.UIHelper;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-
-import static com.xiaozhao.R.id.ll;
 
 /**
  * Created by Administrator on 2018/1/26.
@@ -43,6 +40,8 @@ public class MineFragment extends BaseFragment {
     LinearLayout llhuiyuan;
     @InjectView(R.id.tvSetting)
     TextView tvSetting;
+    @InjectView(R.id.llZhiweiGuanli)
+    LinearLayout llZhiweiGuanli;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -73,7 +72,13 @@ public class MineFragment extends BaseFragment {
                 UIHelper.showSimpleBack(getMAinActivity(), SimpleBackPage.FABU, null);
                 break;
             case R.id.llqiye:
-                startActivity(new Intent(getMAinActivity(), CompanyInfoAcitity.class));
+                UIHelper.showSimpleBack(getMAinActivity(), SimpleBackPage.QIYEXINXI, null);
+                break;
+            case R.id.llhuiyuan:
+                UIHelper.showSimpleBack(getMAinActivity(), SimpleBackPage.HUIYUAN, null);
+                break;
+            case R.id.llZhiweiGuanli:
+                UIHelper.showSimpleBack(getMAinActivity(), SimpleBackPage.ZHIWEIGUANLI, null);
                 break;
         }
 
@@ -87,6 +92,8 @@ public class MineFragment extends BaseFragment {
         llJianli.setOnClickListener(this);
         llGuangzhu.setOnClickListener(this);
         llFabu.setOnClickListener(this);
+        llhuiyuan.setOnClickListener(this);
+        llZhiweiGuanli.setOnClickListener(this);
     }
 
     @Override

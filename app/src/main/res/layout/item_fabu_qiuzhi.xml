@@ -1,72 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent"
+android:layout_height="110dp"
+android:orientation="vertical"
+android:background="@color/main_background">
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/title_layout"
     android:layout_width="fill_parent"
-    android:layout_height="110dp"
-    android:orientation="vertical"
-    android:background="@color/main_background">
-
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/title_layout"
-        android:layout_width="fill_parent"
-        android:layout_height="100dp"
-        android:background="@color/main_background"
-        android:padding="@dimen/space_6">
+    android:layout_height="100dp"
+    android:background="@color/main_background"
+    android:padding="@dimen/space_6">
 
 
-        <TextView
-            android:id="@+id/tvCompanyName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="@dimen/dp_10"
-            android:layout_toRightOf="@+id/left_image"
-            android:singleLine="true"
-            android:text="公司：阿里巴巴"
-            android:textColor="@color/text_main_black"
-            android:textSize="@dimen/text_size_16" />
-
-        <TextView
-            android:id="@+id/tvJobName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvCompanyName"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="@dimen/dp_10"
-            android:layout_toRightOf="@+id/left_image"
-            android:singleLine="true"
-            android:text="应聘岗位：专业吹牛比工程师"
-            android:textColor="@color/text_gray1" />
-
-        <TextView
-            android:id="@+id/tvStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvJobName"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="@dimen/dp_10"
-            android:layout_toRightOf="@+id/left_image"
-            android:singleLine="true"
-            android:text="发布于：2019.5.6"
-            android:textColor="@color/text_gray1" />
-
-        <ImageView
-            android:id="@+id/ivDelete"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@mipmap/delete_qiuzhi"
-            android:layout_below="@id/tvJobName"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/dp_10"
-            android:layout_marginTop="@dimen/dp_10"
-            />
-    </RelativeLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@id/title_layout"
+    <TextView
+        android:id="@+id/tvCompanyName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="@dimen/dp_10"
-        android:visibility="gone"
-        android:background="@color/main_black"
+        android:layout_toRightOf="@+id/left_image"
+        android:singleLine="true"
+        android:text="公司：阿里巴巴"
+        android:textColor="@color/text_main_black"
+        android:textSize="@dimen/text_size_16" />
+
+    <TextView
+        android:id="@+id/tvJobName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvCompanyName"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_toRightOf="@+id/left_image"
+        android:singleLine="true"
+        android:text="应聘岗位：专业吹牛比工程师"
+        android:textColor="@color/text_gray1" />
+
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvJobName"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_toRightOf="@+id/left_image"
+        android:singleLine="true"
+        android:text="发布于：2019.5.6"
+        android:textColor="@color/text_gray1" />
+
+    <ImageView
+        android:id="@+id/ivDelete"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@mipmap/delete_qiuzhi"
+        android:layout_below="@id/tvJobName"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_10"
         />
+</RelativeLayout>
+
+<View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:layout_below="@id/title_layout"
+    android:layout_marginTop="@dimen/dp_10"
+    android:visibility="gone"
+    android:background="@color/main_black"
+    />
 </LinearLayout>

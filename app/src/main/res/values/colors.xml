@@ -11,7 +11,11 @@
     <color name="invite_bg">#efeded</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="huiyuan_fengexian">#070808</color>
+    <color name="huiyuan_back">#EBECEE</color>
+
     <color name="gray">#808080</color>
+
     <color name="red">#FF0000</color>
     <color name="gold">#FFD700</color>
     <color name="yellow">#FFFF00</color>
