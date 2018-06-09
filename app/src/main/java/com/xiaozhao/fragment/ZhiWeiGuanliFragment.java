@@ -11,6 +11,8 @@ import com.flyco.tablayout.SlidingTabLayout;
 import com.xiaozhao.R;
 import com.xiaozhao.adapter.ViewPageFragmentAdapter;
 import com.xiaozhao.base.BaseFragment;
+import com.xiaozhao.bean.SimpleBackPage;
+import com.xiaozhao.utils.UIHelper;
 import com.xiaozhao.view.EmptyLayout;
 
 import java.util.ArrayList;
@@ -46,12 +48,19 @@ public class ZhiWeiGuanliFragment extends BaseFragment {
 
     @Override
     public void onClick(View view) {
-
+        switch (view.getId()) {
+            case R.id.tvSave:
+                UIHelper.showSimpleBack(getSimpleBackActivity(), SimpleBackPage.FABUZHIWEI,null);
+                break;
+        }
     }
 
     @Override
     public void initView(View view) {
 
+        getSimpleBackActivity().tvSave.setText("发布职位");
+        getSimpleBackActivity().tvSave.setVisibility(View.VISIBLE);
+        getSimpleBackActivity().tvSave.setOnClickListener(this);
 
         mAdapter = new ViewPageFragmentAdapter(getChildFragmentManager(), mTabLayout, mViewPager);
         mAdapter.addTab(mTitles[0], "info",
@@ -59,6 +68,7 @@ public class ZhiWeiGuanliFragment extends BaseFragment {
         mAdapter.addTab(mTitles[1], "infojob",
                 WeiFabuFragment.class, null);
         mTabLayout.notifyDataSetChanged();
+
     }
 
     @Override

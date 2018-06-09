@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/home_list_background"
+    android:orientation="vertical"
+    android:padding="@dimen/space_2">
+    <!--   android:padding="@dimen/space_3"-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/ivCommpany"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:src="@mipmap/home_list_006" />
+
+        <TextView
+            android:id="@+id/tvCompanyName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@id/ivCommpany"
+            android:text="腾讯科技"
+            android:textColor="@color/text_dark"
+            android:textSize="@dimen/text_size_14" />
+
+        <TextView
+            android:id="@+id/tvJobAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvCompanyName"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_toRightOf="@id/ivCommpany"
+            android:text="招聘职位:侃大山工程师，话仙大师,"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/text_size_12" />
+
+        <TextView
+            android:id="@+id/tvJuli"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_marginTop="@dimen/space_20"
+            android:drawableLeft="@mipmap/home_juli"
+            android:text="12km"
+            android:textColor="@color/lightblue"
+            android:textSize="@dimen/text_size_12" />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -3,7 +3,7 @@
     android:id="@+id/rlTitle"
     android:layout_width="match_parent"
     android:layout_height="@dimen/space_40"
-    android:background="@mipmap/home_toolbar_background"
+    android:background="@color/toolbar_background"
     android:orientation="horizontal">
 
     <ImageView

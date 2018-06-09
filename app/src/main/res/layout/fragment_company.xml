@@ -4,12 +4,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.xiaozhao.fragment.CompanyFragment">
-
+    <include
+        layout="@layout/home_toolbar"
+        />
     <LinearLayout
         android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@color/background_gray1"
+        android:background="@color/white"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -123,10 +125,6 @@
                     android:orientation="vertical"
                     >
 
-                    <android.support.v7.widget.RecyclerView
-                        android:id="@+id/rv_list"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
                 </android.support.v4.widget.SwipeRefreshLayout>
 
 
@@ -135,6 +133,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="gone" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_list"
+            android:padding="@dimen/space_4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
     </FrameLayout>
 
 </LinearLayout>

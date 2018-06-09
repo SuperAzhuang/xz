@@ -43,6 +43,7 @@ public class MineGuanZhuFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.mine_guanzhu, null);
         //得到数据
         ButterKnife.inject(this, view);
+
         return view;
     }
 
@@ -62,6 +63,7 @@ public class MineGuanZhuFragment extends BaseFragment {
         mAdapter.addTab(mTitles[1], "infojob",
                 MineQiuZhiFragment.class, null);
         mTabLayout.notifyDataSetChanged();
+
     }
 
     @Override

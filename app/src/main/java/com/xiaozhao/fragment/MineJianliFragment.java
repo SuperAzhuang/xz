@@ -63,6 +63,7 @@ public class MineJianliFragment extends BaseFragment {
                 break;
             case R.id.llPingjia:
                 UIHelper.showSimpleBack(getSimpleBackActivity(), SimpleBackPage.PINGJIA, null);
+
                 break;
         }
 

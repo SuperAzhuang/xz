@@ -27,13 +27,16 @@
             android:textColor="@color/text_dark"
             android:textSize="@dimen/sp_14" />
 
+
         <EditText
             android:id="@+id/etNicheng"
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_marginRight="@dimen/dp_10"
-            android:hint="请输入企业名称"
-            android:textSize="@dimen/text_size_12" />
+            android:hint="请输入"
+            android:background="@null"
+            android:textColor="@color/text_gray1"
+            android:textSize="@dimen/sp_14" />
     </LinearLayout>
 
     <View
@@ -56,10 +59,16 @@
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:padding="@dimen/dp_4"
-            android:text="公司行业"
+            android:text="行业类型"
             android:textColor="@color/text_dark"
             android:textSize="@dimen/sp_14" />
-
+        <TextView
+            android:id="@+id/tvleixing"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/space_10"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_gray1" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -88,10 +97,17 @@
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:padding="@dimen/dp_4"
-            android:text="公司类型"
+            android:text="企业类型"
             android:textColor="@color/text_dark"
             android:textSize="@dimen/sp_14" />
 
+        <TextView
+            android:id="@+id/tvqiyeleixing"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/space_10"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_gray1" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -114,6 +130,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/tvguimo"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_below="@id/ivHeader"
@@ -139,10 +156,6 @@
         android:layout_height="1dp"
         android:background="@color/light_gray" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/light_gray" />
 
     <LinearLayout
         android:id="@+id/llHuanjin"
@@ -152,6 +165,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/tvhuanjing"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_below="@id/ivHeader"
@@ -260,7 +274,6 @@
             android:text="@string/company_yingyezhizhao"
             android:textColor="@color/text_dark"
             android:textSize="@dimen/sp_14" />
-
 
         <ImageView
             android:layout_width="wrap_content"

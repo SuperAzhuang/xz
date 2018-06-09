@@ -4,6 +4,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.xiaozhao.fragment.CompanyFragment">
+    <include
+
+        layout="@layout/home_toolbar"
+        />
 
     <LinearLayout
         android:id="@+id/ll"

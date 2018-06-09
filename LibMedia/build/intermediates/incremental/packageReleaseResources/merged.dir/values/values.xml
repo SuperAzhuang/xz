@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="grey">#999999</color>
+    <color name="light_blue">#a9f9f9</color>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="empty_view_text_size">24sp</dimen>
+    <dimen name="media_item_frame_margin_bottom">2dp</dimen>
+    <dimen name="media_item_frame_margin_left">2dp</dimen>
+    <dimen name="media_item_frame_margin_right">2dp</dimen>
+    <dimen name="media_item_frame_margin_top">2dp</dimen>
+    <dimen name="media_item_frame_padding_bottom">6dp</dimen>
+    <dimen name="media_item_frame_padding_left">6dp</dimen>
+    <dimen name="media_item_frame_padding_right">6dp</dimen>
+    <dimen name="media_item_frame_padding_top">6dp</dimen>
+    <dimen name="media_item_height">128dp</dimen>
+    <dimen name="media_padding_bottom">2dp</dimen>
+    <dimen name="media_padding_left">2dp</dimen>
+    <dimen name="media_padding_right">2dp</dimen>
+    <dimen name="media_padding_top">2dp</dimen>
+    <dimen name="media_spacing_horizontal">2dp</dimen>
+    <dimen name="media_spacing_vertical">2dp</dimen>
+    <integer name="num_media_columns">2</integer>
+    <string name="action_settings">Settings</string>
+    <string name="app_name">LibMedia</string>
+    <string name="cd_media_item_image">media item image</string>
+    <string name="cd_media_item_overlay">media item overlay image</string>
+    <string name="confirm">Confirm</string>
+    <string name="error_fetching_media">找不到照片</string>
+    <string name="fetching_media">加载中</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="new_media_gallery">Create gallery</string>
+    <string name="no_media">没找到照片</string>
+    <string name="no_media_sources">没找到照片</string>
+</resources>

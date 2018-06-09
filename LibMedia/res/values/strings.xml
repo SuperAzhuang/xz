@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LibMedia</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    
+    <!-- Menu item titles -->
+    <string name="new_media_gallery">Create gallery</string>
+    <string name="confirm">Confirm</string>
+
+    <!-- Content descriptions -->
+    <string name="cd_media_item_image">media item image</string>
+    <string name="cd_media_item_overlay">media item overlay image</string>
+
+    <string name="fetching_media">加载中</string>
+    <string name="no_media_sources">没找到照片</string>
+    <string name="no_media">没找到照片</string>
+    <string name="error_fetching_media">找不到照片</string>
+
+</resources>

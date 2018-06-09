@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/etPingjia"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/white"
+        android:gravity="top|left"
+        android:hint="请输入职位描述"
+        android:padding="@dimen/space_4"
+        android:textColor="@color/text_gray1"
+        android:textSize="@dimen/sp_14" />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etPingjia"
+        android:padding="@dimen/space_4"
+        android:text="注:请勿输入公司邮箱,联系电话,薪资面议，及外链,请不要包含性别歧视语句。"
+        android:textColor="@color/text_gray1" />
+
+    <Button
+        android:id="@+id/btSave"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tv"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_mine_jiaoyu"
+        android:text="保存"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

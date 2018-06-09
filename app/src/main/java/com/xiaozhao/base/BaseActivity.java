@@ -203,7 +203,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
      *
      * @param token
      */
-    protected Boolean hideKeyboard(IBinder token) {
+    public Boolean hideKeyboard(IBinder token) {
         if (token != null) {
             InputMethodManager im = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             return im.hideSoftInputFromWindow(token, InputMethodManager.HIDE_NOT_ALWAYS);

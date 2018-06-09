@@ -20,37 +20,31 @@ import com.xiaozhao.widget.MyFragmentTabHost;
 
 import butterknife.InjectView;
 
+import static com.xiaozhao.R.id.ivLocate;
+import static com.xiaozhao.R.id.ivScanner;
+import static com.xiaozhao.R.id.ivSearch;
+import static com.xiaozhao.R.id.tvLocate;
+
 public class MainActivity extends BaseActivity implements TabHost.OnTabChangeListener {
 
 
-    @InjectView(R.id.toolbar)
-    RelativeLayout toolbar;
     @InjectView(R.id.realtabcontent)
     FrameLayout realtabcontent;
     @InjectView(android.R.id.tabhost)
     MyFragmentTabHost mTabHost;
-    @InjectView(R.id.ivLocate)
-    ImageView ivLocate;
-    @InjectView(R.id.tvLocate)
-    TextView tvLocate;
-    @InjectView(R.id.ivSearch)
-    ImageView ivSearch;
-    @InjectView(R.id.ivScanner)
-    ImageView ivScanner;
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.ivLocate:
-            case R.id.tvLocate:
-
+            case ivLocate:
+            case tvLocate:
                 break;
-            case R.id.ivScanner:
+            case ivScanner:
 
                 UIHelper.showCaptureActivity(this);
 
                 break;
-            case R.id.ivSearch:
+            case ivSearch:
                 UIHelper.showSearchActivity(this);
                 break;
 
@@ -59,11 +53,6 @@ public class MainActivity extends BaseActivity implements TabHost.OnTabChangeLis
 
     @Override
     public void initView() {
-        ivSearch.setOnClickListener(this);
-        ivScanner.setOnClickListener(this);
-        ivLocate.setOnClickListener(this);
-        tvLocate.setOnClickListener(this);
-        ivScanner.setOnClickListener(this);
 
         mTabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
         if (Build.VERSION.SDK_INT > 10) {
@@ -99,11 +88,11 @@ public class MainActivity extends BaseActivity implements TabHost.OnTabChangeLis
             }
         }
 
-        if (mTabHost.getCurrentTab() == MainTab.SHENGHOU.getIdx()) {
-            toolbar.setVisibility(View.GONE);
-        } else {
-            toolbar.setVisibility(View.VISIBLE);
-        }
+//        if (mTabHost.getCurrentTab() == MainTab.SHENGHOU.getIdx()) {
+//            toolbar.setVisibility(View.GONE);
+//        } else {
+//            toolbar.setVisibility(View.VISIBLE);
+//        }
     }
 
     private void initTabs() {

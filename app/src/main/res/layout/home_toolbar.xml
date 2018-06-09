@@ -5,8 +5,7 @@
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="@dimen/height_toolbar"
-    android:layout_centerVertical="true"
-    android:background="@mipmap/home_toolbar_background"
+    android:background="@color/toolbar_background"
     android:orientation="horizontal">
 
 
@@ -16,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/space_10"
-        android:src="@mipmap/home_locate" />
+        android:src="@mipmap/toolbar_dingwei" />
 
     <TextView
         android:id="@+id/tvLocate"
@@ -25,17 +24,18 @@
         android:layout_centerVertical="true"
         android:layout_toRightOf="@id/ivLocate"
         android:text="泉州"
+        android:padding="6dp"
         android:textColor="@color/white"
         android:textSize="14sp" />
 
     <ImageView
         android:id="@+id/ivSearch"
-        android:layout_width="240dp"
+        android:layout_width="wrap_content"
         android:layout_height="32dp"
         android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/space_6"
         android:layout_toRightOf="@id/tvLocate"
-        android:layout_marginLeft="@dimen/space_16"
-        android:src="@mipmap/tab_search" />
+        android:src="@mipmap/toolbar_search" />
 
     <!--
         <android.support.v7.widget.CardView
@@ -79,11 +79,11 @@
 
     <ImageView
         android:id="@+id/ivScanner"
-        android:layout_width="@dimen/space_28"
-        android:layout_height="@dimen/space_28"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="@dimen/space_20"
-        android:src="@mipmap/home_scanner" />
+        android:layout_marginRight="15dp"
+        android:src="@mipmap/toolbar_scan" />
 
 </RelativeLayout>

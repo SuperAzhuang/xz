@@ -20,6 +20,8 @@ import java.lang.ref.WeakReference;
 
 import butterknife.InjectView;
 
+import static com.xiaozhao.R.id.etPingjia;
+
 public class SimpleBackActivity extends BaseActivity {
 
 
@@ -46,6 +48,7 @@ public class SimpleBackActivity extends BaseActivity {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.ivBack:
+                hideKeyboard(getCurrentFocus().getWindowToken());
                 finish();
                 break;
         }

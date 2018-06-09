@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -64,6 +65,8 @@ import cz.msebera.android.httpclient.Header;
 
 import static com.orhanobut.logger.Logger.json;
 import static com.orhanobut.logger.Logger.t;
+import static com.xiaozhao.R.id.grideview;
+import static com.xiaozhao.R.id.mRecyclerView;
 import static com.xiaozhao.R.id.recyclerView;
 
 
@@ -79,7 +82,7 @@ public class CompanyFragment extends BaseFragment {
     @InjectView(R.id.tvMore)
     TextView tvMore;
     @InjectView(R.id.rv_list)
-    RecyclerView grideview;
+    RecyclerView mRecyclerView;
     @InjectView(R.id.error_layout)
     EmptyLayout mErrorLayout;
     @InjectView(R.id.ivJuli)
@@ -239,13 +242,23 @@ public class CompanyFragment extends BaseFragment {
     @Override
     public void initView(View view) {
 
-        grideview.setLayoutManager(new GridLayoutManager(getApplication(), 2));
-        grideview.addItemDecoration(new DividerItemDecoration(getApplication()));
-        companyGridAdapter = new HomeCompanyAdapter(R.layout.company_grid_item, mDatas);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getMAinActivity()));
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(getApplication()));
+
+        mDatas.add(new NewsResult.NewsBean());
+        mDatas.add(new NewsResult.NewsBean());
+        mDatas.add(new NewsResult.NewsBean());
+        mDatas.add(new NewsResult.NewsBean());
+        mDatas.add(new NewsResult.NewsBean());
+        mDatas.add(new NewsResult.NewsBean());
+        mDatas.add(new NewsResult.NewsBean());
+        mDatas.add(new NewsResult.NewsBean());
+
+        companyGridAdapter = new HomeCompanyAdapter(R.layout.company_list_item, mDatas);
 
         companyGridAdapter.addHeaderView(getListViewHeadView());
         companyGridAdapter.setLoadMoreView(new SimpleLoadMoreView());
-        grideview.setAdapter(companyGridAdapter);
+        mRecyclerView.setAdapter(companyGridAdapter);
 
         mSwipeRefreshLayout.setColorSchemeColors(Color.rgb(47, 223, 189));
         mSwipeRefreshLayout.setRefreshing(true);
