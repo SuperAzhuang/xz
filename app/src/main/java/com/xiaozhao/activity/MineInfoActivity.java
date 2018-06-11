@@ -125,6 +125,7 @@ public class MineInfoActivity extends BaseActivity {
             }
         });
     }
+
     /**
      * 选择图片裁剪
      *
@@ -267,9 +268,10 @@ public class MineInfoActivity extends BaseActivity {
         } else {
             showToast("图像不存在，上传失败");
         }
-        Logger.t(TAG).d("protraitBitmap = " + protraitBitmap);
+        Logger.t(TAG).d("protraitBitmap = " + protraitBitmap + " ---url = " + protraitPath);
         if (protraitBitmap != null) {
             showToast("上传中....");
+            ivHeader.setImageBitmap(protraitBitmap);
 //            showWaitDialog("上传中...");
             try {
 
@@ -294,6 +296,7 @@ public class MineInfoActivity extends BaseActivity {
             }
         }
     }
+
     private void upLoadUserInfo() {
         BaseApplication.showToastShort("保存成功");
         finish();
@@ -303,15 +306,15 @@ public class MineInfoActivity extends BaseActivity {
 
         TimePickerView pvTime = new TimePickerBuilder(this, new OnTimeSelectListener() {
             @Override
-            public void onTimeSelect(Date date,View v) {//选中事件回调
+            public void onTimeSelect(Date date, View v) {//选中事件回调
                 tvNianling.setText(getTime(date));
             }
         })
-                .setType(new boolean[]{true, true, true,false,false,false  })// 默认全部显示
+                .setType(new boolean[]{true, true, true, false, false, false})// 默认全部显示
                 .setContentTextSize(18)//滚轮文字大小
                 .setOutSideCancelable(false)//点击屏幕，点在控件外部范围时，是否取消显示
                 .isCyclic(true)//是否循环滚动
-                .setLabel("年","月","日","时","分","秒")//默认设置为年月日时分秒
+                .setLabel("年", "月", "日", "时", "分", "秒")//默认设置为年月日时分秒
                 .isCenterLabel(false) //是否只显示中间选中项的label文字，false则每项item全部都带有label。
                 .isDialog(false)//是否显示为对话框样式
                 .build();

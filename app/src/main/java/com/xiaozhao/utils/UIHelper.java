@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
@@ -134,5 +135,11 @@ public class UIHelper {
         intent.putExtra(SimpleBackActivity.BUNDLE_KEY_ARGS, args);
         intent.putExtra(SimpleBackActivity.BUNDLE_KEY_PAGE, page.getValue());
         context.startActivity(intent);
+    }
+    public static void showSimpleBackForResult(Fragment fragment, int requestCode, SimpleBackPage page, Bundle args) {
+        Intent intent = new Intent(fragment.getActivity(), SimpleBackActivity.class);
+        intent.putExtra(SimpleBackActivity.BUNDLE_KEY_PAGE, page.getValue());
+        intent.putExtra(SimpleBackActivity.BUNDLE_KEY_ARGS, args);
+        fragment.startActivityForResult(intent, requestCode);
     }
 }

@@ -28,13 +28,15 @@
             android:padding="@dimen/space_6"
             android:src="@mipmap/back" />
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/ivHeader"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@mipmap/add_head"
             android:layout_centerHorizontal="true"
             android:layout_centerInParent="true"
-            android:src="@mipmap/add_head" />
+            app:civ_border_color="#FF000000"/>
     </RelativeLayout>
 
     <LinearLayout

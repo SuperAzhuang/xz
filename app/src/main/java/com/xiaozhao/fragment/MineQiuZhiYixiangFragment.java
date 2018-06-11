@@ -116,6 +116,9 @@ public class MineQiuZhiYixiangFragment extends BaseFragment {
             case R.id.llzhuangtai:
                 selectZhuangTai();
                 break;
+            case R.id.ivBack:
+                getSimpleBackActivity().finish();
+                break;
             case R.id.tvSave:
                 getSimpleBackActivity().finish();
                 BaseApplication.showToastShort("保存成功");

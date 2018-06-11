@@ -1,7 +1,12 @@
 package com.xiaozhao.fragment;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,11 +18,19 @@ import android.widget.TextView;
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
+import com.example.libmedia.MediaItem;
 import com.flyco.dialog.listener.OnOperItemClickL;
 import com.flyco.dialog.widget.ActionSheetDialog;
 import com.xiaozhao.R;
 import com.xiaozhao.base.BaseFragment;
+import com.xiaozhao.bean.SimpleBackPage;
+import com.xiaozhao.utils.FileUtil;
+import com.xiaozhao.utils.ImageUtils;
+import com.xiaozhao.utils.StringUtils;
+import com.xiaozhao.utils.UIHelper;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import butterknife.ButterKnife;
@@ -65,6 +78,9 @@ public class QiYeXinxiFragment extends BaseFragment {
     TextView tvguimo;
     @InjectView(R.id.tvhuanjing)
     TextView tvhuanjing;
+    private String theLarge, theThumbnail;
+    private File imgFile;
+    ArrayList<String> picImgs = new ArrayList<String>();
 
     private ArrayList<String> options1Items = new ArrayList<>();
     private ArrayList<ArrayList<String>> options2Items = new ArrayList<>();
@@ -82,6 +98,7 @@ public class QiYeXinxiFragment extends BaseFragment {
             {"经开区1", "经开区2", "经开区3", "中原4", "中原5", "中原6", "中原7", "中原8", "中原9", "中原10", "中原11", "中原12", "中原13", "中原14", "中原15"},
             {"周边1", "周边2", "周边3", "中原4", "中原5", "中原6", "中原7", "中原8", "中原9", "中原10", "中原11", "中原12", "中原13", "中原14", "中原15"},
     };
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -151,7 +168,8 @@ public class QiYeXinxiFragment extends BaseFragment {
                         break;
                     case 1:
 //                相册
-
+//                        UIHelper.showSimpleBack(this,ImageUtils.REQUEST_CODE_GETIMAGE_BYSDCARD, SimpleBackPage.PHOTO_ALBUM_FRAGMENT);
+                        UIHelper.showSimpleBackForResult(QiYeXinxiFragment.this, ImageUtils.REQUEST_CODE_GETIMAGE_BYSDCARD, SimpleBackPage.PHOTO_ALBUM_FRAGMENT, null);
                         break;
                 }
             }
@@ -268,4 +286,86 @@ public class QiYeXinxiFragment extends BaseFragment {
         pvOptions.setPicker(options1Items, options2Items);//三级选择器
         pvOptions.show();
     }
+    @Override
+    public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode != Activity.RESULT_OK)
+            return;
+
+//        if (mLayPicContainer != null) {
+//            mLayPicContainer.removeAllViews();
+//            picImgs.clear();
+//        }
+//
+//        mScrollPicContainer.setVisibility(View.VISIBLE);
+
+        new Thread() {
+            private String selectedImagePath;
+            @Override
+            public void run() {
+                Bitmap bitmap = null;
+                if (requestCode == ImageUtils.REQUEST_CODE_GETIMAGE_BYSDCARD) {
+                    if (data == null)
+                        return;
+
+                    ArrayList<MediaItem> picItems = data.getParcelableArrayListExtra("pics");
+
+                    for (MediaItem mediaItem : picItems) {
+                        picImgs.add(mediaItem.getSource().toString());
+                    }
+                }
+
+                if (picImgs.size() > 0) {
+                    String savePath = ImageUtils.IMGS;
+                    File savedir = new File(savePath);
+                    if (!savedir.exists()) {
+                        savedir.mkdirs();
+                    }
+                    //
+                    for (int i = 0; i < picImgs.size(); i++) {
+
+                        String largeFileName = FileUtil.getFileName(picImgs.get(i));
+                        String largeFilePath = savePath + largeFileName;
+                        // 判断是否已存在缩略图
+                        if (largeFileName.startsWith("thumb_") && new File(largeFilePath).exists()) {
+                            // theThumbnail = largeFilePath;
+                            picImgs.set(i, largeFilePath);
+                            // imgFile = new File(theThumbnail);
+                        } else {
+                            // 生成上传的宽度图片
+                            String thumbFileName = "thumb_" + largeFileName;
+                            theThumbnail = savePath + thumbFileName;
+
+                            if (new File(theThumbnail).exists()) {
+                                // imgFile = new File(theThumbnail);
+                            } else {
+                                try {
+                                    // 压缩上传的图片
+                                    ImageUtils.createImageThumbnail(getActivity(), picImgs.get(i), theThumbnail, 1000, 80);
+                                    // imgFile = new File(theThumbnail);
+                                    // picImgs.set(i,imgFile.getAbsolutePath());
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
+                            picImgs.set(i, theThumbnail);
+                        }
+
+                        //
+                    }
+
+                    // 保存动弹临时图片
+                    // ((AppContext) getApplication()).setProperty(
+                    // tempTweetImageKey, theThumbnail);
+
+                    // Message msg = new Message();
+                    // msg.what = 1;
+                    // msg.obj = bitmap;
+                    // handler.sendMessage(msg);
+                }
+            };
+        }.start();
+    }
+
 }

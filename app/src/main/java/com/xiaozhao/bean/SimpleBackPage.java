@@ -1,6 +1,7 @@
 package com.xiaozhao.bean;
 
 
+import com.example.libmedia.MediaPickerFragment;
 import com.xiaozhao.R;
 import com.xiaozhao.fragment.HuiYuanFragment;
 import com.xiaozhao.fragment.JiaoyuShengChengYeFragment;
@@ -14,6 +15,7 @@ import com.xiaozhao.fragment.MineJianliFragment;
 import com.xiaozhao.fragment.MineJiaoyubeijingFragment;
 import com.xiaozhao.fragment.MineQiuZhiYixiangFragment;
 import com.xiaozhao.fragment.MinezhuanyejinengFragment;
+import com.xiaozhao.fragment.PhotoSelectFragment;
 import com.xiaozhao.fragment.PingJiaFragment;
 import com.xiaozhao.fragment.QiYeXinxiFragment;
 import com.xiaozhao.fragment.SettingsFragment;
@@ -47,6 +49,7 @@ public enum SimpleBackPage {
     QIYEXINXI(15,  R.string.qiyexinxi, QiYeXinxiFragment.class),
     FABUZHIWEI(16,  R.string.fabuzhiwei, FaBuZhiWeiFragment.class),
     ZHIWEIMIAOSHU(17,  R.string.zhiweimiaoshu, ZhiWeiMiaoShuFragment.class),
+    PHOTO_ALBUM_FRAGMENT(18,  R.string.xuanzezhaopian,  MediaPickerFragment.class),
     JIBENXINXI(5,  R.string.mine_jibenxinxi, MineJiBenXinxiFragment.class), ;
 
     private int title;

@@ -161,6 +161,7 @@ public class MineJiBenXinxiFragment extends BaseFragment {
         llXingbie.setOnClickListener(this);
         llHUnyin.setOnClickListener(this);
         llsr.setOnClickListener(this);
+
     }
 
 
@@ -202,4 +203,5 @@ public class MineJiBenXinxiFragment extends BaseFragment {
         SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日");
         return format.format(date);
     }
+
 }
