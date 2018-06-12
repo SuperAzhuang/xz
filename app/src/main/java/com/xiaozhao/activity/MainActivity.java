@@ -1,8 +1,13 @@
 package com.xiaozhao.activity;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.v4.app.Fragment;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -10,20 +15,22 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TabHost;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.tencent.imsdk.TIMManager;
 import com.xiaozhao.R;
 import com.xiaozhao.base.BaseActivity;
 import com.xiaozhao.base.MainTab;
 import com.xiaozhao.utils.TDevice;
 import com.xiaozhao.utils.UIHelper;
+import com.xiaozhao.widget.BadgeView;
 import com.xiaozhao.widget.MyFragmentTabHost;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.InjectView;
 
-import static com.xiaozhao.R.id.ivLocate;
-import static com.xiaozhao.R.id.ivScanner;
-import static com.xiaozhao.R.id.ivSearch;
-import static com.xiaozhao.R.id.tvLocate;
 
 public class MainActivity extends BaseActivity implements TabHost.OnTabChangeListener {
 
@@ -32,21 +39,21 @@ public class MainActivity extends BaseActivity implements TabHost.OnTabChangeLis
     FrameLayout realtabcontent;
     @InjectView(android.R.id.tabhost)
     MyFragmentTabHost mTabHost;
-
+    private BadgeView mBvNotice;
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case ivLocate:
-            case tvLocate:
-                break;
-            case ivScanner:
-
-                UIHelper.showCaptureActivity(this);
-
-                break;
-            case ivSearch:
-                UIHelper.showSearchActivity(this);
-                break;
+//            case ivLocate:
+//            case tvLocate:
+//                break;
+//            case ivScanner:
+//
+//                UIHelper.showCaptureActivity(this);
+//
+//                break;
+//            case ivSearch:
+//                UIHelper.showSearchActivity(this);
+//                break;
 
         }
     }
@@ -63,6 +70,14 @@ public class MainActivity extends BaseActivity implements TabHost.OnTabChangeLis
 
         mTabHost.setCurrentTab(0);
         mTabHost.setOnTabChangedListener(this);
+
+        if (requestPermission()) {
+            Intent intent = new Intent(this,SplashActivity.class);
+            finish();
+            startActivity(intent);
+        }else {
+            Toast.makeText(this, getString(TIMManager.getInstance().getEnv() == 0 ? R.string.env_normal : R.string.env_test), Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -96,12 +111,13 @@ public class MainActivity extends BaseActivity implements TabHost.OnTabChangeLis
     }
 
     private void initTabs() {
+
         MainTab[] tabs = MainTab.values();
         final int size = tabs.length;
         for (int i = 0; i < size; i++) {
             MainTab mainTab = tabs[i];
             TabHost.TabSpec tab = mTabHost.newTabSpec(getString(mainTab.getResName()));
-            View indicator = LayoutInflater.from(getApplicationContext()).inflate(R.layout.tab_indicator, null);
+            View indicator = LayoutInflater.from(getApplicationContext()).inflate(R.layout.home_tab, null);
             TextView title = (TextView) indicator.findViewById(R.id.tab_title);
             Drawable drawable = this.getResources().getDrawable(mainTab.getResIcon());
             // tabIcon.setImageDrawable(drawable);
@@ -119,8 +135,15 @@ public class MainActivity extends BaseActivity implements TabHost.OnTabChangeLis
             });
             mTabHost.addTab(tab, mainTab.getClz(), null);
 
+            if (mainTab.equals(MainTab.ZHENGWU)) {
+                View cn = indicator.findViewById(R.id.tab_mes);
+                mBvNotice = new BadgeView(MainActivity.this, cn);
+                mBvNotice.setBadgePosition(BadgeView.POSITION_TOP_RIGHT);
+                mBvNotice.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
+                mBvNotice.setBackgroundResource(R.drawable.red_circle_small);
+                mBvNotice.setGravity(Gravity.CENTER);
+            }
 
-//            mTabHost.getTabWidget().getChildAt(i).setOnTouchListener(this);
         }
         setTitle(mTabHost.getCurrentTabTag());
     }
@@ -128,7 +151,51 @@ public class MainActivity extends BaseActivity implements TabHost.OnTabChangeLis
     private void setTitle(String str) {
 
     }
+
     private Fragment getCurrentFragment() {
         return getSupportFragmentManager().findFragmentByTag(mTabHost.getCurrentTabTag());
     }
+
+//    public void logout(){
+//        TlsBusiness.logout(UserInfo.getInstance().getId());
+//        UserInfo.getInstance().setId(null);
+//        MessageEvent.getInstance().clear();
+//        FriendshipInfo.getInstance().clear();
+//        GroupInfo.getInstance().clear();
+//        Intent intent = new Intent(HomeActivity.this,MainActivity.class);
+//        finish();
+//        startActivity(intent);
+//
+//    }
+
+
+    /**
+     * 设置未读tab显示
+     */
+    public void setMsgUnread(boolean noUnread) {
+        if (mBvNotice!=null) {
+            if (noUnread) {
+                mBvNotice.show(false);
+            } else {
+                mBvNotice.show(true);
+            }
+        }
+    }
+
+
+    private boolean requestPermission() {
+        if (afterM()) {
+            final List<String> permissionsList = new ArrayList<>();
+            if ((checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) ||
+                    (checkSelfPermission(Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean afterM() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M;
+    }
+
 }

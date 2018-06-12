@@ -6,6 +6,7 @@ import com.xiaozhao.fragment.CompanyFragment;
 import com.xiaozhao.fragment.NearApplerFragment;
 import com.xiaozhao.fragment.MineFragment;
 import com.xiaozhao.fragment.NewsFragment;
+import com.xiaozhao.im.ConversationFragment;
 
 public enum MainTab {
 
@@ -13,7 +14,7 @@ public enum MainTab {
 
     ZHIBO(1, R.string.home_person, R.drawable.tab_icon_zhibo, NearApplerFragment.class),
 
-    ZHENGWU(2, R.string.home_news, R.drawable.tab_icon_zhengwu, NewsFragment.class),
+    ZHENGWU(2, R.string.home_news, R.drawable.tab_icon_zhengwu, ConversationFragment.class),
 
     SHENGHOU(3, R.string.home_mine, R.drawable.tab_icon_shenghuo, MineFragment.class);
 

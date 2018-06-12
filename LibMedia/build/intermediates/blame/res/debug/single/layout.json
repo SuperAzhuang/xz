@@ -4,10 +4,6 @@
         "source": "F:\\Aazhuang\\xiaozhao\\LibMedia\\res\\layout\\media_picker_fragment.xml"
     },
     {
-        "merged": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
-        "source": "F:\\Aazhuang\\xiaozhao\\LibMedia\\res\\layout\\activity_main.xml"
-    },
-    {
         "merged": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
         "source": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_action_menu_item_layout.xml"
     },

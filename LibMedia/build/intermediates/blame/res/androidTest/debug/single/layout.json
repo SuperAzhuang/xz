@@ -4,10 +4,6 @@
         "source": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_expanded_menu_layout.xml"
     },
     {
-        "merged": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\activity_main.xml",
-        "source": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\bundles\\debug\\res\\layout\\activity_main.xml"
-    },
-    {
         "merged": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_bar_title_item.xml",
         "source": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_action_bar_title_item.xml"
     },
@@ -152,12 +148,12 @@
         "source": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_activity_chooser_view.xml"
     },
     {
-        "merged": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_mode_bar.xml",
-        "source": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_action_mode_bar.xml"
-    },
-    {
         "merged": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_list_menu_item_icon.xml",
         "source": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_mode_bar.xml",
+        "source": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_action_mode_bar.xml"
     },
     {
         "merged": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\select_dialog_singlechoice_material.xml",

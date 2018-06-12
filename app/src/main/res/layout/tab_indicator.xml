@@ -24,16 +24,13 @@
 
     <TextView
         android:id="@+id/tab_mes"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
+        android:layout_width="6dp"
+        android:layout_height="6dp"
         android:layout_alignRight="@id/tab_title"
         android:layout_alignTop="@id/tab_title"
-        android:layout_marginLeft="1dp"
-        android:layout_marginRight="@dimen/global_padding"
-        android:layout_marginTop="6dp"
-        android:visibility="gone" >
-    </TextView>
+        android:layout_marginTop="2dp"
+        android:text="1111"
+        android:drawableLeft="@drawable/point1"
+      />
 
 </RelativeLayout>

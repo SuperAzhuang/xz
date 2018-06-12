@@ -1,1 +1,1 @@
-include ':app', ':LibMedia'
+include ':app', ':LibMedia', ':sdk', ':presentation', ':tlslibrary', ':ui'

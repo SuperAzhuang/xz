@@ -26,12 +26,23 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
+import com.tencent.imsdk.TIMGroupReceiveMessageOpt;
+import com.tencent.imsdk.TIMManager;
+import com.tencent.imsdk.TIMOfflinePushListener;
+import com.tencent.imsdk.TIMOfflinePushNotification;
+import com.tencent.imsdk.TIMSdkConfig;
+import com.tencent.qalsdk.QALSDKManager;
+import com.tencent.qalsdk.sdk.MsfSdkUtils;
 import com.xiaozhao.BuildConfig;
 import com.xiaozhao.R;
 import com.xiaozhao.http.ApiHttpClient;
+import com.xiaozhao.im.Foreground;
+import com.xiaozhao.im.PushUtil;
 import com.xiaozhao.utils.StringUtils;
 
 import org.litepal.LitePalApplication;
+
+import static com.tencent.qalsdk.service.QalService.context;
 
 
 //LitePalApplication数据库配置
@@ -60,15 +71,47 @@ public class BaseApplication extends LitePalApplication {
         _resource = _context.getResources();
 
 
+        //初始化程序后台后消息推送
+        PushUtil.getInstance();
+
         init();
         Logger.addLogAdapter(new AndroidLogAdapter());
 
         Logger.addLogAdapter(new AndroidLogAdapter() {
-            @Override public boolean isLoggable(int priority, String tag) {
+            @Override
+            public boolean isLoggable(int priority, String tag) {
                 return BuildConfig.DEBUG;
             }
         });
 
+//IM配置
+        initIm();
+
+    }
+
+    private void initIm() {
+        Foreground.init(this);
+        if (MsfSdkUtils.isMainProcess(this)) {
+            TIMManager.getInstance().setOfflinePushListener(new TIMOfflinePushListener() {
+                @Override
+                public void handleNotification(TIMOfflinePushNotification notification) {
+                    if (notification.getGroupReceiveMsgOpt() == TIMGroupReceiveMessageOpt.ReceiveAndNotify) {
+                        //消息被设置为需要提醒
+                        notification.doNotify(getApplicationContext(), R.mipmap.ic_launcher);
+                    }
+                }
+            });
+        }
+        int sdkAppid = 1400077940;
+        //初始化 SDK 基本配置
+        TIMSdkConfig config = new TIMSdkConfig(sdkAppid)
+                .enableCrashReport(false)
+                .enableLogPrint(true);
+
+        TIMManager.getInstance().init(getApplicationContext(), config);
+// 务必检查IMSDK已做以下初始化
+//        QALSDKManager.getInstance().setEnv(0);
+        QALSDKManager.getInstance().init(_context, sdkAppid);
     }
 
     private void init() {

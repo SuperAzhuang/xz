@@ -1,19 +1,19 @@
 [
     {
-        "merged": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\res\\merged\\release\\layout\\abc_screen_simple_overlay_action_mode.xml",
-        "source": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
-    },
-    {
-        "merged": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\res\\merged\\release\\layout\\abc_action_mode_close_item_material.xml",
-        "source": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_action_mode_close_item_material.xml"
+        "merged": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_big_media_narrow.xml",
+        "source": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\notification_template_big_media_narrow.xml"
     },
     {
         "merged": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\res\\merged\\release\\layout\\abc_screen_toolbar.xml",
         "source": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_screen_toolbar.xml"
     },
     {
-        "merged": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_big_media_narrow.xml",
-        "source": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\notification_template_big_media_narrow.xml"
+        "merged": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\res\\merged\\release\\layout\\abc_action_mode_close_item_material.xml",
+        "source": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\res\\merged\\release\\layout\\abc_screen_simple_overlay_action_mode.xml",
+        "source": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
     },
     {
         "merged": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\res\\merged\\release\\layout\\abc_action_mode_bar.xml",
@@ -60,10 +60,6 @@
         "source": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\notification_template_part_time.xml"
     },
     {
-        "merged": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\res\\merged\\release\\layout\\activity_main.xml",
-        "source": "F:\\Aazhuang\\xiaozhao\\LibMedia\\res\\layout\\activity_main.xml"
-    },
-    {
         "merged": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\res\\merged\\release\\layout\\notification_media_cancel_action.xml",
         "source": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\notification_media_cancel_action.xml"
     },
@@ -80,12 +76,12 @@
         "source": "F:\\Aazhuang\\xiaozhao\\LibMedia\\res\\layout\\media_picker_fragment.xml"
     },
     {
-        "merged": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\res\\merged\\release\\layout\\abc_action_bar_title_item.xml",
-        "source": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_action_bar_title_item.xml"
-    },
-    {
         "merged": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\res\\merged\\release\\layout\\abc_popup_menu_item_layout.xml",
         "source": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\res\\merged\\release\\layout\\abc_action_bar_title_item.xml",
+        "source": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_action_bar_title_item.xml"
     },
     {
         "merged": "F:\\Aazhuang\\xiaozhao\\LibMedia\\build\\intermediates\\res\\merged\\release\\layout\\abc_select_dialog_material.xml",
