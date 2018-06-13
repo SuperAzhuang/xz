@@ -150,6 +150,7 @@ public class CompanyFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_company, container, false);
         ButterKnife.inject(this, view);
         lp = getActivity().getWindow().getAttributes();

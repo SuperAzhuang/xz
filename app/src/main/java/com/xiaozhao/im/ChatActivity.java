@@ -46,7 +46,6 @@ import java.util.List;
 public class ChatActivity extends FragmentActivity implements ChatView {
 
     private static final String TAG = "ChatActivity";
-
     private List<Message> messageList = new ArrayList<>();
     private ChatAdapter adapter;
     private ListView listView;
@@ -71,9 +70,11 @@ public class ChatActivity extends FragmentActivity implements ChatView {
         intent.putExtra("identify", identify);
         intent.putExtra("type", type);
         context.startActivity(intent);
-
+//        Intent intent = new Intent(context, ChatActivity.class);
+//        intent.putExtra("identify", "azhuang04");
+//        intent.putExtra("type", type);
+//        context.startActivity(intent);
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

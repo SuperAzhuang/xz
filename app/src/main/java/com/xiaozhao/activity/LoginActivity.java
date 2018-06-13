@@ -19,10 +19,16 @@ import android.widget.Toast;
 
 import com.tencent.imsdk.TIMCallBack;
 import com.tencent.imsdk.TIMConnListener;
+import com.tencent.imsdk.TIMGroupReceiveMessageOpt;
 import com.tencent.imsdk.TIMLogLevel;
 import com.tencent.imsdk.TIMManager;
+import com.tencent.imsdk.TIMOfflinePushListener;
+import com.tencent.imsdk.TIMOfflinePushNotification;
+import com.tencent.imsdk.TIMSdkConfig;
 import com.tencent.imsdk.TIMUserConfig;
 import com.tencent.imsdk.TIMUserStatusListener;
+import com.tencent.qalsdk.QALSDKManager;
+import com.tencent.qalsdk.sdk.MsfSdkUtils;
 import com.tencent.qcloud.presentation.business.InitBusiness;
 import com.tencent.qcloud.presentation.business.LoginBusiness;
 import com.tencent.qcloud.presentation.event.MessageEvent;
@@ -33,7 +39,10 @@ import com.tencent.qcloud.tlslibrary.service.TlsBusiness;
 import com.tencent.qcloud.ui.NotifyDialog;
 import com.xiaozhao.R;
 import com.xiaozhao.base.BaseActivity;
+import com.xiaozhao.base.BaseApplication;
+import com.xiaozhao.im.Foreground;
 import com.xiaozhao.im.UserInfo;
+import com.xiaozhao.im.model.FriendshipInfo;
 import com.xiaozhao.im.view.DialogActivity;
 import com.xiaozhao.utils.UIHelper;
 
@@ -48,6 +57,7 @@ import tencent.tls.platform.TLSPwdLoginListener;
 import tencent.tls.platform.TLSUserInfo;
 
 import static com.xiaozhao.R.id.etPhone;
+import static tencent.tls.request.req_global._context;
 
 
 public class LoginActivity extends BaseActivity implements TIMCallBack {
@@ -192,7 +202,6 @@ public class LoginActivity extends BaseActivity implements TIMCallBack {
 //        presenter.start();
     }
 
-
     /**
      * imsdk登录失败后回调
      */
@@ -280,7 +289,7 @@ public class LoginActivity extends BaseActivity implements TIMCallBack {
                 new NotifyDialog().show(getString(R.string.tls_expire), getSupportFragmentManager(), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-//                            logout();
+                        logout();
                     }
                 });
             }
@@ -313,4 +322,14 @@ public class LoginActivity extends BaseActivity implements TIMCallBack {
         LoginBusiness.loginIm(UserInfo.getInstance().getId(), UserInfo.getInstance().getUserSig(), this);
 
     }
+
+    public void logout() {
+        TlsBusiness.logout(UserInfo.getInstance().getId());
+        UserInfo.getInstance().setId(null);
+        MessageEvent.getInstance().clear();
+        FriendshipInfo.getInstance().clear();
+        UIHelper.showLoginActivity(this);
+        finish();
+    }
+
 }

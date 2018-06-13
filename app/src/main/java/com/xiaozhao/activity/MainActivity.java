@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -17,16 +18,31 @@ import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.orhanobut.logger.Logger;
+import com.tencent.imsdk.TIMConversation;
+import com.tencent.imsdk.TIMConversationType;
 import com.tencent.imsdk.TIMManager;
+import com.tencent.imsdk.TIMMessage;
+import com.tencent.imsdk.TIMValueCallBack;
+import com.tencent.imsdk.ext.message.TIMConversationExt;
+import com.tencent.imsdk.ext.message.TIMManagerExt;
+import com.tencent.qcloud.presentation.event.MessageEvent;
+import com.tencent.qcloud.tlslibrary.service.TlsBusiness;
 import com.xiaozhao.R;
 import com.xiaozhao.base.BaseActivity;
+import com.xiaozhao.base.BaseApplication;
 import com.xiaozhao.base.MainTab;
+import com.xiaozhao.im.UserInfo;
+import com.xiaozhao.im.model.Conversation;
+import com.xiaozhao.im.model.FriendshipInfo;
+import com.xiaozhao.im.model.NomalConversation;
 import com.xiaozhao.utils.TDevice;
 import com.xiaozhao.utils.UIHelper;
 import com.xiaozhao.widget.BadgeView;
 import com.xiaozhao.widget.MyFragmentTabHost;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import butterknife.InjectView;
@@ -40,6 +56,7 @@ public class MainActivity extends BaseActivity implements TabHost.OnTabChangeLis
     @InjectView(android.R.id.tabhost)
     MyFragmentTabHost mTabHost;
     private BadgeView mBvNotice;
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -72,10 +89,10 @@ public class MainActivity extends BaseActivity implements TabHost.OnTabChangeLis
         mTabHost.setOnTabChangedListener(this);
 
         if (requestPermission()) {
-            Intent intent = new Intent(this,SplashActivity.class);
+            Intent intent = new Intent(this, SplashActivity.class);
             finish();
             startActivity(intent);
-        }else {
+        } else {
             Toast.makeText(this, getString(TIMManager.getInstance().getEnv() == 0 ? R.string.env_normal : R.string.env_test), Toast.LENGTH_SHORT).show();
         }
     }
@@ -127,7 +144,6 @@ public class MainActivity extends BaseActivity implements TabHost.OnTabChangeLis
             title.setText(getString(mainTab.getResName()));
             tab.setIndicator(indicator);
             tab.setContent(new TabHost.TabContentFactory() {
-
                 @Override
                 public View createTabContent(String tag) {
                     return new View(MainActivity.this);
@@ -142,6 +158,14 @@ public class MainActivity extends BaseActivity implements TabHost.OnTabChangeLis
                 mBvNotice.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
                 mBvNotice.setBackgroundResource(R.drawable.red_circle_small);
                 mBvNotice.setGravity(Gravity.CENTER);
+
+                if (mBvNotice != null) {
+                    if (getTotalUnreadNum() == 0) {
+                        mBvNotice.hide(true);
+                    } else {
+                        mBvNotice.show(true);
+                    }
+                }
             }
 
         }
@@ -156,26 +180,24 @@ public class MainActivity extends BaseActivity implements TabHost.OnTabChangeLis
         return getSupportFragmentManager().findFragmentByTag(mTabHost.getCurrentTabTag());
     }
 
-//    public void logout(){
-//        TlsBusiness.logout(UserInfo.getInstance().getId());
-//        UserInfo.getInstance().setId(null);
-//        MessageEvent.getInstance().clear();
-//        FriendshipInfo.getInstance().clear();
-//        GroupInfo.getInstance().clear();
-//        Intent intent = new Intent(HomeActivity.this,MainActivity.class);
-//        finish();
-//        startActivity(intent);
-//
-//    }
+    public void logout() {
+        TlsBusiness.logout(UserInfo.getInstance().getId());
+        UserInfo.getInstance().setId(null);
+        MessageEvent.getInstance().clear();
+        FriendshipInfo.getInstance().clear();
+        UIHelper.showLoginActivity(this);
+        finish();
+    }
 
 
     /**
      * 设置未读tab显示
      */
     public void setMsgUnread(boolean noUnread) {
-        if (mBvNotice!=null) {
+//        BaseApplication.showToastShort(noUnread + "");
+        if (mBvNotice != null) {
             if (noUnread) {
-                mBvNotice.show(false);
+                mBvNotice.hide(true);
             } else {
                 mBvNotice.show(true);
             }
@@ -196,6 +218,45 @@ public class MainActivity extends BaseActivity implements TabHost.OnTabChangeLis
 
     private boolean afterM() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M;
+    }
+
+    private long getTotalUnreadNum() {
+        List<TIMConversation> list = TIMManagerExt.getInstance().getConversationList();
+        List<TIMConversation> result = new ArrayList<>();
+        for (TIMConversation conversation : list) {
+            if (conversation.getType() == TIMConversationType.System) continue;
+            result.add(conversation);
+            TIMConversationExt conversationExt = new TIMConversationExt(conversation);
+            conversationExt.getMessage(1, null, new TIMValueCallBack<List<TIMMessage>>() {
+                @Override
+                public void onError(int i, String s) {
+                    Log.e(TAG, "get message error" + s);
+                }
+
+                @Override
+                public void onSuccess(List<TIMMessage> timMessages) {
+                    if (timMessages.size() > 0) {
+                    }
+
+                }
+            });
+
+        }
+        long num = 0;
+        List<Conversation> conversationList = new LinkedList<>();
+        for (TIMConversation item : result) {
+            switch (item.getType()) {
+                case C2C:
+//                case Group:
+                    conversationList.add(new NomalConversation(item));
+
+                    break;
+            }
+        }
+        for (Conversation conversation : conversationList) {
+            num += conversation.getUnreadNum();
+        }
+        return num;
     }
 
 }

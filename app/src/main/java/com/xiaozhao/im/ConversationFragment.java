@@ -10,7 +10,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import com.orhanobut.logger.Logger;
 import com.tencent.imsdk.TIMConversation;
 import com.tencent.imsdk.TIMConversationType;
 import com.tencent.imsdk.TIMMessage;
@@ -52,9 +56,17 @@ public class ConversationFragment extends Fragment implements ConversationView {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        if (view == null){
+        if (view == null) {
             view = inflater.inflate(R.layout.fragment_conversation, container, false);
             listView = (ListView) view.findViewById(R.id.list);
+            ImageView ivBack = (ImageView) view.findViewById(R.id.ivBack);
+
+            TextView  framentTitle = (TextView) view.findViewById(R.id.framentTitle);
+            TextView    tvSave = (TextView) view.findViewById(R.id.tvSave);
+            ivBack.setVisibility(View.GONE);
+            framentTitle.setText("消息");
+            tvSave.setVisibility(View.GONE);
+
             adapter = new ConversationAdapter(getActivity(), R.layout.item_conversation, conversationList);
             listView.setAdapter(adapter);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -67,18 +79,19 @@ public class ConversationFragment extends Fragment implements ConversationView {
             presenter.getConversation();
             registerForContextMenu(listView);
         }
-        adapter.notifyDataSetChanged();
+//        adapter.notifyDataSetChanged();
+        refresh();
+//        Logger.t(TAG).d(conversationList.toString());
         return view;
 
     }
 
     @Override
-    public void onResume(){
+    public void onResume() {
         super.onResume();
         refresh();
-        PushUtil.getInstance().reset();
+//        PushUtil.getInstance().reset();
     }
-
 
 
     /**
@@ -90,11 +103,12 @@ public class ConversationFragment extends Fragment implements ConversationView {
     public void initView(List<TIMConversation> conversationList) {
         this.conversationList.clear();
         groupList = new ArrayList<>();
-        for (TIMConversation item:conversationList){
-            switch (item.getType()){
+        for (TIMConversation item : conversationList) {
+            switch (item.getType()) {
                 case C2C:
 //                case Group:
                     this.conversationList.add(new NomalConversation(item));
+
                     groupList.add(item.getPeer());
                     break;
             }
@@ -108,20 +122,20 @@ public class ConversationFragment extends Fragment implements ConversationView {
      */
     @Override
     public void updateMessage(TIMMessage message) {
-        if (message == null){
+        if (message == null) {
             adapter.notifyDataSetChanged();
             return;
         }
-        if (message.getConversation().getType() == TIMConversationType.System){
+        if (message.getConversation().getType() == TIMConversationType.System) {
 //            groupManagerPresenter.getGroupManageLastMessage();
             return;
         }
 //        if (MessageFactory.getMessage(message) instanceof CustomMessage) return;
         NomalConversation conversation = new NomalConversation(message.getConversation());
-        Iterator<Conversation> iterator =conversationList.iterator();
-        while (iterator.hasNext()){
+        Iterator<Conversation> iterator = conversationList.iterator();
+        while (iterator.hasNext()) {
             Conversation c = iterator.next();
-            if (conversation.equals(c)){
+            if (conversation.equals(c)) {
                 conversation = (NomalConversation) c;
                 iterator.remove();
                 break;
@@ -150,9 +164,9 @@ public class ConversationFragment extends Fragment implements ConversationView {
     @Override
     public void removeConversation(String identify) {
         Iterator<Conversation> iterator = conversationList.iterator();
-        while(iterator.hasNext()){
+        while (iterator.hasNext()) {
             Conversation conversation = iterator.next();
-            if (conversation.getIdentify()!=null&&conversation.getIdentify().equals(identify)){
+            if (conversation.getIdentify() != null && conversation.getIdentify().equals(identify)) {
                 iterator.remove();
                 adapter.notifyDataSetChanged();
                 return;
@@ -167,8 +181,8 @@ public class ConversationFragment extends Fragment implements ConversationView {
      */
     @Override
     public void updateGroupInfo(TIMGroupCacheInfo info) {
-        for (Conversation conversation : conversationList){
-            if (conversation.getIdentify()!=null && conversation.getIdentify().equals(info.getGroupInfo().getGroupId())){
+        for (Conversation conversation : conversationList) {
+            if (conversation.getIdentify() != null && conversation.getIdentify().equals(info.getGroupInfo().getGroupId())) {
                 adapter.notifyDataSetChanged();
                 return;
             }
@@ -187,15 +201,12 @@ public class ConversationFragment extends Fragment implements ConversationView {
     }
 
 
-
-
-
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v,
                                     ContextMenu.ContextMenuInfo menuInfo) {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
         Conversation conversation = conversationList.get(info.position);
-        if (conversation instanceof NomalConversation){
+        if (conversation instanceof NomalConversation) {
             menu.add(0, 1, Menu.NONE, getString(R.string.conversation_del));
         }
     }
@@ -207,8 +218,8 @@ public class ConversationFragment extends Fragment implements ConversationView {
         NomalConversation conversation = (NomalConversation) conversationList.get(info.position);
         switch (item.getItemId()) {
             case 1:
-                if (conversation != null){
-                    if (presenter.delConversation(conversation.getType(), conversation.getIdentify())){
+                if (conversation != null) {
+                    if (presenter.delConversation(conversation.getType(), conversation.getIdentify())) {
                         conversationList.remove(conversation);
                         adapter.notifyDataSetChanged();
                     }
@@ -220,15 +231,13 @@ public class ConversationFragment extends Fragment implements ConversationView {
         return super.onContextItemSelected(item);
     }
 
-    private long getTotalUnreadNum(){
+    private long getTotalUnreadNum() {
         long num = 0;
-        for (Conversation conversation : conversationList){
+        for (Conversation conversation : conversationList) {
             num += conversation.getUnreadNum();
         }
         return num;
     }
-
-
 
 
 }

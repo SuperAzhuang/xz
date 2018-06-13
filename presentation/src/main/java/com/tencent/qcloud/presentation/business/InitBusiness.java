@@ -39,11 +39,5 @@ public class InitBusiness {
         TIMManager.getInstance().init(context, config);
         //禁止服务器自动代替上报已读
         Log.d(TAG, "initIMsdk");
-
     }
-
-
-
-
-
 }

@@ -1,5 +1,6 @@
 package com.xiaozhao.base;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -7,10 +8,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Environment;
+import android.support.multidex.MultiDex;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,20 +31,30 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 import com.tencent.imsdk.TIMGroupReceiveMessageOpt;
+import com.tencent.imsdk.TIMLogLevel;
 import com.tencent.imsdk.TIMManager;
 import com.tencent.imsdk.TIMOfflinePushListener;
 import com.tencent.imsdk.TIMOfflinePushNotification;
 import com.tencent.imsdk.TIMSdkConfig;
 import com.tencent.qalsdk.QALSDKManager;
 import com.tencent.qalsdk.sdk.MsfSdkUtils;
+import com.tencent.qcloud.presentation.business.InitBusiness;
+import com.tencent.qcloud.tlslibrary.service.TLSService;
+import com.tencent.qcloud.tlslibrary.service.TlsBusiness;
 import com.xiaozhao.BuildConfig;
 import com.xiaozhao.R;
 import com.xiaozhao.http.ApiHttpClient;
 import com.xiaozhao.im.Foreground;
 import com.xiaozhao.im.PushUtil;
+import com.xiaozhao.im.UserInfo;
 import com.xiaozhao.utils.StringUtils;
 
 import org.litepal.LitePalApplication;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import tencent.tls.platform.TLSHelper;
 
 import static com.tencent.qalsdk.service.QalService.context;
 
@@ -54,7 +68,8 @@ public class BaseApplication extends LitePalApplication {
     static Resources _resource;
     private static String lastToast = "";
     private static long lastToastTime;
-
+    private TLSHelper tlsHelper;
+    private final int REQUEST_PHONE_PERMISSIONS = 0;
     private static boolean sIsAtLeastGB;
     private static Toast mToast;
 
@@ -90,6 +105,7 @@ public class BaseApplication extends LitePalApplication {
     }
 
     private void initIm() {
+
         Foreground.init(this);
         if (MsfSdkUtils.isMainProcess(this)) {
             TIMManager.getInstance().setOfflinePushListener(new TIMOfflinePushListener() {
@@ -102,6 +118,17 @@ public class BaseApplication extends LitePalApplication {
                 }
             });
         }
+        SharedPreferences pref = getSharedPreferences("data", MODE_PRIVATE);
+        int loglvl = pref.getInt("loglvl", TIMLogLevel.DEBUG.ordinal());
+        //初始化IMSDK
+        InitBusiness.start(getApplicationContext(), loglvl);
+        //初始化TLS
+        TlsBusiness.init(getApplicationContext());
+        String id = TLSService.getInstance().getLastUserIdentifier();
+        UserInfo.getInstance().setId(id);
+        UserInfo.getInstance().setUserSig(TLSService.getInstance().getUserSig(id));
+        Log.d("TAG", "id = " + id + "---UserSig = " + TLSService.getInstance().getUserSig(id));
+
         int sdkAppid = 1400077940;
         //初始化 SDK 基本配置
         TIMSdkConfig config = new TIMSdkConfig(sdkAppid)
@@ -112,13 +139,14 @@ public class BaseApplication extends LitePalApplication {
 // 务必检查IMSDK已做以下初始化
 //        QALSDKManager.getInstance().setEnv(0);
         QALSDKManager.getInstance().init(_context, sdkAppid);
+
     }
+
 
     private void init() {
         // 初始化网络请求 和图片
         AsyncHttpClient client = new AsyncHttpClient();
         ApiHttpClient.setHttpClient(client);
-
         initImageLoad();
 
     }
@@ -319,5 +347,11 @@ public class BaseApplication extends LitePalApplication {
                 lastToastTime = System.currentTimeMillis();
             }
         }
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
     }
 }

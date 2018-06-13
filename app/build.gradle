@@ -4,6 +4,16 @@ def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(file("keystore.properties")))
 
 android {
+    packagingOptions{
+        exclude '*.apk'
+    }
+    dexOptions {
+        jumboMode true
+        incremental false
+    }
+    lintOptions{
+        abortOnError false
+    }
     compileSdkVersion 26
     buildToolsVersion "27.0.3"
     defaultConfig {
@@ -62,6 +72,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile 'com.android.support:multidex:1.0.0'
     compile files('libs/universal-image-loader-1.9.5.jar')
     //最新版本
     compile 'com.android.support:appcompat-v7:26.0.0-alpha1'

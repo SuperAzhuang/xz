@@ -61,8 +61,8 @@ public class SplashAdapter extends PagerAdapter implements OnClickListener {
 	public void onClick(View v) {
 		if (v.getId() == R.id.bt) {
 			// 跳转到登陆页面
-//			UIHelper.showLoginActivity(mContext);
-			UIHelper.showMainActivity(mContext);
+			UIHelper.showLoginActivity(mContext);
+//			UIHelper.showMainActivity(mContext);
 			((Activity)mContext).finish();
 		}
 	}

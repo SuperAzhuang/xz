@@ -42,6 +42,8 @@ public class MineFragment extends BaseFragment {
     TextView tvSetting;
     @InjectView(R.id.llZhiweiGuanli)
     LinearLayout llZhiweiGuanli;
+    @InjectView(R.id.llogout)
+    LinearLayout llogout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -80,6 +82,9 @@ public class MineFragment extends BaseFragment {
             case R.id.llZhiweiGuanli:
                 UIHelper.showSimpleBack(getMAinActivity(), SimpleBackPage.ZHIWEIGUANLI, null);
                 break;
+            case R.id.llogout:
+                getMAinActivity().logout();
+                break;
         }
 
     }
@@ -94,6 +99,7 @@ public class MineFragment extends BaseFragment {
         llFabu.setOnClickListener(this);
         llhuiyuan.setOnClickListener(this);
         llZhiweiGuanli.setOnClickListener(this);
+        llogout.setOnClickListener(this);
     }
 
     @Override
