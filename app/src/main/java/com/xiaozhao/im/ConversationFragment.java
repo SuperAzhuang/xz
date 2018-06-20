@@ -61,8 +61,8 @@ public class ConversationFragment extends Fragment implements ConversationView {
             listView = (ListView) view.findViewById(R.id.list);
             ImageView ivBack = (ImageView) view.findViewById(R.id.ivBack);
 
-            TextView  framentTitle = (TextView) view.findViewById(R.id.framentTitle);
-            TextView    tvSave = (TextView) view.findViewById(R.id.tvSave);
+            TextView framentTitle = (TextView) view.findViewById(R.id.framentTitle);
+            TextView tvSave = (TextView) view.findViewById(R.id.tvSave);
             ivBack.setVisibility(View.GONE);
             framentTitle.setText("消息");
             tvSave.setVisibility(View.GONE);

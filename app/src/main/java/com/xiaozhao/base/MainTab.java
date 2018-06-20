@@ -20,7 +20,6 @@ public enum MainTab {
 
 //    HUDONG(4,R.string.hudong, R.drawable.tab_icon_hudong, HuDongFragment.class);
 
-
     private int idx;
     private int resName;
     private int resIcon;

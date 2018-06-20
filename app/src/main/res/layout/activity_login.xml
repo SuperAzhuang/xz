@@ -8,6 +8,7 @@
         android:id="@+id/et_account"
         style="@style/item_input_edittext"
         android:layout_centerInParent="true"
+        android:text="15280592829"
         android:background="@drawable/bg_btn"
         android:hint="@string/hint_username" />
 
@@ -30,10 +31,9 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/bg_btn"
         android:hint="@string/hint_password"
+        android:text="123456789"
         android:inputType="textPassword"
-
         />
-
 
     <TextView
         android:id="@+id/tvForget"

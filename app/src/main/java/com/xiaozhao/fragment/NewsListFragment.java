@@ -12,7 +12,7 @@ import com.xiaozhao.base.BaseListFragment;
 import com.xiaozhao.base.ListBaseAdapter;
 import com.xiaozhao.bean.ListEntity;
 import com.xiaozhao.bean.NewsResult;
-import com.xiaozhao.http.AsyncHttpApi;
+import com.xiaozhao.http.XiaoZhaoHttpApi;
 import com.xiaozhao.http.Url;
 import com.xiaozhao.utils.LogUtils;
 import com.xiaozhao.utils.UIHelper;
@@ -80,7 +80,7 @@ public class NewsListFragment extends BaseListFragment<NewsResult.NewsBean> {
     protected void sendRequestData() {
         super.sendRequestData();
 //        if (mCatalog == CATALOG_RECOMMEND)
-        AsyncHttpApi.getNewsLists(mCurrentPage, mHandler, TYPE);
+        XiaoZhaoHttpApi.getNewsLists(mCurrentPage, mHandler, TYPE);
 //        loadData(getCommonUrls(TYPE,(index + "")));
     }
 

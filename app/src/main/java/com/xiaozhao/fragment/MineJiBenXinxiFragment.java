@@ -31,11 +31,6 @@ import java.util.Date;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-import static com.xiaozhao.R.id.tv;
-import static com.xiaozhao.R.id.tvNianling;
-import static com.xiaozhao.R.id.tvSex;
-import static com.xiaozhao.R.id.tvXingbie;
-import static org.litepal.crud.DataSupport.select;
 
 /**
  * Created by Administrator on 2018/5/30.

@@ -23,15 +23,12 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.loadmore.SimpleLoadMoreView;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.xiaozhao.R;
-import com.xiaozhao.adapter.AppliAdapter;
-import com.xiaozhao.adapter.HomeCompanyAdapter;
 import com.xiaozhao.adapter.HomeNearApplerAdapter;
 import com.xiaozhao.base.BaseFragment;
 import com.xiaozhao.bean.NewsResult;
-import com.xiaozhao.http.AsyncHttpApi;
+import com.xiaozhao.http.XiaoZhaoHttpApi;
 import com.xiaozhao.http.Url;
 import com.xiaozhao.manager.DividerApplerItemDecoration;
-import com.xiaozhao.manager.DividerItemDecoration;
 import com.xiaozhao.utils.LogUtils;
 import com.xiaozhao.utils.UIHelper;
 import com.xiaozhao.view.EmptyLayout;
@@ -230,7 +227,7 @@ public class NearApplerFragment extends BaseFragment {
     public void initData() {
 
 //        mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
-        AsyncHttpApi.getNewsLists(mCurrentPage, mHandler, TYPE);
+        XiaoZhaoHttpApi.getNewsLists(mCurrentPage, mHandler, TYPE);
     }
 
     protected AsyncHttpResponseHandler mHandler = new AsyncHttpResponseHandler() {

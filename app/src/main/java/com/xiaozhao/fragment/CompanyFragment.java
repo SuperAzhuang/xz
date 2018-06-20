@@ -1,29 +1,20 @@
 package com.xiaozhao.fragment;
 
 import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.animation.AnimationUtils;
-import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.PopupWindow;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,16 +25,14 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.orhanobut.logger.Logger;
 import com.xiaozhao.R;
 import com.xiaozhao.activity.MainActivity;
-import com.xiaozhao.adapter.CompanyGridAdapter;
 import com.xiaozhao.adapter.HomeCompanyAdapter;
 import com.xiaozhao.base.BaseFragment;
 import com.xiaozhao.bean.NewsResult;
-import com.xiaozhao.http.AsyncHttpApi;
+import com.xiaozhao.http.XiaoZhaoHttpApi;
 import com.xiaozhao.http.Url;
 import com.xiaozhao.utils.LogUtils;
 import com.xiaozhao.utils.UIHelper;
 import com.xiaozhao.view.EmptyLayout;
-import com.xiaozhao.view.MyGridView;
 import com.xiaozhao.view.SelectPopupWindow;
 import com.xiaozhao.view.TagPopwindow;
 import com.youth.banner.Banner;
@@ -55,19 +44,11 @@ import java.util.ArrayList;
 
 import com.xiaozhao.manager.DividerItemDecoration;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cz.msebera.android.httpclient.Header;
-
-import static com.orhanobut.logger.Logger.json;
-import static com.orhanobut.logger.Logger.t;
-import static com.xiaozhao.R.id.grideview;
-import static com.xiaozhao.R.id.mRecyclerView;
-import static com.xiaozhao.R.id.recyclerView;
 
 
 /**
@@ -288,7 +269,7 @@ public class CompanyFragment extends BaseFragment {
     @Override
     public void initData() {
 //        mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
-        AsyncHttpApi.getNewsLists(mCurrentPage, mHandler, TYPE);
+        XiaoZhaoHttpApi.getNewsLists(mCurrentPage, mHandler, TYPE);
     }
 
     protected AsyncHttpResponseHandler mHandler = new AsyncHttpResponseHandler() {

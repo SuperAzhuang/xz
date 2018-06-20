@@ -63,7 +63,7 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="@dimen/space_10">
 
             <EditText
@@ -74,15 +74,22 @@
                 android:hint="请输入验证码"
                 android:inputType="textPassword" />
 
-            <ImageView
+            <TextView
                 android:id="@+id/ivGetCode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/space_20"
                 android:layout_toRightOf="@id/etCheckCode"
-                android:background="@mipmap/checkcode"
-                android:onClick="true" />
+                android:background="@mipmap/btn_check_code"
+                android:gravity="center"
+                android:onClick="true"
+                android:paddingBottom="8dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="8dp"
+                android:text="获取"
+                android:textColor="@color/text_main" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -145,9 +152,9 @@
                 android:id="@+id/checkbox"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
+                android:background="@drawable/button_login_check"
                 android:button="@null"
-                android:checked="true"
-                android:background="@drawable/button_login_check" />
+                android:checked="true" />
 
             <TextView
                 android:id="@+id/tv"

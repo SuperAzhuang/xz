@@ -2,26 +2,37 @@
 package com.xiaozhao.http;
 
 public class Url {
+    //验证码
+    public static final String GET_CHECKCODE = "Api/User/getMessage";
+    //    注册接口
+    public static final String REGISTER = "Api/User/registerUser";
+    //    登入
+    public static final String LOGIN = "Api/User/loginUser";
+    //    上传头像：
+    public static final String UPLOADAVATOR = "Api/PrivateUser/uploadAvator";
+    //    保存用户信息
+    public static final String SAVEUSERINFO = "Api/PrivateUser/saveUserInfo";
+
+
     public static final String host = "http://c.m.163.com/";
     public static final String endUrl = "-20.html";
     public static final String endDetailUrl = "/full.html";
-    
     //政务
     public static final String BIANJIAN = "";
     public static final String GONGHUI = "";
-    public static final String JIANDU = "";    
+    public static final String JIANDU = "";
     public static final String JIAOTONG = "";
     public static final String LIANJIE = "";
     public static final String MINZHENG = "";
-    public static final String SHANGWU = "";    
-    public static final String SHIZHENG = "";   
+    public static final String SHANGWU = "";
+    public static final String SHIZHENG = "";
     public static final String SIFA = "";
     public static final String TUANQU = "";
-    public static final String WENTI = "";    
-    public static final String ZHIFA = "";  
-    public static final String BLANK = "";    
-    
-    public static final String SHIHUA = "";      
+    public static final String WENTI = "";
+    public static final String ZHIFA = "";
+    public static final String BLANK = "";
+
+    public static final String SHIHUA = "";
     //广电
     public static final int ITEMS = 20;
     public static final String HOSTS = "http://iqgtv.com/android/";
@@ -29,135 +40,130 @@ public class Url {
     public static final String Weidiantai = "http://iqgtv.com/weidiantai.php";
     public static final String Yueshenghuo = "http://iqgtv.com/yueshenghuo.php";
     public static final String Tiezi = "http://iqgtv.com/bbs/upload/getHotAticleList.php";
-    
-    
-    public static final String CHONGZHI = "https://www.baifubao.com/wap/0/charge/0?channel_no=CHF0000004";    
-    public static final String TUANGOU = "http://i.meituan.com/";     
-    public static final String JIUDIAN = "http://m.ctrip.com/html5/"; 
-    public static final String JD = "http://m.jd.com";     
-    public static final String XIAOHUA = "http://m.lengxiaohua.com/"; 
-    public static final String DIANYING = "http://m.dianping.com/tuan/quanzhou/list/2_0_10_0"; 
-    public static final String TUNIU = "http://dynamic.m.tuniu.com"; 
-    public static final String TIANQI = "http://m.nmc.cn/publish/forecast/AFJ/quanzhou.html";     
-    public static final String XIAMI = "http://h.xiami.com/#!/chart/101"; 
-    
-    //登录
-    public static final String LOGIN = "http://iqgtv.com/member/login_user.php";
-   
+
+
+    public static final String CHONGZHI = "https://www.baifubao.com/wap/0/charge/0?channel_no=CHF0000004";
+    public static final String TUANGOU = "http://i.meituan.com/";
+    public static final String JIUDIAN = "http://m.ctrip.com/html5/";
+    public static final String JD = "http://m.jd.com";
+    public static final String XIAOHUA = "http://m.lengxiaohua.com/";
+    public static final String DIANYING = "http://m.dianping.com/tuan/quanzhou/list/2_0_10_0";
+    public static final String TUNIU = "http://dynamic.m.tuniu.com";
+    public static final String TIANQI = "http://m.nmc.cn/publish/forecast/AFJ/quanzhou.html";
+    public static final String XIAMI = "http://h.xiami.com/#!/chart/101";
+
+
     //请求验证码
     public static final String MESCODE = "http://iqgtv.com/member/get_checkcode.php";
-    
-    //注册
-    public static final String REGISTER = "http://iqgtv.com/member/register_newuser.php";
-    
+
+
     //个人资料
     public static final String PROFILE = "http://iqgtv.com/member/member_view.php";
-    
-    //泉港新闻 
+
+    //泉港新闻
     public static final String QUANGANGXINWEN = "quangangxinwen.php?";
-    
-    //安全第一线 
-    public static final String ANQUANDIYIXIAN = "anquandiyixian.php";  
-    
-    //搞笑趣图 
+
+    //安全第一线
+    public static final String ANQUANDIYIXIAN = "anquandiyixian.php";
+
+    //搞笑趣图
     public static final String GAOXIAOQUTU = "gaoxiaoqutu.php";
-    
-    //好朋友 
+
+    //好朋友
     public static final String HAOPENGYOU = "haopengyou.php";
-    
+
     //汇聚经典
     public static final String HUIJUJINGDIAN = "huijujingdian.php";
-    
-    //交通与安全 
+
+    //交通与安全
     public static final String JIAOTONGYUANQUAN = "jiaotongyuanquan.php";
-    
-    //家泉港 
+
+    //家泉港
     public static final String JIAQUANGANG = "jiaquangang.php";
-    
+
     //聚焦专题
     public static final String JUJIAOZHUANTI = "jujiaozhuanti.php";
-    
+
     //联办专题
     public static final String LIANBANZHUANTI = "lianbanzhuanti.php";
-    
-    //连线泉港 
+
+    //连线泉港
     public static final String LIANXIANQUANGANG = "lianxianquangang.php";
-    
-    //廉政之窗 
+
+    //廉政之窗
     public static final String LIANZHENGZHICHUANG = "lianzhengzhichuang.php";
-    
+
     //泉港讲古
     public static final String QUANGANGJIANGGU = "quangangjianggu.php";
-    
-    //特别策划 
+
+    //特别策划
     public static final String TEBIECEHUA = "tebiecehua.php";
-    
-    //图说泉港 
+
+    //图说泉港
     public static final String TUSHUOQUANGANG = "tushuoquangang.php";
-    
-    //图说天下 
+
+    //图说天下
     public static final String TUSHUOTIANXIA = "tushuotianxia.php";
-    
-    //业界动态 
+
+    //业界动态
     public static final String YEJIEDONGTAI = "yejiedongtai.php";
-    
+
     //综合资讯
     public static final String ZONGHEZIXUN = "zonghezixun.php";
-     
- 
+
+
     //泉港新闻 详情
     public static final String QUANGANGXINWEN_DETAIL = "quangangxinwendetail.php";
-    
+
     //安全第一线  详情
-    public static final String ANQUANDIYIXIAN_DETAIL = "anquandiyixiandetail.php";  
-    
+    public static final String ANQUANDIYIXIAN_DETAIL = "anquandiyixiandetail.php";
+
     //搞笑趣图  详情
     public static final String GAOXIAOQUTU_DETAIL = "gaoxiaoqutudetail.php";
-    
+
     //好朋友  详情
     public static final String HAOPENGYOU_DETAIL = "haopengyoudetail.php";
-    
+
     //汇聚经典 详情
     public static final String HUIJUJINGDIAN_DETAIL = "huijujingdiandetail.php";
-    
+
     //交通与安全  详情
     public static final String JIAOTONGYUANQUAN_DETAIL = "jiaotongyuanquandetail.php";
-    
+
     //家泉港  详情
     public static final String JIAQUANGANG_DETAIL = "jiaquangangdetail.php";
-    
+
     //聚焦专题 详情
     public static final String JUJIAOZHUANTI_DETAIL = "jujiaozhuantidetail.php";
-    
+
     //联办专题 详情
     public static final String LIANBANZHUANTI_DETAIL = "lianbanzhuantidetail.php";
-    
+
     //连线泉港  详情
     public static final String LIANXIANQUANGANG_DETAIL = "lianxianquangangdetail.php";
-    
+
     //廉政之窗  详情
     public static final String LIANZHENGZHICHUANG_DETAIL = "lianzhengzhichuangdetail.php";
-    
+
     //泉港讲古 详情
     public static final String QUANGANGJIANGGU_DETAIL = "quangangjianggudetail.php";
-    
+
     //特别策划  详情
     public static final String TEBIECEHUA_DETAIL = "tebiecehuadetail.php";
-    
+
     //图说泉港  详情
     public static final String TUSHUOQUANGANG_DETAIL = "tushuoquangangdetail.php";
-    
+
     //图说天下  详情
     public static final String TUSHUOTIANXIA_DETAIL = "tushuotianxiadetail.php";
-    
+
     //业界动态  详情
     public static final String YEJIEDONGTAI_DETAIL = "yejiedongtaidetail.php";
-    
+
     //综合资讯 详情
-    public static final String ZONGHEZIXUN_DETAIL = "zonghezixundetail.php";   
-    
-    
-    
+    public static final String ZONGHEZIXUN_DETAIL = "zonghezixundetail.php";
+
+
     // 头条
     public static final String TopUrl = host + "nc/article/headline/";
     public static final String TopId = "T1348647909107";

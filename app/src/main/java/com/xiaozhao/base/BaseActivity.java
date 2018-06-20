@@ -31,7 +31,7 @@ import butterknife.ButterKnife;
  */
 public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener, DialogControl, BaseViewInterface {
 
-    public static final String TAG = "BaseActivity";
+    public  final String TAG = this.getClass().getName();
     public static final String INTENT_ACTION_EXIT_APP = "INTENT_ACTION_EXIT_APP";
     protected Toolbar mToolBar;
     private boolean _isVisible;
@@ -79,7 +79,6 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     protected void onDestroy() {
         super.onDestroy();
         ButterKnife.reset(this);
-
         AppManager.getAppManager().removeActivity(this);
     }
 

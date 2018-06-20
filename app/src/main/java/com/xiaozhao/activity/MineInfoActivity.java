@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -17,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.builder.TimePickerBuilder;
 import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
@@ -25,13 +27,22 @@ import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.bigkoo.pickerview.view.TimePickerView;
 import com.flyco.dialog.listener.OnOperItemClickL;
 import com.flyco.dialog.widget.ActionSheetDialog;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 import com.orhanobut.logger.Logger;
 import com.xiaozhao.R;
 import com.xiaozhao.base.BaseActivity;
 import com.xiaozhao.base.BaseApplication;
+import com.xiaozhao.bean.BasicResult;
+import com.xiaozhao.bean.GetCheckCodeResult;
+import com.xiaozhao.bean.LoginResult;
+import com.xiaozhao.http.Url;
+import com.xiaozhao.http.XiaoZhaoHttpApi;
 import com.xiaozhao.utils.FileUtil;
 import com.xiaozhao.utils.ImageUtils;
 import com.xiaozhao.utils.StringUtils;
+import com.xiaozhao.utils.TDevice;
+import com.xiaozhao.utils.UIHelper;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -40,9 +51,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 import butterknife.InjectView;
+import cz.msebera.android.httpclient.Header;
 
-import static com.xiaozhao.R.id.tv;
-import static com.xiaozhao.R.id.tvXingbie;
 import static com.xiaozhao.base.BaseApplication.showToast;
 
 
@@ -60,8 +70,8 @@ public class MineInfoActivity extends BaseActivity {
     TextView tvSex;
     @InjectView(R.id.tvSave)
     TextView tvSave;
-    @InjectView(R.id.tvNianling)
-    TextView tvNianling;
+    @InjectView(R.id.etNianning)
+    EditText etNianling;
     @InjectView(R.id.llnianning)
     LinearLayout llnianning;
     @InjectView(R.id.etPhone)
@@ -84,9 +94,9 @@ public class MineInfoActivity extends BaseActivity {
             case R.id.llXingbie:
                 selectXingbie();
                 break;
-            case R.id.llnianning:
-                selectNianling();
-                break;
+//            case R.id.llnianning:
+//                selectNianling();
+//                break;
             case R.id.tvSave:
 //                保存
                 upLoadUserInfo();
@@ -94,6 +104,7 @@ public class MineInfoActivity extends BaseActivity {
             case R.id.ivHeader:
 //                头像选择
                 selectHeader();
+
                 break;
         }
     }
@@ -163,6 +174,7 @@ public class MineInfoActivity extends BaseActivity {
                 savedir.mkdirs();
             }
         }
+
         // 没有挂载SD卡，无法保存文件
         if (StringUtils.isEmpty(savePath)) {
             BaseApplication.showToastShort("无法保存照片，请检查SD卡是否挂载");
@@ -227,6 +239,7 @@ public class MineInfoActivity extends BaseActivity {
 
     // 裁剪头像的绝对路径
     private Uri getUploadTempFile(Uri uri) {
+
         String storageState = Environment.getExternalStorageState();
         if (storageState.equals(Environment.MEDIA_MOUNTED)) {
             File savedir = new File(ImageUtils.FILE_SAVEPATH);
@@ -269,27 +282,31 @@ public class MineInfoActivity extends BaseActivity {
             showToast("图像不存在，上传失败");
         }
         Logger.t(TAG).d("protraitBitmap = " + protraitBitmap + " ---url = " + protraitPath);
+        ivHeader.setImageBitmap(protraitBitmap);
+
         if (protraitBitmap != null) {
             showToast("上传中....");
-            ivHeader.setImageBitmap(protraitBitmap);
-//            showWaitDialog("上传中...");
+            showWaitDialog("上传中...");
             try {
 
-//                RedDragonflyApi.updatePortrait(protraitFile, new AsyncHttpResponseHandler() {
-//
-//                    @Override
-//                    public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
-//                        hideWaitDialog();
-//                        BaseApplication.showToast("上传头像失败");
-//                    }
-//
-//                    @Override
-//                    public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
-//                        hideWaitDialog();
-////                        mIvAvatar.setImageBitmap(protraitBitmap);
-//                    }
-//
-//                });
+                XiaoZhaoHttpApi.getUpLoadAvator(Url.UPLOADAVATOR, protraitFile, new AsyncHttpResponseHandler() {
+
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                        hideWaitDialog();
+                        Logger.t(TAG).d(" = " + new String(responseBody));
+                        ivHeader.setImageBitmap(protraitBitmap);
+                        showToast("上传头像成功");
+                    }
+
+                    @Override
+                    public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
+                        hideWaitDialog();
+                        Logger.t(TAG).d(" = " + new String(arg2));
+                        showToast("上传头像失败");
+                    }
+
+                });
             } catch (Exception e) {
                 hideWaitDialog();
                 showToast("图像不存在，上传失败");
@@ -298,8 +315,69 @@ public class MineInfoActivity extends BaseActivity {
     }
 
     private void upLoadUserInfo() {
+        String nicheng = etNicheng.getText().toString().trim();
+        String sex = tvSex.getText().toString().trim();
+        String age = etNianling.getText().toString().trim();
+        String phone = etPhone.getText().toString().trim();
+        String name = etName.getText().toString().trim();
+
+
+        if (TextUtils.isEmpty(nicheng)) {
+            BaseApplication.showToastShort("请输入昵称");
+            return;
+        }
+        if (TextUtils.isEmpty(name)) {
+            BaseApplication.showToastShort("请输入姓名");
+            return;
+        }
+        if (TextUtils.isEmpty(age)) {
+            BaseApplication.showToastShort("请输入年龄");
+            return;
+        }
+        if (!TDevice.isMobile(phone)) {
+            BaseApplication.showToastShort("请输入正确的电话");
+            return;
+        }
+
+        RequestParams params = new RequestParams();
+        params.put("token", BaseApplication.get("token", ""));
+        params.put("sex", sex);
+        params.put("realname", name);
+        params.put("age", age);
+        params.put("mobile", phone);
+
+//        nickname:昵称
+//        sex:性别
+//        age:年龄
+//        realname:姓名
+//        mobile:手机号
+
+        XiaoZhaoHttpApi.getSaveUserInfo(Url.SAVEUSERINFO, params, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+                Logger.t(TAG).d(new String(arg2));
+                GetCheckCodeResult result = JSON.parseObject(new String(arg2), GetCheckCodeResult.class);
+
+                Logger.t(TAG).d(result);
+                if (result.getStatus() == 1) {
+//                    isGetCheckCodeIng = true;
+                    BaseApplication.showToastShort(result.getMsg());
+                    finish();
+
+                } else {
+                    BaseApplication.showToastShort(result.getMsg());
+                }
+            }
+
+            @Override
+            public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
+                BaseApplication.showToastShort("登入失败");
+            }
+        });
         BaseApplication.showToastShort("保存成功");
         finish();
+
+
     }
 
     private void selectNianling() {
@@ -307,7 +385,7 @@ public class MineInfoActivity extends BaseActivity {
         TimePickerView pvTime = new TimePickerBuilder(this, new OnTimeSelectListener() {
             @Override
             public void onTimeSelect(Date date, View v) {//选中事件回调
-                tvNianling.setText(getTime(date));
+//                tvNianling.setText(getTime(date));
             }
         })
                 .setType(new boolean[]{true, true, true, false, false, false})// 默认全部显示
@@ -362,7 +440,7 @@ public class MineInfoActivity extends BaseActivity {
         llXingbie.setOnClickListener(this);
         tvSave.setOnClickListener(this);
         ivHeader.setOnClickListener(this);
-        llnianning.setOnClickListener(this);
+//        llnianning.setOnClickListener(this);
     }
 
     @Override

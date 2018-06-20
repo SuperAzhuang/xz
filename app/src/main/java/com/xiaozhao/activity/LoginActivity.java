@@ -5,9 +5,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.nfc.Tag;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +19,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.orhanobut.logger.Logger;
 import com.tencent.imsdk.TIMCallBack;
 import com.tencent.imsdk.TIMConnListener;
 import com.tencent.imsdk.TIMGroupReceiveMessageOpt;
@@ -40,10 +45,16 @@ import com.tencent.qcloud.ui.NotifyDialog;
 import com.xiaozhao.R;
 import com.xiaozhao.base.BaseActivity;
 import com.xiaozhao.base.BaseApplication;
+import com.xiaozhao.bean.BasicResult;
+import com.xiaozhao.bean.GetCheckCodeResult;
+import com.xiaozhao.bean.LoginResult;
+import com.xiaozhao.http.Url;
+import com.xiaozhao.http.XiaoZhaoHttpApi;
 import com.xiaozhao.im.Foreground;
 import com.xiaozhao.im.UserInfo;
 import com.xiaozhao.im.model.FriendshipInfo;
 import com.xiaozhao.im.view.DialogActivity;
+import com.xiaozhao.utils.TDevice;
 import com.xiaozhao.utils.UIHelper;
 
 import java.util.ArrayList;
@@ -51,17 +62,18 @@ import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import cz.msebera.android.httpclient.Header;
 import tencent.tls.platform.TLSErrInfo;
 import tencent.tls.platform.TLSHelper;
 import tencent.tls.platform.TLSPwdLoginListener;
 import tencent.tls.platform.TLSUserInfo;
 
+import static com.xiaozhao.R.id.etCheckCode;
 import static com.xiaozhao.R.id.etPhone;
 import static tencent.tls.request.req_global._context;
 
 
 public class LoginActivity extends BaseActivity implements TIMCallBack {
-
 
     @InjectView(R.id.et_account)
     EditText etAccount;
@@ -77,6 +89,7 @@ public class LoginActivity extends BaseActivity implements TIMCallBack {
     TextView tvThird;
     @InjectView(R.id.ll)
     LinearLayout ll;
+
     private AlertDialog dialog;
     private static final String TAG = LoginActivity.class.getSimpleName();
     private TLSHelper tlsHelper;
@@ -91,8 +104,9 @@ public class LoginActivity extends BaseActivity implements TIMCallBack {
             case R.id.btLogin:
 //                UIHelper.showMainActivity(this);
 //                finish();
-//                这里暂时去做登入im的操作
+//                这里暂时去做登IM的操作
                 initLogin();
+//                initIMLogin();
                 break;
             case R.id.tvRegist:
                 UIHelper.showRegistActivity(this);
@@ -107,6 +121,56 @@ public class LoginActivity extends BaseActivity implements TIMCallBack {
     }
 
     private void initLogin() {
+
+        if (!TDevice.hasInternet()) {
+            BaseApplication.showToastShort(R.string.error_view_network_error_click_to_refresh);
+            return;
+        }
+
+        String phone = etAccount.getText().toString().trim();
+        String password = etPassword.getText().toString().trim();
+
+        if (!TDevice.isMobile(phone)) {
+            BaseApplication.showToastShort("请输入正确的手机号码");
+            return;
+        }
+        if (TextUtils.isEmpty(password)) {
+            BaseApplication.showToastShort("请输入密码");
+            return;
+        }
+        try {
+            XiaoZhaoHttpApi.getLogin(Url.LOGIN, phone, password, new AsyncHttpResponseHandler() {
+
+                @Override
+                public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+
+                    LoginResult result = JSON.parseObject(new String(arg2), LoginResult.class);
+                    Logger.t(TAG).d(result);
+                    if (result.getStatus() == 1) {
+//                    isGetCheckCodeIng = true;
+                        BaseApplication.showToastShort(result.getMsg());
+                        UIHelper.showMainActivity(LoginActivity.this);
+                        BaseApplication.set("token", result.getData().get(0).getToken());
+                        Logger.t(TAG).d(BaseApplication.get("token", "1111"));
+                        finish();
+
+                    } else {
+                        BaseApplication.showToastShort(result.getMsg());
+                    }
+                }
+
+                @Override
+                public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
+                    BaseApplication.showToastShort("登入失败");
+                }
+            });
+        } catch (Exception ex) {
+        }
+
+
+    }
+
+    private void initIMLogin() {
 //        "86-" + etAccount.getText().toString().trim()
         tlsHelper.TLSPwdLogin(etAccount.getText().toString().trim(), etPassword.getText().toString().getBytes(), new TLSPwdLoginListener() {
                     @Override
@@ -188,6 +252,7 @@ public class LoginActivity extends BaseActivity implements TIMCallBack {
      * 初始化IMSDK
      */
     private void init() {
+
         SharedPreferences pref = getSharedPreferences("data", MODE_PRIVATE);
         int loglvl = pref.getInt("loglvl", TIMLogLevel.DEBUG.ordinal());
         //初始化IMSDK
@@ -198,6 +263,7 @@ public class LoginActivity extends BaseActivity implements TIMCallBack {
         UserInfo.getInstance().setId(id);
         UserInfo.getInstance().setUserSig(TLSService.getInstance().getUserSig(id));
         Log.d(TAG, "id = " + id + "---UserSig = " + TLSService.getInstance().getUserSig(id));
+
 //        presenter = new SplashPresenter(this);
 //        presenter.start();
     }

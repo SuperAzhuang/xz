@@ -227,7 +227,6 @@ public class ChatActivity extends FragmentActivity implements ChatView {
 
             }
         }
-
     }
 
     /**
