@@ -25,6 +25,7 @@ public class ApiHttpClient {
     public static AsyncHttpClient client;
 
     public ApiHttpClient() {
+
     }
 
     public static AsyncHttpClient getHttpClient() {

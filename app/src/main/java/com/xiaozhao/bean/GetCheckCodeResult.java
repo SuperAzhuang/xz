@@ -9,7 +9,6 @@ import java.util.List;
 public class GetCheckCodeResult extends  BasicResult{
 
 
-
     public List<?> getData() {
         return data;
     }

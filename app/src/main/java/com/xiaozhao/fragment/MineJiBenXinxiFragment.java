@@ -38,7 +38,6 @@ import butterknife.InjectView;
 
 public class MineJiBenXinxiFragment extends BaseFragment {
 
-
     @InjectView(R.id.etNicheng)
     EditText etNicheng;
     @InjectView(R.id.tvXingbie)

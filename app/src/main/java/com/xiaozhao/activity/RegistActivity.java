@@ -75,7 +75,6 @@ public class RegistActivity extends BaseActivity {
                 ivGetCode.setText(count + "(s)");
                 sendEmptyMessageDelayed(count, 1000);
             }
-
         }
     };
 
