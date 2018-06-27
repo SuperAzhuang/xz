@@ -19,6 +19,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.builder.TimePickerBuilder;
 import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
@@ -29,6 +31,7 @@ import com.flyco.dialog.listener.OnOperItemClickL;
 import com.flyco.dialog.widget.ActionSheetDialog;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.orhanobut.logger.Logger;
 import com.xiaozhao.R;
 import com.xiaozhao.base.BaseActivity;
@@ -84,6 +87,7 @@ public class MineInfoActivity extends BaseActivity {
     private File protraitFile;
     private Bitmap protraitBitmap;
     private String protraitPath;
+    private ActionSheetDialog dialog;
 
     @Override
     public void onClick(View view) {
@@ -112,7 +116,7 @@ public class MineInfoActivity extends BaseActivity {
     private void selectHeader() {
 
         String[] stringItems = {"拍照", "从相册中选择"};
-        ActionSheetDialog dialog = new ActionSheetDialog(this, stringItems, null);
+        dialog = new ActionSheetDialog(this, stringItems, null);
         dialog.isTitleShow(false).
                 layoutAnimation(null);
         dialog.show();
@@ -294,9 +298,19 @@ public class MineInfoActivity extends BaseActivity {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                         hideWaitDialog();
+//                      http://www.wanandroid.com/blogimgs/fb0ea461-e00a-482b-814f-4faca5761427.png
+//                        "http://z.zhijingcai.cn/Public/avator/2018-06-22/5b2c6d31ec8d1.png
                         Logger.t(TAG).d(" = " + new String(responseBody));
-                        ivHeader.setImageBitmap(protraitBitmap);
+                        String result = new String(responseBody);
+                        JSONObject json = JSONObject.parseObject(result);
+                        JSONObject array = json.getJSONObject("data");
+//                        ivHeader.setImageBitmap(protraitBitmap);
+                        ImageLoader.getInstance().displayImage(array.getString("avator"), ivHeader);
+                        BaseApplication.set("avator",array.getString("avator"));
                         showToast("上传头像成功");
+                        if (dialog != null) {
+                            dialog.dismiss();
+                        }
                     }
 
                     @Override
@@ -304,12 +318,18 @@ public class MineInfoActivity extends BaseActivity {
                         hideWaitDialog();
                         Logger.t(TAG).d(" = " + new String(arg2));
                         showToast("上传头像失败");
+                        if (dialog != null) {
+                            dialog.dismiss();
+                        }
                     }
 
                 });
             } catch (Exception e) {
                 hideWaitDialog();
                 showToast("图像不存在，上传失败");
+                if (dialog != null) {
+                    dialog.dismiss();
+                }
             }
         }
     }

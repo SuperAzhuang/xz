@@ -54,6 +54,7 @@ import com.xiaozhao.im.Foreground;
 import com.xiaozhao.im.UserInfo;
 import com.xiaozhao.im.model.FriendshipInfo;
 import com.xiaozhao.im.view.DialogActivity;
+import com.xiaozhao.manager.Constant;
 import com.xiaozhao.utils.TDevice;
 import com.xiaozhao.utils.UIHelper;
 
@@ -68,6 +69,7 @@ import tencent.tls.platform.TLSHelper;
 import tencent.tls.platform.TLSPwdLoginListener;
 import tencent.tls.platform.TLSUserInfo;
 
+import static com.huawei.android.pushselfshow.richpush.html.api.d.a.t;
 import static com.xiaozhao.R.id.etCheckCode;
 import static com.xiaozhao.R.id.etPhone;
 import static tencent.tls.request.req_global._context;
@@ -151,6 +153,7 @@ public class LoginActivity extends BaseActivity implements TIMCallBack {
                         BaseApplication.showToastShort(result.getMsg());
                         UIHelper.showMainActivity(LoginActivity.this);
                         BaseApplication.set("token", result.getData().get(0).getToken());
+                        BaseApplication.set(Constant.IS_LOGINED, true);
                         Logger.t(TAG).d(BaseApplication.get("token", "1111"));
                         finish();
 
@@ -172,7 +175,7 @@ public class LoginActivity extends BaseActivity implements TIMCallBack {
 
     private void initIMLogin() {
 //        "86-" + etAccount.getText().toString().trim()
-        tlsHelper.TLSPwdLogin(etAccount.getText().toString().trim(), etPassword.getText().toString().getBytes(), new TLSPwdLoginListener() {
+        tlsHelper.TLSPwdLogin("86-" + etAccount.getText().toString().trim(), etPassword.getText().toString().getBytes(), new TLSPwdLoginListener() {
                     @Override
                     public void OnPwdLoginSuccess(TLSUserInfo tlsUserInfo) {
 /* 登录成功了，在这里可以获取用户票据*/

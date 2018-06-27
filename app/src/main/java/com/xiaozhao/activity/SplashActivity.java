@@ -56,7 +56,7 @@ public class SplashActivity extends BaseActivity implements TIMCallBack {
             } else {
                 if (mLogin) {
                     // 跳转的主页
-//                    redirectTo();
+                    redirectTo();
                 } else {
 //                  判断用户是否登入IM服务器中
 //                    BaseApplication.showToastShort(isUserLogin() + "");

@@ -70,7 +70,8 @@ public class XiaoZhaoHttpApi {
      */
     public static void getUpLoadAvator(String url, File protraitFile, AsyncHttpResponseHandler handler)  throws FileNotFoundException{
         RequestParams params = new RequestParams();
-        params.put("avator", protraitFile);
+//        params.put("avator", protraitFile);
+        params.put("image", protraitFile);
         params.put("token", BaseApplication.get("token",""));
         ApiHttpClient.post(url, params, handler);
     }
@@ -78,8 +79,6 @@ public class XiaoZhaoHttpApi {
      * 上传头像
      */
     public static void getSaveUserInfo(String url,  RequestParams params , AsyncHttpResponseHandler handler)   {
-
-
         ApiHttpClient.post(url, params, handler);
     }
 

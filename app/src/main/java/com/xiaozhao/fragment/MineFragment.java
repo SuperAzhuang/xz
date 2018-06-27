@@ -9,8 +9,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.xiaozhao.R;
 import com.xiaozhao.activity.MineInfoActivity;
+import com.xiaozhao.base.BaseApplication;
 import com.xiaozhao.base.BaseFragment;
 import com.xiaozhao.bean.SimpleBackPage;
 import com.xiaozhao.utils.UIHelper;
@@ -100,6 +102,9 @@ public class MineFragment extends BaseFragment {
         llhuiyuan.setOnClickListener(this);
         llZhiweiGuanli.setOnClickListener(this);
         llogout.setOnClickListener(this);
+        if (!BaseApplication.get("avator","").isEmpty()) {
+            ImageLoader.getInstance().displayImage(BaseApplication.get("avator",""),ivHeader);
+        }
     }
 
     @Override

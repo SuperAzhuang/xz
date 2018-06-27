@@ -50,6 +50,8 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cz.msebera.android.httpclient.Header;
 
+import static tencent.tls.tools.util.D;
+
 
 /**
  * 附近企业
@@ -296,7 +298,6 @@ public class CompanyFragment extends BaseFragment {
 //            } else {
 //                executeOnLoadDataError("");
 //            }
-
         }
 
         @Override
@@ -452,7 +453,6 @@ public class CompanyFragment extends BaseFragment {
         public void selectCategory(int parentSelectposition, int childrenSelectposition) {
             String parentStr = parentStrings[parentSelectposition];
             String childrenStr = childrenStrings[parentSelectposition][childrenSelectposition];
-
             Toast.makeText(getActivity(), "父类别:" + parentStr + "  子类别:" + childrenStr, Toast.LENGTH_SHORT).show();
         }
     };
